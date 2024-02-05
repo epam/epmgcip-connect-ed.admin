@@ -15,8 +15,8 @@ RUN chmod 777 /usr/src/app/public/uploads
 
 RUN yarn build
 
-#EXPOSE 1337
-#EXPOSE 5432
+EXPOSE 1337
+EXPOSE 5432
 
 #changing user
 USER 1000
