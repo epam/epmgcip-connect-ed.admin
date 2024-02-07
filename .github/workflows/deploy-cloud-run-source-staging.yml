@@ -44,16 +44,16 @@
 #   Cloud Run builds from source        - https://cloud.google.com/run/docs/deploying-source-code
 #   Principle of least privilege        - https://cloud.google.com/blog/products/identity-security/dont-get-pwned-practicing-the-principle-of-least-privilege
 
-name: Deploy to Cloud Run from Source
+name: Deploy to Cloud Run STAGING ENV
 
 on:
   push:
     branches:
-      - main
+      - development
 
 env:
   PROJECT_ID: cdkz-admin-prod # TODO: update Google Cloud project id
-  SERVICE: cdkz-admin-prod-service # TODO: update Cloud Run service name
+  SERVICE: cdkz-admin-staging-service # TODO: update Cloud Run service name
   REGION: us-central1 # TODO: update Cloud Run service region
 
 jobs:
