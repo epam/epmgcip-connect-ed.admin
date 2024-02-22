@@ -20,17 +20,17 @@ module.exports = [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
+            `https://storage.googleapis.com`
           ],
             "media-src": [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
+            `https://storage.googleapis.com`
         ],
           upgradeInsecureRequests: null,
         },
       },
     },
-  },
+  }
 ];
