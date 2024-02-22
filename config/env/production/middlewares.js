@@ -1,4 +1,3 @@
-module.exports = ({env}) => [
   'strapi::errors',
   'strapi::security',
   'strapi::cors',
@@ -20,13 +19,13 @@ module.exports = ({env}) => [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/${env('BUCKET_NAME')}`
+            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
           ],
             "media-src": [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/${env('BUCKET_NAME')}`
+            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
         ],
           upgradeInsecureRequests: null,
         },
