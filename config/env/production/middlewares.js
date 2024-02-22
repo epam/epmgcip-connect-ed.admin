@@ -20,13 +20,13 @@ module.exports = [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
+            `https://console.cloud.google.com/storage/browser/cdkz-admin-staging-storage-bucket`
           ],
             "media-src": [
             "'self'",
             "data:",
             "blob:",
-            `https://storage.googleapis.com/cdkz-admin-staging-storage-bucket`
+            `https://console.cloud.google.com/storage/browser/cdkz-admin-staging-storage-bucket`
         ],
           upgradeInsecureRequests: null,
         },
