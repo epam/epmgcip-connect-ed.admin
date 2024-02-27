@@ -4,8 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page",
-    "name": "page",
+    "displayName": "page",
     "description": ""
   },
   "options": {
@@ -17,69 +16,29 @@
     }
   },
   "attributes": {
-    "shortName": {
-      "type": "string",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "contentSections": {
-      "type": "dynamiczone",
-      "components": [
-        "sections.hero",
-        "sections.bottom-actions",
-        "sections.feature-columns-group",
-        "sections.feature-rows-group",
-        "sections.testimonials-group",
-        "sections.large-video",
-        "sections.rich-text",
-        "sections.pricing",
-        "sections.lead-form",
-        "sections.features",
-        "sections.heading"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "slug": {
       "pluginOptions": {
         "i18n": {
-          "localized": false
+          "localized": true
         }
       },
       "type": "string",
-      "regex": "^$|^[a-zA-Z/-]+$"
+      "unique": true
     },
-    "heading": {
+    "category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "pages"
+    },
+    "label": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "string"
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.seo"
+      "type": "string",
+      "maxLength": 32
     }
   }
 }
