@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_links_simple_buttons",
+  "info": {
+    "name": "Button",
+    "displayName": "Button",
+    "icon": "fingerprint",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "label": {
+      "type": "string"
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "nav",
+        "main",
+        "inverted",
+        "outline",
+        "form"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "maxLength": 256,
+      "regex": "^(https?:\\/\\/)?"
+    },
+    "color": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    }
+  }
+}

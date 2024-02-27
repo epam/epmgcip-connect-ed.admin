@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_social_icons",
+  "info": {
+    "displayName": "Icon",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "icon": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "regex": "^(https?:\\/\\/)?"
+    },
+    "newTab": {
+      "type": "boolean"
+    }
+  }
+}
