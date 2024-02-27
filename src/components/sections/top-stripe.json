@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_sections_top_stripes",
+  "info": {
+    "displayName": "topStripe",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "socialMedia": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.social-icon"
+    }
+  }
+}
