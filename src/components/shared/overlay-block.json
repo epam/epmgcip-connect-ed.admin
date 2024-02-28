@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_overlay_blocks",
+  "info": {
+    "displayName": "overlayBlock",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "color": {
+      "type": "string"
+    },
+    "bgColor": {
+      "type": "string"
+    },
+    "content": {
+      "type": "text"
+    }
+  }
+}
