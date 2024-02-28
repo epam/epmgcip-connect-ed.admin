@@ -38,6 +38,18 @@
         }
       },
       "type": "string"
+    },
+    "pageSections": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "dynamiczone",
+      "components": [
+        "sections.hero-banner",
+        "sections.rich-text"
+      ]
     }
   }
 }
