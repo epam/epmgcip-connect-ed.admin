@@ -1,0 +1,49 @@
+{
+  "kind": "singleType",
+  "collectionName": "color_schemes",
+  "info": {
+    "singularName": "color-scheme",
+    "pluralName": "color-schemes",
+    "displayName": "colorScheme",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "white": {
+      "type": "string",
+      "required": false,
+      "default": "#FFFFFF"
+    },
+    "black": {
+      "type": "string",
+      "default": "#002F3F"
+    },
+    "background": {
+      "type": "string",
+      "default": "#F8F5F1"
+    },
+    "primary": {
+      "type": "string",
+      "default": "#0E7C73"
+    },
+    "secondary": {
+      "type": "string",
+      "default": "#97CAEF"
+    },
+    "tertiary": {
+      "type": "string",
+      "default": "#973CEF"
+    },
+    "quaternary": {
+      "type": "string",
+      "default": "N/A"
+    },
+    "quinary": {
+      "type": "string",
+      "default": "N/A"
+    }
+  }
+}
