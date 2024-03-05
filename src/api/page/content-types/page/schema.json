@@ -48,7 +48,8 @@
       "type": "dynamiczone",
       "components": [
         "sections.hero-banner",
-        "sections.rich-text"
+        "sections.rich-text",
+        "sections.info-cards-type-a"
       ]
     }
   }

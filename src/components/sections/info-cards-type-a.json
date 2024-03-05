@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_info_cards_type_as",
+  "info": {
+    "displayName": "InfoCardsTypeA"
+  },
+  "options": {},
+  "attributes": {
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.color"
+    },
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.noodles-card"
+    }
+  }
+}

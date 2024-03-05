@@ -1,0 +1,63 @@
+{
+  "collectionName": "components_shared_noodles_cards",
+  "info": {
+    "displayName": "infoCardTypeA",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "string"
+    },
+    "description": {
+      "type": "text"
+    },
+    "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "bgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "borderColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    }
+  }
+}
