@@ -6,16 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "color": {
-      "type": "string"
-    },
-    "bgColor": {
-      "type": "string"
-    },
     "socialMedia": {
       "type": "component",
       "repeatable": true,
       "component": "shared.social-icon"
+    },
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.color"
     }
   }
 }

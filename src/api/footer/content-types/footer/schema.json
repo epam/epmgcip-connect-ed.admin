@@ -4,23 +4,58 @@
   "info": {
     "singularName": "footer",
     "pluralName": "footers",
-    "displayName": "footer"
+    "displayName": "footer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
-    "color": {
-      "type": "string"
-    },
-    "bgColor": {
-      "type": "string"
-    },
     "socialMedia": {
       "type": "component",
       "repeatable": true,
-      "component": "shared.social-icon"
+      "component": "shared.social-icon",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.color",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "heading": {
+      "type": "string",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
+    },
+    "navigation": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page"
+    },
+    "tradeMark": {
+      "type": "text",
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      }
     }
   }
 }

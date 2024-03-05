@@ -27,10 +27,30 @@
       "regex": "^(https?:\\/\\/)?"
     },
     "color": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
     },
     "bgColor": {
-      "type": "string"
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
     }
   }
 }

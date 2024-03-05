@@ -1,17 +1,11 @@
 {
-  "collectionName": "components_shared_overlay_blocks",
+  "collectionName": "components_shared_colors",
   "info": {
-    "displayName": "overlayBlock",
+    "displayName": "theme",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "content": {
-      "type": "text"
-    },
     "color": {
       "type": "enumeration",
       "enum": [
