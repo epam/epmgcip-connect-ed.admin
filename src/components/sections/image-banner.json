@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_image_banners",
   "info": {
-    "displayName": "imageBanner"
+    "displayName": "imageBanner",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,11 +12,12 @@
       "component": "shared.image-card"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "bgColor": {
       "type": "enumeration",

@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "topStripe": {
+    "stripe": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -26,7 +26,7 @@
       },
       "component": "sections.top-stripe"
     },
-    "Logo": {
+    "logo": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {
@@ -41,7 +41,7 @@
       "relation": "oneToMany",
       "target": "api::category.category"
     },
-    "CTA": {
+    "cta": {
       "type": "component",
       "repeatable": false,
       "pluginOptions": {

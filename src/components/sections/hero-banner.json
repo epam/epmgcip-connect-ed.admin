@@ -1,7 +1,7 @@
 {
   "collectionName": "components_sections_hero_banners",
   "info": {
-    "displayName": "Hero Banner",
+    "displayName": "heroBanner",
     "description": ""
   },
   "options": {},
@@ -14,7 +14,7 @@
         "images"
       ]
     },
-    "CTA": {
+    "cta": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
