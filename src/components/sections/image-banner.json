@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_sections_image_banners",
+  "info": {
+    "displayName": "imageBanner"
+  },
+  "options": {},
+  "attributes": {
+    "card": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image-card"
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "bgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    }
+  }
+}

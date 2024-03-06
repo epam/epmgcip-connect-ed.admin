@@ -1,0 +1,87 @@
+{
+  "collectionName": "components_shared_image_cards",
+  "info": {
+    "displayName": "imageCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "cardHeading": {
+      "type": "string"
+    },
+    "cardDescription": {
+      "type": "text"
+    },
+    "cardColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "cardBgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "linkColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "linkBgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "linkText": {
+      "type": "string"
+    },
+    "linkUrl": {
+      "type": "string"
+    },
+    "linkIcon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    },
+    "linkTitle": {
+      "type": "string"
+    },
+    "linkNewTab": {
+      "type": "boolean"
+    }
+  }
+}
