@@ -50,7 +50,8 @@
         "sections.hero-banner",
         "sections.rich-text",
         "sections.info-cards-type-a",
-        "sections.image-banner"
+        "sections.image-banner",
+        "sections.blocks-grid"
       ]
     }
   }
