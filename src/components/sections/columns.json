@@ -1,0 +1,49 @@
+{
+  "collectionName": "components_sections_columns",
+  "info": {
+    "displayName": "columns",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "topWave": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.wave"
+    },
+    "bottomWave": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.wave"
+    },
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.color"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "maxCardsToDisplay": {
+      "type": "integer",
+      "default": 3
+    },
+    "cards": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.column-card"
+    },
+    "tabs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.article-category-tab"
+    }
+  }
+}

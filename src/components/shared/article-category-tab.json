@@ -1,0 +1,93 @@
+{
+  "collectionName": "components_shared_article_category_tabs",
+  "info": {
+    "displayName": "articleCategoryTab",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "color": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "bgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "borderColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "activeColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "activeBgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "activeBorderColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "article_category": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article-category.article-category"
+    }
+  }
+}

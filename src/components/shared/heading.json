@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_shared_headings",
+  "info": {
+    "displayName": "heading"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "string"
+    },
+    "position": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "center"
+      ]
+    }
+  }
+}

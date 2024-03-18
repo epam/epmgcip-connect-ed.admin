@@ -1,11 +1,10 @@
 {
   "kind": "collectionType",
-  "collectionName": "pages",
+  "collectionName": "article_categories",
   "info": {
-    "singularName": "page",
-    "pluralName": "pages",
-    "displayName": "page",
-    "description": ""
+    "singularName": "article-category",
+    "pluralName": "article-categories",
+    "displayName": "article-category"
   },
   "options": {
     "draftAndPublish": true
@@ -23,13 +22,8 @@
         }
       },
       "type": "string",
+      "required": true,
       "unique": true
-    },
-    "category": {
-      "type": "relation",
-      "relation": "manyToOne",
-      "target": "api::category.category",
-      "inversedBy": "pages"
     },
     "label": {
       "pluginOptions": {
@@ -39,21 +33,19 @@
       },
       "type": "string"
     },
-    "pageSections": {
+    "description": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
       },
-      "type": "dynamiczone",
-      "components": [
-        "sections.hero-banner",
-        "sections.rich-text",
-        "sections.info-cards-type-a",
-        "sections.image-banner",
-        "sections.blocks-grid",
-        "sections.columns"
-      ]
+      "type": "text"
+    },
+    "articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article",
+      "mappedBy": "article_category"
     }
   }
 }

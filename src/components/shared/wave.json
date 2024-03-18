@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_shared_waves",
+  "info": {
+    "displayName": "wave",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "bgColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "isVisible": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}
