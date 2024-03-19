@@ -6,16 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "topWave": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.wave"
-    },
-    "bottomWave": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.wave"
-    },
     "heading": {
       "type": "component",
       "repeatable": false,
@@ -40,10 +30,19 @@
       "repeatable": true,
       "component": "shared.column-card"
     },
-    "tabs": {
+    "tabTheme": {
       "type": "component",
-      "repeatable": true,
+      "repeatable": false,
       "component": "shared.article-category-tab"
+    },
+    "tabs": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article-category.article-category"
+    },
+    "showWave": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

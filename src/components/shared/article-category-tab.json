@@ -1,7 +1,7 @@
 {
   "collectionName": "components_shared_article_category_tabs",
   "info": {
-    "displayName": "articleCategoryTab",
+    "displayName": "articleCategoryTabTheme",
     "description": ""
   },
   "options": {},
@@ -83,11 +83,6 @@
         "quaternary",
         "quinary"
       ]
-    },
-    "article_category": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::article-category.article-category"
     }
   }
 }
