@@ -21,24 +21,10 @@
       "repeatable": false,
       "component": "shared.button"
     },
-    "maxCardsToDisplay": {
-      "type": "integer",
-      "default": 3
-    },
     "cards": {
       "type": "component",
       "repeatable": true,
       "component": "shared.column-card"
-    },
-    "tabTheme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.article-category-tab"
-    },
-    "tabs": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article-category.article-category"
     },
     "showWave": {
       "type": "boolean",
