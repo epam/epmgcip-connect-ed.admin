@@ -37,7 +37,7 @@
     },
     "tabs": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::article-category.article-category"
     },
     "showWave": {
