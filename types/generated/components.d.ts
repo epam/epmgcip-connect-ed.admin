@@ -27,6 +27,40 @@ export interface SectionsBlocksGrid extends Schema.Component {
   };
 }
 
+export interface SectionsColumnsWithTabs extends Schema.Component {
+  collectionName: 'components_sections_columns_with_tabs';
+  info: {
+    displayName: 'columnsWithTabs';
+    description: '';
+  };
+  attributes: {
+    cta: Attribute.Component<'shared.button'>;
+    maxCardsToDisplay: Attribute.Integer & Attribute.DefaultTo<3>;
+    tabTheme: Attribute.Component<'shared.article-category-tab'>;
+    tabs: Attribute.Relation<
+      'sections.columns-with-tabs',
+      'oneToMany',
+      'api::article-category.article-category'
+    >;
+    tabCardTheme: Attribute.Component<'shared.tab-card-theme'>;
+  };
+}
+
+export interface SectionsColumns extends Schema.Component {
+  collectionName: 'components_sections_columns';
+  info: {
+    displayName: 'columns';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'shared.heading'>;
+    theme: Attribute.Component<'shared.color'>;
+    cta: Attribute.Component<'shared.button'>;
+    cards: Attribute.Component<'shared.column-card', true>;
+    showWave: Attribute.Boolean & Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsHeroBanner extends Schema.Component {
   collectionName: 'components_sections_hero_banners';
   info: {
@@ -34,7 +68,7 @@ export interface SectionsHeroBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    coverImage: Attribute.Media;
+    coverImage: Attribute.Media<'images'>;
     cta: Attribute.Component<'shared.button'>;
     overlayBlock: Attribute.Component<'shared.overlay-block'>;
   };
@@ -48,7 +82,7 @@ export interface SectionsImageBanner extends Schema.Component {
   };
   attributes: {
     card: Attribute.Component<'shared.image-card'>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     bgColor: Attribute.Enumeration<
       [
         'white',
@@ -79,6 +113,16 @@ export interface SectionsInfoCardsTypeA extends Schema.Component {
   };
 }
 
+export interface SectionsOverlayBlockTest extends Schema.Component {
+  collectionName: 'components_sections_overlay_block_tests';
+  info: {
+    displayName: 'overlayBlockTest';
+  };
+  attributes: {
+    theme: Attribute.Component<'shared.color'>;
+  };
+}
+
 export interface SectionsRichText extends Schema.Component {
   collectionName: 'components_sections_rich_texts';
   info: {
@@ -101,6 +145,88 @@ export interface SectionsTopStripe extends Schema.Component {
   attributes: {
     socialMedia: Attribute.Component<'shared.social-icon', true>;
     theme: Attribute.Component<'shared.color'>;
+  };
+}
+
+export interface SharedArticleCategoryTab extends Schema.Component {
+  collectionName: 'components_shared_article_category_tabs';
+  info: {
+    displayName: 'articleCategoryTabTheme';
+    description: '';
+  };
+  attributes: {
+    color: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    borderColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    activeColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    activeBgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    activeBorderColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
   };
 }
 
@@ -180,6 +306,58 @@ export interface SharedColor extends Schema.Component {
   };
 }
 
+export interface SharedColumnCard extends Schema.Component {
+  collectionName: 'components_shared_column_cards';
+  info: {
+    displayName: 'columnCard';
+    description: '';
+  };
+  attributes: {
+    color: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    article: Attribute.Relation<
+      'shared.column-card',
+      'oneToOne',
+      'api::article.article'
+    >;
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    linkText: Attribute.String;
+    linkColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+  };
+}
+
 export interface SharedGridBlock extends Schema.Component {
   collectionName: 'components_shared_grid_blocks';
   info: {
@@ -239,10 +417,21 @@ export interface SharedGridBlock extends Schema.Component {
     >;
     linkText: Attribute.String;
     linkUrl: Attribute.String;
-    linkIcon: Attribute.Media;
+    linkIcon: Attribute.Media<'images'>;
     linkTitle: Attribute.String;
     linkNewTab: Attribute.Boolean;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
+  };
+}
+
+export interface SharedHeading extends Schema.Component {
+  collectionName: 'components_shared_headings';
+  info: {
+    displayName: 'heading';
+  };
+  attributes: {
+    text: Attribute.String;
+    position: Attribute.Enumeration<['left', 'center']>;
   };
 }
 
@@ -305,7 +494,7 @@ export interface SharedImageCard extends Schema.Component {
     >;
     linkText: Attribute.String;
     linkUrl: Attribute.String;
-    linkIcon: Attribute.Media;
+    linkIcon: Attribute.Media<'images'>;
     linkTitle: Attribute.String;
     linkNewTab: Attribute.Boolean;
   };
@@ -318,11 +507,35 @@ export interface SharedImage extends Schema.Component {
     description: '';
   };
   attributes: {
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     altText: Attribute.String;
     isIcon: Attribute.Boolean;
     url: Attribute.String;
     newTab: Attribute.Boolean;
+  };
+}
+
+export interface SharedLink extends Schema.Component {
+  collectionName: 'components_shared_links';
+  info: {
+    displayName: 'link';
+  };
+  attributes: {
+    color: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    url: Attribute.String;
+    title: Attribute.String;
+    icon: Attribute.Media<'images'>;
   };
 }
 
@@ -345,7 +558,7 @@ export interface SharedMetaSocial extends Schema.Component {
       Attribute.SetMinMaxLength<{
         maxLength: 65;
       }>;
-    image: Attribute.Media;
+    image: Attribute.Media<'images' | 'files' | 'videos'>;
   };
 }
 
@@ -358,7 +571,7 @@ export interface SharedNoodlesCard extends Schema.Component {
   attributes: {
     heading: Attribute.String;
     description: Attribute.Text;
-    image: Attribute.Media;
+    image: Attribute.Media<'images'>;
     color: Attribute.Enumeration<
       [
         'white',
@@ -452,7 +665,7 @@ export interface SharedSeo extends Schema.Component {
         minLength: 50;
         maxLength: 160;
       }>;
-    metaImage: Attribute.Media;
+    metaImage: Attribute.Media<'images' | 'files' | 'videos'>;
     metaSocial: Attribute.Component<'shared.meta-social', true>;
     keywords: Attribute.Text;
     metaRobots: Attribute.String;
@@ -470,9 +683,55 @@ export interface SharedSocialIcon extends Schema.Component {
   };
   attributes: {
     title: Attribute.String;
-    icon: Attribute.Media;
+    icon: Attribute.Media<'images'>;
     url: Attribute.String;
     newTab: Attribute.Boolean;
+  };
+}
+
+export interface SharedTabCardTheme extends Schema.Component {
+  collectionName: 'components_shared_tab_card_themes';
+  info: {
+    displayName: 'tabCardTheme';
+    description: '';
+  };
+  attributes: {
+    color: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    linkColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
   };
 }
 
@@ -482,9 +741,32 @@ export interface SharedVideo extends Schema.Component {
     displayName: 'video';
   };
   attributes: {
-    video: Attribute.Media;
-    cover: Attribute.Media;
+    video: Attribute.Media<'videos'>;
+    cover: Attribute.Media<'images'>;
     altText: Attribute.String;
+  };
+}
+
+export interface SharedWave extends Schema.Component {
+  collectionName: 'components_shared_waves';
+  info: {
+    displayName: 'wave';
+    description: '';
+  };
+  attributes: {
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    isVisible: Attribute.Boolean & Attribute.DefaultTo<true>;
   };
 }
 
@@ -493,22 +775,31 @@ declare module '@strapi/types' {
     export interface Components {
       'meta.metadata': MetaMetadata;
       'sections.blocks-grid': SectionsBlocksGrid;
+      'sections.columns-with-tabs': SectionsColumnsWithTabs;
+      'sections.columns': SectionsColumns;
       'sections.hero-banner': SectionsHeroBanner;
       'sections.image-banner': SectionsImageBanner;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
+      'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
       'sections.top-stripe': SectionsTopStripe;
+      'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
       'shared.color': SharedColor;
+      'shared.column-card': SharedColumnCard;
       'shared.grid-block': SharedGridBlock;
+      'shared.heading': SharedHeading;
       'shared.image-card': SharedImageCard;
       'shared.image': SharedImage;
+      'shared.link': SharedLink;
       'shared.meta-social': SharedMetaSocial;
       'shared.noodles-card': SharedNoodlesCard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
+      'shared.tab-card-theme': SharedTabCardTheme;
       'shared.video': SharedVideo;
+      'shared.wave': SharedWave;
     }
   }
 }
