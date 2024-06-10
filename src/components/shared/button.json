@@ -9,7 +9,8 @@
   "options": {},
   "attributes": {
     "label": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 32
     },
     "type": {
       "type": "enumeration",

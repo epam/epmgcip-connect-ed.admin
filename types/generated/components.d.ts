@@ -136,6 +136,31 @@ export interface SectionsRichText extends Schema.Component {
   };
 }
 
+export interface SectionsSecondaryBanner extends Schema.Component {
+  collectionName: 'components_sections_secondary_banners';
+  info: {
+    displayName: 'secondaryBanner';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    title: Attribute.Component<'shared.heading'>;
+    text: Attribute.Text;
+    backgroundColor: Attribute.Enumeration<
+      ['white', 'black', 'background', 'primary', 'secondary', 'tertiary']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+    image: Attribute.Media<'images'> & Attribute.Required;
+    cta1: Attribute.Component<'shared.button'>;
+    cta2: Attribute.Component<'shared.button'>;
+  };
+}
+
 export interface SectionsTopStripe extends Schema.Component {
   collectionName: 'components_sections_top_stripes';
   info: {
@@ -239,7 +264,10 @@ export interface SharedButton extends Schema.Component {
     description: '';
   };
   attributes: {
-    label: Attribute.String;
+    label: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 32;
+      }>;
     type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
     url: Attribute.String &
       Attribute.SetMinMaxLength<{
@@ -428,10 +456,23 @@ export interface SharedHeading extends Schema.Component {
   collectionName: 'components_shared_headings';
   info: {
     displayName: 'heading';
+    description: '';
   };
   attributes: {
-    text: Attribute.String;
+    text: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
     position: Attribute.Enumeration<['left', 'center']>;
+    level: Attribute.Integer &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 5;
+        },
+        number
+      > &
+      Attribute.DefaultTo<2>;
   };
 }
 
@@ -782,6 +823,7 @@ declare module '@strapi/types' {
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
+      'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.top-stripe': SectionsTopStripe;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;

@@ -53,7 +53,8 @@
         "sections.image-banner",
         "sections.blocks-grid",
         "sections.columns",
-        "sections.columns-with-tabs"
+        "sections.columns-with-tabs",
+        "sections.secondary-banner"
       ]
     }
   }
