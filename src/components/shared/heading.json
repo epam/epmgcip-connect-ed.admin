@@ -1,12 +1,14 @@
 {
   "collectionName": "components_shared_headings",
   "info": {
-    "displayName": "heading"
+    "displayName": "heading",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "text": {
-      "type": "string"
+      "type": "string",
+      "maxLength": 256
     },
     "position": {
       "type": "enumeration",
@@ -14,6 +16,12 @@
         "left",
         "center"
       ]
+    },
+    "level": {
+      "type": "integer",
+      "default": 2,
+      "max": 5,
+      "min": 1
     }
   }
 }

@@ -1222,7 +1222,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.image-banner',
         'sections.blocks-grid',
         'sections.columns',
-        'sections.columns-with-tabs'
+        'sections.columns-with-tabs',
+        'sections.secondary-banner'
       ]
     > &
       Attribute.SetPluginOptions<{
