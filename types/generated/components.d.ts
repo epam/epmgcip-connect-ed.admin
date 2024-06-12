@@ -173,6 +173,36 @@ export interface SectionsTopStripe extends Schema.Component {
   };
 }
 
+export interface SectionsWaveBanner extends Schema.Component {
+  collectionName: 'components_sections_wave_banners';
+  info: {
+    displayName: 'waveBanner';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    image: Attribute.Component<'shared.image'>;
+    isLargeImage: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    text: Attribute.String;
+    cta: Attribute.Component<'shared.button'>;
+    backgroundColor: Attribute.Enumeration<
+      ['primary', 'secondary', 'tertiary']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+    isTextBox: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SharedArticleCategoryTab extends Schema.Component {
   collectionName: 'components_shared_article_category_tabs';
   info: {
@@ -825,6 +855,7 @@ declare module '@strapi/types' {
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.top-stripe': SectionsTopStripe;
+      'sections.wave-banner': SectionsWaveBanner;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
       'shared.color': SharedColor;
