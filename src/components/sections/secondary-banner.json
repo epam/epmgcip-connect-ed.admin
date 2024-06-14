@@ -34,12 +34,10 @@
       "default": "primary"
     },
     "image": {
-      "type": "media",
-      "multiple": false,
-      "required": true,
-      "allowedTypes": [
-        "images"
-      ]
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image",
+      "required": true
     },
     "cta1": {
       "type": "component",
