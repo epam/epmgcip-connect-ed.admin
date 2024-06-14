@@ -155,7 +155,7 @@ export interface SectionsSecondaryBanner extends Schema.Component {
     > &
       Attribute.Required &
       Attribute.DefaultTo<'primary'>;
-    image: Attribute.Media<'images'> & Attribute.Required;
+    image: Attribute.Component<'shared.image'> & Attribute.Required;
     cta1: Attribute.Component<'shared.button'>;
     cta2: Attribute.Component<'shared.button'>;
   };
