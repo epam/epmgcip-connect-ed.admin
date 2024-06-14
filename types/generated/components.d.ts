@@ -27,6 +27,32 @@ export interface SectionsBlocksGrid extends Schema.Component {
   };
 }
 
+export interface SectionsCarousel extends Schema.Component {
+  collectionName: 'components_sections_carousels';
+  info: {
+    displayName: 'carousel';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    title: Attribute.Component<'shared.heading'>;
+    elements: Attribute.Component<'shared.image', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    cta: Attribute.Component<'shared.button'>;
+  };
+}
+
 export interface SectionsColumnsWithTabs extends Schema.Component {
   collectionName: 'components_sections_columns_with_tabs';
   info: {
@@ -578,6 +604,10 @@ export interface SharedImage extends Schema.Component {
     description: '';
   };
   attributes: {
+    name: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
     image: Attribute.Media<'images'>;
     altText: Attribute.String;
     isIcon: Attribute.Boolean;
@@ -846,6 +876,7 @@ declare module '@strapi/types' {
     export interface Components {
       'meta.metadata': MetaMetadata;
       'sections.blocks-grid': SectionsBlocksGrid;
+      'sections.carousel': SectionsCarousel;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.columns': SectionsColumns;
       'sections.hero-banner': SectionsHeroBanner;
