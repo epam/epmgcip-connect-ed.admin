@@ -55,7 +55,8 @@
         "sections.columns",
         "sections.columns-with-tabs",
         "sections.secondary-banner",
-        "sections.wave-banner"
+        "sections.wave-banner",
+        "sections.two-columns"
       ]
     }
   }

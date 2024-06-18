@@ -1,0 +1,75 @@
+{
+  "collectionName": "components_sections_two_columns",
+  "info": {
+    "displayName": "twoColumns",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 256
+    },
+    "isBottomWaved": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "ratio": {
+      "type": "enumeration",
+      "enum": [
+        "ratio 1:1",
+        "ratio 2:1"
+      ],
+      "default": "ratio 1:1"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary"
+      ],
+      "default": "background"
+    },
+    "optionRichText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "sections.rich-text"
+    },
+    "optionImage": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image"
+    },
+    "optionVideo": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.video"
+    },
+    "column1": {
+      "type": "enumeration",
+      "enum": [
+        "optionRichText",
+        "optionImage",
+        "optionVideo"
+      ],
+      "required": true,
+      "default": "optionImage"
+    },
+    "column2": {
+      "type": "enumeration",
+      "enum": [
+        "optionRichText",
+        "optionImage",
+        "optionVideo"
+      ],
+      "required": true,
+      "default": "optionRichText"
+    }
+  }
+}

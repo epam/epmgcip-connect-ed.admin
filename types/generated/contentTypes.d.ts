@@ -1224,7 +1224,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.columns',
         'sections.columns-with-tabs',
         'sections.secondary-banner',
-        'sections.wave-banner'
+        'sections.wave-banner',
+        'sections.two-columns'
       ]
     > &
       Attribute.SetPluginOptions<{

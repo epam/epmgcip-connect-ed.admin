@@ -173,6 +173,43 @@ export interface SectionsTopStripe extends Schema.Component {
   };
 }
 
+export interface SectionsTwoColumns extends Schema.Component {
+  collectionName: 'components_sections_two_columns';
+  info: {
+    displayName: 'twoColumns';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    isBottomWaved: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ratio: Attribute.Enumeration<['ratio 1:1', 'ratio 2:1']> &
+      Attribute.DefaultTo<'ratio 1:1'>;
+    backgroundColor: Attribute.Enumeration<
+      ['white', 'black', 'background', 'primary', 'secondary', 'tertiary']
+    > &
+      Attribute.DefaultTo<'background'>;
+    optionRichText: Attribute.Component<'sections.rich-text'>;
+    optionImage: Attribute.Component<'shared.image'>;
+    optionVideo: Attribute.Component<'shared.video'>;
+    column1: Attribute.Enumeration<
+      ['optionRichText', 'optionImage', 'optionVideo']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'optionImage'>;
+    column2: Attribute.Enumeration<
+      ['optionRichText', 'optionImage', 'optionVideo']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'optionRichText'>;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -855,6 +892,7 @@ declare module '@strapi/types' {
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.top-stripe': SectionsTopStripe;
+      'sections.two-columns': SectionsTwoColumns;
       'sections.wave-banner': SectionsWaveBanner;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
