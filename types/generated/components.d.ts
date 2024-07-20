@@ -136,6 +136,21 @@ export interface SectionsRichText extends Schema.Component {
   };
 }
 
+export interface SectionsTimeline extends Schema.Component {
+  collectionName: 'components_sections_timelines';
+  info: {
+    displayName: 'Timeline';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'shared.heading'>;
+    Card: Attribute.Component<'shared.timeline-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsTopStripe extends Schema.Component {
   collectionName: 'components_sections_top_stripes';
   info: {
@@ -735,6 +750,22 @@ export interface SharedTabCardTheme extends Schema.Component {
   };
 }
 
+export interface SharedTimelineCard extends Schema.Component {
+  collectionName: 'components_shared_timeline_cards';
+  info: {
+    displayName: 'TimelineCard';
+  };
+  attributes: {
+    Title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    Text: Attribute.Text & Attribute.Required;
+    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
+      Attribute.Required;
+  };
+}
+
 export interface SharedVideo extends Schema.Component {
   collectionName: 'components_shared_videos';
   info: {
@@ -782,6 +813,7 @@ declare module '@strapi/types' {
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
+      'sections.timeline': SectionsTimeline;
       'sections.top-stripe': SectionsTopStripe;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
@@ -798,6 +830,7 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
+      'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;
       'shared.wave': SharedWave;
     }

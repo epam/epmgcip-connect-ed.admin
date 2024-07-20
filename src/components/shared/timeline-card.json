@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_shared_timeline_cards",
+  "info": {
+    "displayName": "TimelineCard"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "Text": {
+      "type": "text",
+      "required": true
+    },
+    "Image": {
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ],
+      "type": "media",
+      "multiple": true,
+      "required": true
+    }
+  }
+}

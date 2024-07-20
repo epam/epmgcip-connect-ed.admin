@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_timelines",
+  "info": {
+    "displayName": "Timeline",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "Card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.timeline-card"
+    },
+    "showWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
