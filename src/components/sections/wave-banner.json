@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_sections_wave_banners",
+  "info": {
+    "displayName": "waveBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 256,
+      "required": true
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image"
+    },
+    "isLargeImage": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "text": {
+      "type": "string"
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary"
+      ],
+      "default": "primary",
+      "required": true
+    },
+    "isTextBox": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}

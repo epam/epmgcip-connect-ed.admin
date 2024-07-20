@@ -1,0 +1,53 @@
+{
+  "collectionName": "components_sections_secondary_banners",
+  "info": {
+    "displayName": "secondaryBanner",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "unique": false,
+      "maxLength": 256,
+      "required": true
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "text": {
+      "type": "text"
+    },
+    "backgroundColor": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary"
+      ],
+      "required": true,
+      "default": "primary"
+    },
+    "image": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.image",
+      "required": true
+    },
+    "cta1": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "cta2": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    }
+  }
+}
