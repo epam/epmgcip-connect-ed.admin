@@ -169,7 +169,7 @@ export interface SectionsTimeline extends Schema.Component {
   };
   attributes: {
     heading: Attribute.Component<'shared.heading'>;
-    Card: Attribute.Component<'shared.timeline-card', true>;
+    card: Attribute.Component<'shared.timeline-card', true>;
     showWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
@@ -825,15 +825,15 @@ export interface SharedTimelineCard extends Schema.Component {
   collectionName: 'components_shared_timeline_cards';
   info: {
     displayName: 'TimelineCard';
+    description: '';
   };
   attributes: {
-    Title: Attribute.String &
+    title: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    Text: Attribute.Text & Attribute.Required;
-    Image: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true> &
-      Attribute.Required;
+    text: Attribute.Text & Attribute.Required;
+    image: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
   };
 }
 
