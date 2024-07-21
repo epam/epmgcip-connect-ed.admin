@@ -161,6 +161,24 @@ export interface SectionsSecondaryBanner extends Schema.Component {
   };
 }
 
+export interface SectionsTestimonials extends Schema.Component {
+  collectionName: 'components_sections_testimonials';
+  info: {
+    displayName: 'Testimonials';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    card: Attribute.Component<'shared.testimonials-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsTopStripe extends Schema.Component {
   collectionName: 'components_sections_top_stripes';
   info: {
@@ -806,6 +824,36 @@ export interface SharedTabCardTheme extends Schema.Component {
   };
 }
 
+export interface SharedTestimonialsCard extends Schema.Component {
+  collectionName: 'components_shared_testimonials_cards';
+  info: {
+    displayName: 'TestimonialCard';
+    description: '';
+  };
+  attributes: {
+    icon: Attribute.Media<'images', true>;
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.Text & Attribute.Required;
+    author: Attribute.Text;
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    > &
+      Attribute.Required;
+  };
+}
+
 export interface SharedVideo extends Schema.Component {
   collectionName: 'components_shared_videos';
   info: {
@@ -854,6 +902,7 @@ declare module '@strapi/types' {
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
+      'sections.testimonials': SectionsTestimonials;
       'sections.top-stripe': SectionsTopStripe;
       'sections.wave-banner': SectionsWaveBanner;
       'shared.article-category-tab': SharedArticleCategoryTab;
@@ -871,6 +920,7 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
+      'shared.testimonials-card': SharedTestimonialsCard;
       'shared.video': SharedVideo;
       'shared.wave': SharedWave;
     }

@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_sections_testimonials",
+  "info": {
+    "displayName": "Testimonials",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.testimonials-card"
+    },
+    "showWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
