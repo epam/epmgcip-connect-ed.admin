@@ -187,6 +187,26 @@ export interface SectionsSecondaryBanner extends Schema.Component {
   };
 }
 
+export interface SectionsTimeline extends Schema.Component {
+  collectionName: 'components_sections_timelines';
+  info: {
+    displayName: 'Timeline';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.timeline-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.timeline',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SectionsTopStripe extends Schema.Component {
   collectionName: 'components_sections_top_stripes';
   info: {
@@ -439,6 +459,17 @@ export interface SharedColumnCard extends Schema.Component {
         'quinary'
       ]
     >;
+  };
+}
+
+export interface SharedContactBannerCard extends Schema.Component {
+  collectionName: 'components_shared_contact_banner_cards';
+  info: {
+    displayName: 'ContactBannerCard';
+  };
+  attributes: {
+    text: Attribute.Text;
+    social: Attribute.Component<'shared.meta-social', true>;
   };
 }
 
@@ -836,6 +867,31 @@ export interface SharedTabCardTheme extends Schema.Component {
   };
 }
 
+export interface SharedTimelineCard extends Schema.Component {
+  collectionName: 'components_shared_timeline_cards';
+  info: {
+    displayName: 'TimelineCard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.Text & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.timeline-card',
+      'oneToOne',
+      'api::image.image'
+    >;
+    theme: Attribute.Relation<
+      'shared.timeline-card',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SharedVideo extends Schema.Component {
   collectionName: 'components_shared_videos';
   info: {
@@ -885,12 +941,14 @@ declare module '@strapi/types' {
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
+      'sections.timeline': SectionsTimeline;
       'sections.top-stripe': SectionsTopStripe;
       'sections.wave-banner': SectionsWaveBanner;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
       'shared.color': SharedColor;
       'shared.column-card': SharedColumnCard;
+      'shared.contact-banner-card': SharedContactBannerCard;
       'shared.grid-block': SharedGridBlock;
       'shared.heading': SharedHeading;
       'shared.image-card': SharedImageCard;
@@ -902,6 +960,7 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
+      'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;
       'shared.wave': SharedWave;
     }
