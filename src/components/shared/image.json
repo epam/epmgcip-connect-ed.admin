@@ -6,6 +6,10 @@
   },
   "options": {},
   "attributes": {
+    "name": {
+      "type": "string",
+      "maxLength": 256
+    },
     "image": {
       "type": "media",
       "multiple": false,
