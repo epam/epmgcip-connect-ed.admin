@@ -19,6 +19,11 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

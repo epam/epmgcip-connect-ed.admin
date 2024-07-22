@@ -25,19 +25,10 @@
     "author": {
       "type": "text"
     },
-    "bgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ],
-      "required": true
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

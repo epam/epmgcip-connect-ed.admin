@@ -187,6 +187,29 @@ export interface SectionsSecondaryBanner extends Schema.Component {
   };
 }
 
+export interface SectionsTestimonials extends Schema.Component {
+  collectionName: 'components_sections_testimonials';
+  info: {
+    displayName: 'Testimonials';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    card: Attribute.Component<'shared.testimonials-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.testimonials',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SectionsTimeline extends Schema.Component {
   collectionName: 'components_sections_timelines';
   info: {
@@ -204,24 +227,6 @@ export interface SectionsTimeline extends Schema.Component {
       'oneToOne',
       'api::theme.theme'
     >;
-  };
-}
-
-export interface SectionsTestimonials extends Schema.Component {
-  collectionName: 'components_sections_testimonials';
-  info: {
-    displayName: 'Testimonials';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    card: Attribute.Component<'shared.testimonials-card', true>;
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
   };
 }
 
@@ -899,19 +904,11 @@ export interface SharedTestimonialsCard extends Schema.Component {
       }>;
     text: Attribute.Text & Attribute.Required;
     author: Attribute.Text;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    > &
-      Attribute.Required;
+    theme: Attribute.Relation<
+      'shared.testimonials-card',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 
@@ -1009,8 +1006,8 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
-      'shared.timeline-card': SharedTimelineCard;
       'shared.testimonials-card': SharedTestimonialsCard;
+      'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;
       'shared.wave': SharedWave;
     }
