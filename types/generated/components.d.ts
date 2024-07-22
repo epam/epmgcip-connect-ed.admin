@@ -87,6 +87,21 @@ export interface SectionsColumns extends Schema.Component {
   };
 }
 
+export interface SectionsContactBanner extends Schema.Component {
+  collectionName: 'components_sections_contact_banners';
+  info: {
+    displayName: 'ContactBanner';
+  };
+  attributes: {
+    column: Attribute.Component<'shared.contact-column', true>;
+    theme: Attribute.Relation<
+      'sections.contact-banner',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SectionsHeroBanner extends Schema.Component {
   collectionName: 'components_sections_hero_banners';
   info: {
@@ -462,14 +477,27 @@ export interface SharedColumnCard extends Schema.Component {
   };
 }
 
-export interface SharedContactBannerCard extends Schema.Component {
-  collectionName: 'components_shared_contact_banner_cards';
+export interface SharedContactColumn extends Schema.Component {
+  collectionName: 'components_shared_contact_columns';
   info: {
-    displayName: 'ContactBannerCard';
+    displayName: 'ContactColumn';
   };
   attributes: {
-    text: Attribute.Text;
-    social: Attribute.Component<'shared.meta-social', true>;
+    title: Attribute.String & Attribute.Required;
+    text: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 42;
+      }>;
+    label: Attribute.String & Attribute.Required;
+    icon: Attribute.Relation<
+      'shared.contact-column',
+      'oneToOne',
+      'api::icon.icon'
+    >;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
   };
 }
 
@@ -935,6 +963,7 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.columns': SectionsColumns;
+      'sections.contact-banner': SectionsContactBanner;
       'sections.hero-banner': SectionsHeroBanner;
       'sections.image-banner': SectionsImageBanner;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
@@ -948,7 +977,7 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.color': SharedColor;
       'shared.column-card': SharedColumnCard;
-      'shared.contact-banner-card': SharedContactBannerCard;
+      'shared.contact-column': SharedContactColumn;
       'shared.grid-block': SharedGridBlock;
       'shared.heading': SharedHeading;
       'shared.image-card': SharedImageCard;

@@ -1,0 +1,32 @@
+{
+  "collectionName": "components_shared_contact_columns",
+  "info": {
+    "displayName": "ContactColumn"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "text": {
+      "type": "string",
+      "required": true,
+      "maxLength": 42
+    },
+    "label": {
+      "type": "string",
+      "required": true
+    },
+    "icon": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::icon.icon"
+    },
+    "showWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    }
+  }
+}
