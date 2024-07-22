@@ -1179,6 +1179,62 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
+export interface ApiIconIcon extends Schema.CollectionType {
+  collectionName: 'icons';
+  info: {
+    singularName: 'icon';
+    pluralName: 'icons';
+    displayName: 'icon';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    icon: Attribute.Component<'shared.social-icon', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiImageImage extends Schema.CollectionType {
+  collectionName: 'images';
+  info: {
+    singularName: 'image';
+    pluralName: 'images';
+    displayName: 'Image';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    image: Attribute.Media<'images'>;
+    altText: Attribute.String;
+    isIcon: Attribute.Boolean;
+    url: Attribute.String;
+    newTab: Attribute.Boolean;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::image.image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiPagePage extends Schema.CollectionType {
   collectionName: 'pages';
   info: {
@@ -1224,7 +1280,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.columns',
         'sections.columns-with-tabs',
         'sections.secondary-banner',
-        'sections.wave-banner'
+        'sections.wave-banner',
+        'sections.carousel'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1245,6 +1302,59 @@ export interface ApiPagePage extends Schema.CollectionType {
       'api::page.page'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiThemeTheme extends Schema.CollectionType {
+  collectionName: 'themes';
+  info: {
+    singularName: 'theme';
+    pluralName: 'themes';
+    displayName: 'Theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    color: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    bgColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::theme.theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::theme.theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1272,7 +1382,10 @@ declare module '@strapi/types' {
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
+      'api::icon.icon': ApiIconIcon;
+      'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
+      'api::theme.theme': ApiThemeTheme;
     }
   }
 }

@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_sections_carousels",
+  "info": {
+    "displayName": "carousel",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true,
+      "maxLength": 256
+    },
+    "title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "elements": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.image",
+      "required": true,
+      "min": 1,
+      "max": 50
+    },
+    "cta": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    }
+  }
+}
