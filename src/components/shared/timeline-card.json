@@ -15,13 +15,9 @@
       "required": true
     },
     "image": {
-      "type": "media",
-      "multiple": true,
-      "required": true,
-      "allowedTypes": [
-        "images",
-        "videos"
-      ]
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
     },
     "theme": {
       "type": "relation",

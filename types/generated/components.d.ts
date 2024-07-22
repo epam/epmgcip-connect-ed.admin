@@ -849,7 +849,11 @@ export interface SharedTimelineCard extends Schema.Component {
         maxLength: 256;
       }>;
     text: Attribute.Text & Attribute.Required;
-    image: Attribute.Media<'images' | 'videos', true> & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.timeline-card',
+      'oneToOne',
+      'api::image.image'
+    >;
     theme: Attribute.Relation<
       'shared.timeline-card',
       'oneToOne',
