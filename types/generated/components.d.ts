@@ -173,6 +173,11 @@ export interface SectionsTimeline extends Schema.Component {
     showWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.timeline',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 
@@ -428,6 +433,17 @@ export interface SharedColumnCard extends Schema.Component {
         'quinary'
       ]
     >;
+  };
+}
+
+export interface SharedContactBannerCard extends Schema.Component {
+  collectionName: 'components_shared_contact_banner_cards';
+  info: {
+    displayName: 'ContactBannerCard';
+  };
+  attributes: {
+    text: Attribute.Text;
+    social: Attribute.Component<'shared.meta-social', true>;
   };
 }
 
@@ -892,6 +908,7 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.color': SharedColor;
       'shared.column-card': SharedColumnCard;
+      'shared.contact-banner-card': SharedContactBannerCard;
       'shared.grid-block': SharedGridBlock;
       'shared.heading': SharedHeading;
       'shared.image-card': SharedImageCard;
