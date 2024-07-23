@@ -481,6 +481,7 @@ export interface SharedContactColumn extends Schema.Component {
   collectionName: 'components_shared_contact_columns';
   info: {
     displayName: 'ContactColumn';
+    description: '';
   };
   attributes: {
     title: Attribute.String & Attribute.Required;
@@ -490,9 +491,9 @@ export interface SharedContactColumn extends Schema.Component {
         maxLength: 42;
       }>;
     label: Attribute.String & Attribute.Required;
-    icon: Attribute.Relation<
+    icons: Attribute.Relation<
       'shared.contact-column',
-      'oneToOne',
+      'oneToMany',
       'api::icon.icon'
     >;
     showWave: Attribute.Boolean &

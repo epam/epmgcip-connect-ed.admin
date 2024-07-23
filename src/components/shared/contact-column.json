@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_contact_columns",
   "info": {
-    "displayName": "ContactColumn"
+    "displayName": "ContactColumn",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,9 +19,9 @@
       "type": "string",
       "required": true
     },
-    "icon": {
+    "icons": {
       "type": "relation",
-      "relation": "oneToOne",
+      "relation": "oneToMany",
       "target": "api::icon.icon"
     },
     "showWave": {
