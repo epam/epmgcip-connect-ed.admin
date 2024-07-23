@@ -187,6 +187,29 @@ export interface SectionsSecondaryBanner extends Schema.Component {
   };
 }
 
+export interface SectionsTestimonials extends Schema.Component {
+  collectionName: 'components_sections_testimonials';
+  info: {
+    displayName: 'Testimonials';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    card: Attribute.Component<'shared.testimonials-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.testimonials',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SectionsTimeline extends Schema.Component {
   collectionName: 'components_sections_timelines';
   info: {
@@ -867,6 +890,28 @@ export interface SharedTabCardTheme extends Schema.Component {
   };
 }
 
+export interface SharedTestimonialsCard extends Schema.Component {
+  collectionName: 'components_shared_testimonials_cards';
+  info: {
+    displayName: 'TestimonialCard';
+    description: '';
+  };
+  attributes: {
+    icon: Attribute.Media<'images', true>;
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.Text & Attribute.Required;
+    author: Attribute.Text;
+    theme: Attribute.Relation<
+      'shared.testimonials-card',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SharedTimelineCard extends Schema.Component {
   collectionName: 'components_shared_timeline_cards';
   info: {
@@ -941,6 +986,7 @@ declare module '@strapi/types' {
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
+      'sections.testimonials': SectionsTestimonials;
       'sections.timeline': SectionsTimeline;
       'sections.top-stripe': SectionsTopStripe;
       'sections.wave-banner': SectionsWaveBanner;
@@ -960,6 +1006,7 @@ declare module '@strapi/types' {
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
+      'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;
       'shared.wave': SharedWave;
