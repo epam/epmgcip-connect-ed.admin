@@ -1283,7 +1283,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.wave-banner',
         'sections.carousel',
         'shared.testimonials-card',
-        'shared.timeline-card'
+        'shared.timeline-card',
+        'sections.personell-cards'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1304,6 +1305,36 @@ export interface ApiPagePage extends Schema.CollectionType {
       'api::page.page'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
+  collectionName: 'social_medias';
+  info: {
+    singularName: 'social-media';
+    pluralName: 'social-medias';
+    displayName: 'socialMedia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    socialMedia: Attribute.Component<'shared.meta-social', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1387,6 +1418,7 @@ declare module '@strapi/types' {
       'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;
     }
   }

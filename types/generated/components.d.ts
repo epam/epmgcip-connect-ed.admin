@@ -164,6 +164,20 @@ export interface SectionsOverlayBlockTest extends Schema.Component {
   };
 }
 
+export interface SectionsPersonellCards extends Schema.Component {
+  collectionName: 'components_sections_personell_cards';
+  info: {
+    displayName: 'PersonellCards';
+  };
+  attributes: {
+    title: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.personell-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsRichText extends Schema.Component {
   collectionName: 'components_sections_rich_texts';
   info: {
@@ -831,6 +845,31 @@ export interface SharedOverlayBlock extends Schema.Component {
   };
 }
 
+export interface SharedPersonellCard extends Schema.Component {
+  collectionName: 'components_shared_personell_cards';
+  info: {
+    displayName: 'PersonellCard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.Text & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.personell-card',
+      'oneToOne',
+      'api::image.image'
+    >;
+    social_medias: Attribute.Relation<
+      'shared.personell-card',
+      'oneToMany',
+      'api::social-media.social-media'
+    >;
+  };
+}
+
 export interface SharedSeo extends Schema.Component {
   collectionName: 'components_shared_seos';
   info: {
@@ -1014,6 +1053,7 @@ declare module '@strapi/types' {
       'sections.image-banner': SectionsImageBanner;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
+      'sections.personell-cards': SectionsPersonellCards;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.testimonials': SectionsTestimonials;
@@ -1033,6 +1073,7 @@ declare module '@strapi/types' {
       'shared.meta-social': SharedMetaSocial;
       'shared.noodles-card': SharedNoodlesCard;
       'shared.overlay-block': SharedOverlayBlock;
+      'shared.personell-card': SharedPersonellCard;
       'shared.seo': SharedSeo;
       'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
