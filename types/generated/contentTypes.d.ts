@@ -1360,6 +1360,54 @@ export interface ApiThemeTheme extends Schema.CollectionType {
   };
 }
 
+export interface ApiTwoColumnTwoColumn extends Schema.CollectionType {
+  collectionName: 'two_columns';
+  info: {
+    singularName: 'two-column';
+    pluralName: 'two-columns';
+    displayName: 'TwoColumns';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'api::two-column.two-column',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    ratio: Attribute.Enumeration<['one:one', 'two:one']> &
+      Attribute.DefaultTo<'one:one'>;
+    column1: Attribute.DynamicZone<
+      ['sections.rich-text', 'shared.image', 'shared.video']
+    > &
+      Attribute.Required;
+    column2: Attribute.DynamicZone<
+      ['shared.image', 'shared.video', 'sections.rich-text']
+    > &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::two-column.two-column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::two-column.two-column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1388,6 +1436,7 @@ declare module '@strapi/types' {
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
       'api::theme.theme': ApiThemeTheme;
+      'api::two-column.two-column': ApiTwoColumnTwoColumn;
     }
   }
 }

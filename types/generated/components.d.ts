@@ -257,6 +257,25 @@ export interface SectionsTopStripe extends Schema.Component {
   };
 }
 
+export interface SectionsTwoColumns extends Schema.Component {
+  collectionName: 'components_sections_two_columns';
+  info: {
+    displayName: 'TwoColumns';
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    ratio: Attribute.Enumeration<['one:one', 'two:one']> &
+      Attribute.DefaultTo<'one:one'>;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -1019,6 +1038,7 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.timeline': SectionsTimeline;
       'sections.top-stripe': SectionsTopStripe;
+      'sections.two-columns': SectionsTwoColumns;
       'sections.wave-banner': SectionsWaveBanner;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;

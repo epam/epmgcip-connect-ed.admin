@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_sections_two_columns",
+  "info": {
+    "displayName": "TwoColumns"
+  },
+  "options": {},
+  "attributes": {
+    "showWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "ratio": {
+      "type": "enumeration",
+      "enum": [
+        "one:one",
+        "two:one"
+      ],
+      "default": "one:one"
+    }
+  }
+}

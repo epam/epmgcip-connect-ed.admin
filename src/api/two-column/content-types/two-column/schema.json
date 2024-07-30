@@ -1,0 +1,52 @@
+{
+  "kind": "collectionType",
+  "collectionName": "two_columns",
+  "info": {
+    "singularName": "two-column",
+    "pluralName": "two-columns",
+    "displayName": "TwoColumns",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "showWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "ratio": {
+      "type": "enumeration",
+      "enum": [
+        "one:one",
+        "two:one"
+      ],
+      "default": "one:one"
+    },
+    "column1": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.rich-text",
+        "shared.image",
+        "shared.video"
+      ],
+      "required": true
+    },
+    "column2": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.image",
+        "shared.video",
+        "sections.rich-text"
+      ],
+      "required": true
+    }
+  }
+}
