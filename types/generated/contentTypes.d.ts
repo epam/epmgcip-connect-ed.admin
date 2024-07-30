@@ -1281,7 +1281,9 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.columns-with-tabs',
         'sections.secondary-banner',
         'sections.wave-banner',
-        'sections.carousel'
+        'sections.carousel',
+        'shared.testimonials-card',
+        'shared.timeline-card'
       ]
     > &
       Attribute.SetPluginOptions<{
