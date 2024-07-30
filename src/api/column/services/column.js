@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * two-column service
+ * column service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-module.exports = createCoreService('api::two-column.two-column');
+module.exports = createCoreService('api::column.column');

@@ -1039,6 +1039,38 @@ export interface ApiColorSchemeColorScheme extends Schema.SingleType {
   };
 }
 
+export interface ApiColumnColumn extends Schema.CollectionType {
+  collectionName: 'columns';
+  info: {
+    singularName: 'column';
+    pluralName: 'columns';
+    displayName: 'Column';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    column: Attribute.DynamicZone<
+      ['shared.video', 'sections.rich-text', 'shared.image']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::column.column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::column.column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -1283,7 +1315,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.wave-banner',
         'sections.carousel',
         'shared.testimonials-card',
-        'shared.timeline-card'
+        'shared.timeline-card',
+        'sections.two-columns'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1360,54 +1393,6 @@ export interface ApiThemeTheme extends Schema.CollectionType {
   };
 }
 
-export interface ApiTwoColumnTwoColumn extends Schema.CollectionType {
-  collectionName: 'two_columns';
-  info: {
-    singularName: 'two-column';
-    pluralName: 'two-columns';
-    displayName: 'TwoColumn';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
-      'api::two-column.two-column',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-    ratio: Attribute.Enumeration<['one:one', 'two:one']> &
-      Attribute.DefaultTo<'one:one'>;
-    column1: Attribute.DynamicZone<
-      ['sections.rich-text', 'shared.image', 'shared.video']
-    > &
-      Attribute.Required;
-    column2: Attribute.DynamicZone<
-      ['shared.image', 'shared.video', 'sections.rich-text']
-    > &
-      Attribute.Required;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::two-column.two-column',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::two-column.two-column',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1430,13 +1415,13 @@ declare module '@strapi/types' {
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
+      'api::column.column': ApiColumnColumn;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
       'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
       'api::theme.theme': ApiThemeTheme;
-      'api::two-column.two-column': ApiTwoColumnTwoColumn;
     }
   }
 }

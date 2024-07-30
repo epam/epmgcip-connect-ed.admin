@@ -14,20 +14,6 @@ export interface MetaMetadata extends Schema.Component {
   };
 }
 
-export interface Sections2Columns extends Schema.Component {
-  collectionName: 'components_sections_2_columns';
-  info: {
-    displayName: '2Columns';
-  };
-  attributes: {
-    two_column: Attribute.Relation<
-      'sections.2-columns',
-      'oneToOne',
-      'api::two-column.two-column'
-    >;
-  };
-}
-
 export interface SectionsBlocksGrid extends Schema.Component {
   collectionName: 'components_sections_blocks_grids';
   info: {
@@ -275,12 +261,28 @@ export interface SectionsTwoColumns extends Schema.Component {
   collectionName: 'components_sections_two_columns';
   info: {
     displayName: 'TwoColumns';
+    description: '';
   };
   attributes: {
-    two_column: Attribute.Relation<
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ratio: Attribute.Enumeration<['one:one', 'two:one']> &
+      Attribute.DefaultTo<'one:one'>;
+    theme: Attribute.Relation<
       'sections.two-columns',
       'oneToOne',
-      'api::two-column.two-column'
+      'api::theme.theme'
+    >;
+    column1: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::column.column'
+    >;
+    column2: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::column.column'
     >;
   };
 }
@@ -1033,7 +1035,6 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'meta.metadata': MetaMetadata;
-      'sections.2-columns': Sections2Columns;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.carousel': SectionsCarousel;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;

@@ -1,9 +1,9 @@
 'use strict';
 
 /**
- * two-column controller
+ * column controller
  */
 
 const { createCoreController } = require('@strapi/strapi').factories;
 
-module.exports = createCoreController('api::two-column.two-column');
+module.exports = createCoreController('api::column.column');

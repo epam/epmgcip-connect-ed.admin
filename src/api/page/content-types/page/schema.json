@@ -58,7 +58,8 @@
         "sections.wave-banner",
         "sections.carousel",
         "shared.testimonials-card",
-        "shared.timeline-card"
+        "shared.timeline-card",
+        "sections.two-columns"
       ]
     }
   }
