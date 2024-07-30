@@ -102,6 +102,18 @@ export interface SectionsContactBanner extends Schema.Component {
   };
 }
 
+export interface SectionsEmailForm extends Schema.Component {
+  collectionName: 'components_sections_email_forms';
+  info: {
+    displayName: 'emailForm';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
+  };
+}
+
 export interface SectionsHeroBanner extends Schema.Component {
   collectionName: 'components_sections_hero_banners';
   info: {
@@ -1010,6 +1022,7 @@ declare module '@strapi/types' {
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.columns': SectionsColumns;
       'sections.contact-banner': SectionsContactBanner;
+      'sections.email-form': SectionsEmailForm;
       'sections.hero-banner': SectionsHeroBanner;
       'sections.image-banner': SectionsImageBanner;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
