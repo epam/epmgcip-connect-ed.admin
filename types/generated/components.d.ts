@@ -14,6 +14,20 @@ export interface MetaMetadata extends Schema.Component {
   };
 }
 
+export interface Sections2Columns extends Schema.Component {
+  collectionName: 'components_sections_2_columns';
+  info: {
+    displayName: '2Columns';
+  };
+  attributes: {
+    two_column: Attribute.Relation<
+      'sections.2-columns',
+      'oneToOne',
+      'api::two-column.two-column'
+    >;
+  };
+}
+
 export interface SectionsBlocksGrid extends Schema.Component {
   collectionName: 'components_sections_blocks_grids';
   info: {
@@ -263,16 +277,11 @@ export interface SectionsTwoColumns extends Schema.Component {
     displayName: 'TwoColumns';
   };
   attributes: {
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
+    two_column: Attribute.Relation<
       'sections.two-columns',
       'oneToOne',
-      'api::theme.theme'
+      'api::two-column.two-column'
     >;
-    ratio: Attribute.Enumeration<['one:one', 'two:one']> &
-      Attribute.DefaultTo<'one:one'>;
   };
 }
 
@@ -1024,6 +1033,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'meta.metadata': MetaMetadata;
+      'sections.2-columns': Sections2Columns;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.carousel': SectionsCarousel;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;

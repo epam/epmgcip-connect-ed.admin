@@ -5,23 +5,10 @@
   },
   "options": {},
   "attributes": {
-    "showWave": {
-      "type": "boolean",
-      "default": false,
-      "required": true
-    },
-    "theme": {
+    "two_column": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::theme.theme"
-    },
-    "ratio": {
-      "type": "enumeration",
-      "enum": [
-        "one:one",
-        "two:one"
-      ],
-      "default": "one:one"
+      "target": "api::two-column.two-column"
     }
   }
 }

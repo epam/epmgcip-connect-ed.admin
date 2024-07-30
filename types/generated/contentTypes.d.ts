@@ -1365,7 +1365,7 @@ export interface ApiTwoColumnTwoColumn extends Schema.CollectionType {
   info: {
     singularName: 'two-column';
     pluralName: 'two-columns';
-    displayName: 'TwoColumns';
+    displayName: 'TwoColumn';
     description: '';
   };
   options: {
