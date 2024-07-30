@@ -485,17 +485,6 @@ export interface SharedColumnCard extends Schema.Component {
   };
 }
 
-export interface SharedContactBannerCard extends Schema.Component {
-  collectionName: 'components_shared_contact_banner_cards';
-  info: {
-    displayName: 'ContactBannerCard';
-  };
-  attributes: {
-    text: Attribute.Text;
-    social: Attribute.Component<'shared.meta-social', true>;
-  };
-}
-
 export interface SharedGridBlock extends Schema.Component {
   collectionName: 'components_shared_grid_blocks';
   info: {
@@ -994,7 +983,6 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.color': SharedColor;
       'shared.column-card': SharedColumnCard;
-      'shared.contact-banner-card': SharedContactBannerCard;
       'shared.grid-block': SharedGridBlock;
       'shared.heading': SharedHeading;
       'shared.image-card': SharedImageCard;
