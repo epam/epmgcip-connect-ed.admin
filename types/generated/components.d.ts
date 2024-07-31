@@ -53,6 +53,18 @@ export interface SectionsCarousel extends Schema.Component {
   };
 }
 
+export interface SectionsChart extends Schema.Component {
+  collectionName: 'components_sections_charts';
+  info: {
+    displayName: 'Chart';
+  };
+  attributes: {
+    title: Attribute.String;
+    outline: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String;
+  };
+}
+
 export interface SectionsColumnsWithTabs extends Schema.Component {
   collectionName: 'components_sections_columns_with_tabs';
   info: {
@@ -1007,6 +1019,7 @@ declare module '@strapi/types' {
       'meta.metadata': MetaMetadata;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.carousel': SectionsCarousel;
+      'sections.chart': SectionsChart;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.columns': SectionsColumns;
       'sections.contact-banner': SectionsContactBanner;
