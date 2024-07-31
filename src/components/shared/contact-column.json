@@ -19,11 +19,6 @@
       "type": "string",
       "required": true
     },
-    "icons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::icon.icon"
-    },
     "showWave": {
       "type": "boolean",
       "default": false,

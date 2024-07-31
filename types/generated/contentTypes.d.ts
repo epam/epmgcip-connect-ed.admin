@@ -1085,11 +1085,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
-    icons: Attribute.Relation<
-      'api::footer.footer',
-      'oneToMany',
-      'api::icon.icon'
-    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1175,27 +1170,6 @@ export interface ApiHeaderHeader extends Schema.SingleType {
       'api::header.header'
     >;
     locale: Attribute.String;
-  };
-}
-
-export interface ApiIconIcon extends Schema.CollectionType {
-  collectionName: 'icons';
-  info: {
-    singularName: 'icon';
-    pluralName: 'icons';
-    displayName: 'icon';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
   };
 }
 
@@ -1383,7 +1357,6 @@ declare module '@strapi/types' {
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
-      'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
       'api::theme.theme': ApiThemeTheme;
