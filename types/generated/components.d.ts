@@ -252,7 +252,6 @@ export interface SectionsTopStripe extends Schema.Component {
     description: '';
   };
   attributes: {
-    socialMedia: Attribute.Component<'shared.social-icon', true>;
     theme: Attribute.Component<'shared.color'>;
   };
 }
@@ -859,20 +858,6 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
-export interface SharedSocialIcon extends Schema.Component {
-  collectionName: 'components_shared_social_icons';
-  info: {
-    displayName: 'icon';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    icon: Attribute.Media<'images'>;
-    url: Attribute.String;
-    newTab: Attribute.Boolean;
-  };
-}
-
 export interface SharedTabCardTheme extends Schema.Component {
   collectionName: 'components_shared_tab_card_themes';
   info: {
@@ -1034,7 +1019,6 @@ declare module '@strapi/types' {
       'shared.noodles-card': SharedNoodlesCard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.seo': SharedSeo;
-      'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;
