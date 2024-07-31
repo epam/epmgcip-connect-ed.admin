@@ -55,11 +55,6 @@
       },
       "type": "string",
       "required": false
-    },
-    "icons": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::icon.icon"
     }
   }
 }
