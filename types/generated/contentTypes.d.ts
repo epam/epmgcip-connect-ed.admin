@@ -1190,7 +1190,6 @@ export interface ApiIconIcon extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    icon: Attribute.Component<'shared.social-icon', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1283,7 +1282,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.wave-banner',
         'sections.carousel',
         'shared.testimonials-card',
-        'shared.timeline-card'
+        'shared.timeline-card',
+        'sections.chart'
       ]
     > &
       Attribute.SetPluginOptions<{
