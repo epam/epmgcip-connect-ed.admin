@@ -59,6 +59,7 @@
         "sections.carousel",
         "shared.testimonials-card",
         "shared.timeline-card",
+        "sections.chart",
         "sections.two-columns"
       ]
     }

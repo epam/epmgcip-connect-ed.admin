@@ -53,6 +53,18 @@ export interface SectionsCarousel extends Schema.Component {
   };
 }
 
+export interface SectionsChart extends Schema.Component {
+  collectionName: 'components_sections_charts';
+  info: {
+    displayName: 'Chart';
+  };
+  attributes: {
+    title: Attribute.String;
+    outline: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String;
+  };
+}
+
 export interface SectionsColumnsWithTabs extends Schema.Component {
   collectionName: 'components_sections_columns_with_tabs';
   info: {
@@ -252,7 +264,6 @@ export interface SectionsTopStripe extends Schema.Component {
     description: '';
   };
   attributes: {
-    socialMedia: Attribute.Component<'shared.social-icon', true>;
     theme: Attribute.Component<'shared.color'>;
   };
 }
@@ -889,20 +900,6 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
-export interface SharedSocialIcon extends Schema.Component {
-  collectionName: 'components_shared_social_icons';
-  info: {
-    displayName: 'icon';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    icon: Attribute.Media<'images'>;
-    url: Attribute.String;
-    newTab: Attribute.Boolean;
-  };
-}
-
 export interface SharedTabCardTheme extends Schema.Component {
   collectionName: 'components_shared_tab_card_themes';
   info: {
@@ -1037,6 +1034,7 @@ declare module '@strapi/types' {
       'meta.metadata': MetaMetadata;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.carousel': SectionsCarousel;
+      'sections.chart': SectionsChart;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.columns': SectionsColumns;
       'sections.contact-banner': SectionsContactBanner;
@@ -1065,7 +1063,6 @@ declare module '@strapi/types' {
       'shared.noodles-card': SharedNoodlesCard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.seo': SharedSeo;
-      'shared.social-icon': SharedSocialIcon;
       'shared.tab-card-theme': SharedTabCardTheme;
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;

@@ -1088,12 +1088,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
     };
   };
   attributes: {
-    socialMedia: Attribute.Component<'shared.social-icon', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     theme: Attribute.Component<'shared.color'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1123,6 +1117,11 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
+    icons: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::icon.icon'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1222,7 +1221,6 @@ export interface ApiIconIcon extends Schema.CollectionType {
     draftAndPublish: true;
   };
   attributes: {
-    icon: Attribute.Component<'shared.social-icon', true>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1316,6 +1314,7 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.carousel',
         'shared.testimonials-card',
         'shared.timeline-card',
+        'sections.chart',
         'sections.two-columns'
       ]
     > &
