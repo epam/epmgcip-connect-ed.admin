@@ -695,6 +695,24 @@ export interface SharedArticleCategoryTab extends Schema.Component {
   };
 }
 
+export interface SharedAccordionItem extends Schema.Component {
+  collectionName: 'components_shared_accordion_items';
+  info: {
+    displayName: 'AccordionItem';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    shortDescription: Attribute.String & Attribute.Required;
+    longDescription: Attribute.Text;
+    button: Attribute.Relation<
+      'shared.accordion-item',
+      'oneToOne',
+      'api::button.button'
+    >;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -889,19 +907,6 @@ export interface SectionsImageBanner extends Schema.Component {
   };
 }
 
-export interface SectionsEmailForm extends Schema.Component {
-  collectionName: 'components_sections_email_forms';
-  info: {
-    displayName: 'emailForm';
-  };
-  attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
-  };
-}
-
-
 export interface SectionsHeroBanner extends Schema.Component {
   collectionName: 'components_sections_hero_banners';
   info: {
@@ -912,6 +917,18 @@ export interface SectionsHeroBanner extends Schema.Component {
     coverImage: Attribute.Media<'images'>;
     cta: Attribute.Component<'shared.button'>;
     overlayBlock: Attribute.Component<'shared.overlay-block'>;
+  };
+}
+
+export interface SectionsEmailForm extends Schema.Component {
+  collectionName: 'components_sections_email_forms';
+  info: {
+    displayName: 'emailForm';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
   };
 }
 
@@ -1015,6 +1032,28 @@ export interface SectionsBlocksGrid extends Schema.Component {
   };
 }
 
+export interface SectionsAccordion extends Schema.Component {
+  collectionName: 'components_sections_accordions';
+  info: {
+    displayName: 'Accordion';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Component<'shared.heading'>;
+    expandLink: Attribute.Relation<
+      'sections.accordion',
+      'oneToOne',
+      'api::link.link'
+    >;
+    collapseLink: Attribute.Relation<
+      'sections.accordion',
+      'oneToOne',
+      'api::link.link'
+    >;
+    item: Attribute.Component<'shared.accordion-item', true>;
+  };
+}
+
 export interface MetaMetadata extends Schema.Component {
   collectionName: 'components_meta_metadata';
   info: {
@@ -1051,6 +1090,7 @@ declare module '@strapi/types' {
       'shared.color': SharedColor;
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
+      'shared.accordion-item': SharedAccordionItem;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1058,17 +1098,18 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.rich-text': SectionsRichText;
-      'sections.email-form': SectionsEmailForm;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
       'sections.hero-banner': SectionsHeroBanner;
+      'sections.email-form': SectionsEmailForm;
       'sections.contact-banner': SectionsContactBanner;
       'sections.columns': SectionsColumns;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;
       'sections.chart': SectionsChart;
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
+      'sections.accordion': SectionsAccordion;
       'meta.metadata': MetaMetadata;
     }
   }
