@@ -57,9 +57,10 @@
         "sections.secondary-banner",
         "sections.wave-banner",
         "sections.carousel",
-        "shared.testimonials-card",
-        "shared.timeline-card",
-        "sections.chart"
+        "sections.chart",
+        "sections.testimonials",
+        "sections.timeline",
+        "sections.two-columns"
       ]
     }
   }
