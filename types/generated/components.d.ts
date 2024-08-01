@@ -156,6 +156,36 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedPersonellcard extends Schema.Component {
+  collectionName: 'components_shared_personellcards';
+  info: {
+    displayName: 'Personell\u0421ard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.String & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.personellcard',
+      'oneToOne',
+      'api::image.image'
+    >;
+    icon: Attribute.Relation<
+      'shared.personellcard',
+      'oneToMany',
+      'api::icon.icon'
+    >;
+    theme: Attribute.Relation<
+      'shared.personellcard',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SharedOverlayBlock extends Schema.Component {
   collectionName: 'components_shared_overlay_blocks';
   info: {
@@ -840,6 +870,21 @@ export interface SectionsRichText extends Schema.Component {
   };
 }
 
+export interface SectionsPersonellCards extends Schema.Component {
+  collectionName: 'components_sections_personell_cards';
+  info: {
+    displayName: 'Personell\u0421ards';
+    description: '';
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.personellcard', true>;
+  };
+}
+
 export interface SectionsOverlayBlockTest extends Schema.Component {
   collectionName: 'components_sections_overlay_block_tests';
   info: {
@@ -889,19 +934,6 @@ export interface SectionsImageBanner extends Schema.Component {
   };
 }
 
-export interface SectionsEmailForm extends Schema.Component {
-  collectionName: 'components_sections_email_forms';
-  info: {
-    displayName: 'emailForm';
-  };
-  attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
-  };
-}
-
-
 export interface SectionsHeroBanner extends Schema.Component {
   collectionName: 'components_sections_hero_banners';
   info: {
@@ -912,6 +944,18 @@ export interface SectionsHeroBanner extends Schema.Component {
     coverImage: Attribute.Media<'images'>;
     cta: Attribute.Component<'shared.button'>;
     overlayBlock: Attribute.Component<'shared.overlay-block'>;
+  };
+}
+
+export interface SectionsEmailForm extends Schema.Component {
+  collectionName: 'components_sections_email_forms';
+  info: {
+    displayName: 'emailForm';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
   };
 }
 
@@ -1038,6 +1082,7 @@ declare module '@strapi/types' {
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.tab-card-theme': SharedTabCardTheme;
       'shared.seo': SharedSeo;
+      'shared.personellcard': SharedPersonellcard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.noodles-card': SharedNoodlesCard;
       'shared.meta-social': SharedMetaSocial;
@@ -1058,11 +1103,12 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.rich-text': SectionsRichText;
-      'sections.email-form': SectionsEmailForm;
+      'sections.personell-cards': SectionsPersonellCards;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
       'sections.hero-banner': SectionsHeroBanner;
+      'sections.email-form': SectionsEmailForm;
       'sections.contact-banner': SectionsContactBanner;
       'sections.columns': SectionsColumns;
       'sections.columns-with-tabs': SectionsColumnsWithTabs;

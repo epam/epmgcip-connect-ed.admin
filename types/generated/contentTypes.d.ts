@@ -1205,6 +1205,35 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
+export interface ApiIconIcon extends Schema.CollectionType {
+  collectionName: 'icons';
+  info: {
+    singularName: 'icon';
+    pluralName: 'icons';
+    displayName: 'Icon';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.Text & Attribute.Required;
+    type: Attribute.String;
+    theme: Attribute.Relation<'api::icon.icon', 'oneToOne', 'api::theme.theme'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1391,6 +1420,7 @@ declare module '@strapi/types' {
       'api::column.column': ApiColumnColumn;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
+      'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
       'api::theme.theme': ApiThemeTheme;
