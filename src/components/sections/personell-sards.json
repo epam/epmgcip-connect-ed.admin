@@ -1,7 +1,8 @@
 {
   "collectionName": "components_sections_personell_cards",
   "info": {
-    "displayName": "PersonellСards"
+    "displayName": "PersonellСards",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -15,7 +16,7 @@
       "repeatable": false,
       "component": "shared.heading"
     },
-    "cards": {
+    "card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.personellcard"

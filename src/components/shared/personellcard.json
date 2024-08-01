@@ -19,7 +19,7 @@
       "relation": "oneToOne",
       "target": "api::image.image"
     },
-    "icons": {
+    "icon": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::icon.icon"
