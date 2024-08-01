@@ -145,7 +145,7 @@ export interface SectionsRichText extends Schema.Component {
   };
 }
 
-export interface SectionsPersonellSards extends Schema.Component {
+export interface SectionsPersonellCards extends Schema.Component {
   collectionName: 'components_sections_personell_cards';
   info: {
     displayName: 'Personell\u0421ards';
@@ -1083,7 +1083,7 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.rich-text': SectionsRichText;
-      'sections.personell-sards': SectionsPersonellSards;
+      'sections.personell-cards': SectionsPersonellCards;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
