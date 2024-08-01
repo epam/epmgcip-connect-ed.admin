@@ -19,11 +19,6 @@
       "relation": "oneToOne",
       "target": "api::image.image"
     },
-    "icon": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::icon.icon"
-    },
     "theme": {
       "type": "relation",
       "relation": "oneToOne",
