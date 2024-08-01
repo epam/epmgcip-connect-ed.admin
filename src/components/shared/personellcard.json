@@ -21,7 +21,7 @@
     },
     "icon": {
       "type": "relation",
-      "relation": "oneToMany",
+      "relation": "oneToOne",
       "target": "api::icon.icon"
     },
     "theme": {
