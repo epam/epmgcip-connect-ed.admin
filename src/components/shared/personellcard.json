@@ -23,6 +23,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::icon.icon"
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }
