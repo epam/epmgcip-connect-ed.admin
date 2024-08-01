@@ -156,6 +156,31 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedPersonellCard extends Schema.Component {
+  collectionName: 'components_shared_personellcards';
+  info: {
+    displayName: 'Personell\u0421ard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.String & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.personellcard',
+      'oneToOne',
+      'api::image.image'
+    >;
+    icons: Attribute.Relation<
+      'shared.personellcard',
+      'oneToMany',
+      'api::icon.icon'
+    >;
+  };
+}
+
 export interface SharedOverlayBlock extends Schema.Component {
   collectionName: 'components_shared_overlay_blocks';
   info: {
@@ -695,6 +720,20 @@ export interface SharedArticleCategoryTab extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -837,6 +876,20 @@ export interface SectionsRichText extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
+  };
+}
+
+export interface SectionsPersonellCards extends Schema.Component {
+  collectionName: 'components_sections_personell_sards';
+  info: {
+    displayName: 'Personell\u0421ards';
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    cards: Attribute.Component<'shared.personellcard', true>;
   };
 }
 
@@ -1002,20 +1055,6 @@ export interface SectionsBlocksGrid extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1025,6 +1064,7 @@ declare module '@strapi/types' {
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.tab-card-theme': SharedTabCardTheme;
       'shared.seo': SharedSeo;
+      'shared.personellcard': SharedPersonellcard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.noodles-card': SharedNoodlesCard;
       'shared.meta-social': SharedMetaSocial;
@@ -1038,6 +1078,7 @@ declare module '@strapi/types' {
       'shared.color': SharedColor;
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
+      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1045,6 +1086,7 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.rich-text': SectionsRichText;
+      'sections.personell-sards': SectionsPersonellCards;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
@@ -1055,7 +1097,6 @@ declare module '@strapi/types' {
       'sections.chart': SectionsChart;
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
-      'meta.metadata': MetaMetadata;
     }
   }
 }
