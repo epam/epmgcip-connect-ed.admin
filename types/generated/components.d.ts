@@ -695,20 +695,6 @@ export interface SharedArticleCategoryTab extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -736,6 +722,29 @@ export interface SectionsWaveBanner extends Schema.Component {
     isTextBox: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+  };
+}
+
+export interface SectionsTwoColumns extends Schema.Component {
+  collectionName: 'components_sections_two_columns';
+  info: {
+    displayName: 'TwoColumns';
+  };
+  attributes: {
+    bottomWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ratio: Attribute.Enumeration<['one:one', 'two:one']>;
+    theme: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    column: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::column.column'
+    >;
   };
 }
 
@@ -993,6 +1002,20 @@ export interface SectionsBlocksGrid extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1015,8 +1038,8 @@ declare module '@strapi/types' {
       'shared.color': SharedColor;
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
-      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
+      'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
       'sections.timeline': SectionsTimeline;
       'sections.testimonials': SectionsTestimonials;
@@ -1032,6 +1055,7 @@ declare module '@strapi/types' {
       'sections.chart': SectionsChart;
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
+      'meta.metadata': MetaMetadata;
     }
   }
 }
