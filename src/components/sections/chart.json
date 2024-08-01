@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_charts",
+  "info": {
+    "displayName": "Chart"
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "outline": {
+      "type": "boolean",
+      "default": false
+    },
+    "url": {
+      "type": "string",
+      "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    }
+  }
+}

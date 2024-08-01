@@ -1039,6 +1039,38 @@ export interface ApiColorSchemeColorScheme extends Schema.SingleType {
   };
 }
 
+export interface ApiColumnColumn extends Schema.CollectionType {
+  collectionName: 'columns';
+  info: {
+    singularName: 'column';
+    pluralName: 'columns';
+    displayName: 'Column';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    column: Attribute.DynamicZone<
+      ['sections.chart', 'sections.rich-text', 'shared.image', 'shared.video']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::column.column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::column.column',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiFooterFooter extends Schema.SingleType {
   collectionName: 'footers';
   info: {
@@ -1056,12 +1088,6 @@ export interface ApiFooterFooter extends Schema.SingleType {
     };
   };
   attributes: {
-    socialMedia: Attribute.Component<'shared.social-icon', true> &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
     theme: Attribute.Component<'shared.color'> &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1179,28 +1205,6 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
-export interface ApiIconIcon extends Schema.CollectionType {
-  collectionName: 'icons';
-  info: {
-    singularName: 'icon';
-    pluralName: 'icons';
-    displayName: 'icon';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    icon: Attribute.Component<'shared.social-icon', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1282,8 +1286,10 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.secondary-banner',
         'sections.wave-banner',
         'sections.carousel',
-        'shared.testimonials-card',
-        'shared.timeline-card'
+        'sections.chart',
+        'sections.testimonials',
+        'sections.timeline',
+        'sections.two-columns'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1382,9 +1388,9 @@ declare module '@strapi/types' {
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
+      'api::column.column': ApiColumnColumn;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
-      'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
       'api::theme.theme': ApiThemeTheme;

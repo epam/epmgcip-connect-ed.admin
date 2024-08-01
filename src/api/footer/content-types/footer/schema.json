@@ -16,16 +16,6 @@
     }
   },
   "attributes": {
-    "socialMedia": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.social-icon",
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
     "theme": {
       "type": "component",
       "repeatable": false,
