@@ -21,11 +21,6 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
-    },
-    "icon": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::icon.icon"
     }
   }
 }

@@ -1253,35 +1253,6 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
-export interface ApiIconIcon extends Schema.CollectionType {
-  collectionName: 'icons';
-  info: {
-    singularName: 'icon';
-    pluralName: 'icons';
-    displayName: 'Icon';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    text: Attribute.Text & Attribute.Required;
-    type: Attribute.String;
-    theme: Attribute.Relation<'api::icon.icon', 'oneToOne', 'api::theme.theme'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1330,7 +1301,6 @@ export interface ApiLinkLink extends Schema.CollectionType {
     title: Attribute.String;
     url: Attribute.String;
     theme: Attribute.Relation<'api::link.link', 'oneToOne', 'api::theme.theme'>;
-    icon: Attribute.Relation<'api::link.link', 'oneToOne', 'api::icon.icon'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1392,8 +1362,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.testimonials',
         'sections.timeline',
         'sections.two-columns',
-        'sections.accordion',
-        'sections.get-in-touch-form'
+        'sections.get-in-touch-form',
+        'sections.accordion'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1536,7 +1506,6 @@ declare module '@strapi/types' {
       'api::column.column': ApiColumnColumn;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
-      'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::link.link': ApiLinkLink;
       'api::page.page': ApiPagePage;
