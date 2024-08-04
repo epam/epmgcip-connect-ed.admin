@@ -1117,6 +1117,11 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
+    socialMedias: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::icon.icon'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

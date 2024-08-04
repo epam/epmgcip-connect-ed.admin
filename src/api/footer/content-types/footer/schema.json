@@ -55,6 +55,11 @@
       },
       "type": "string",
       "required": false
+    },
+    "socialMedias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::icon.icon"
     }
   }
 }
