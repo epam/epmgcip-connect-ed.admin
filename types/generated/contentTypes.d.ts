@@ -1120,7 +1120,7 @@ export interface ApiFooterFooter extends Schema.SingleType {
     socialMedias: Attribute.Relation<
       'api::footer.footer',
       'oneToMany',
-      'api::icon.icon'
+      'api::social-media.social-media'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1348,6 +1348,46 @@ export interface ApiPagePage extends Schema.CollectionType {
   };
 }
 
+export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
+  collectionName: 'social_medias';
+  info: {
+    singularName: 'social-media';
+    pluralName: 'social-medias';
+    displayName: 'SocialMedia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.String & Attribute.Required;
+    type: Attribute.String;
+    theme: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiThemeTheme extends Schema.CollectionType {
   collectionName: 'themes';
   info: {
@@ -1429,6 +1469,7 @@ declare module '@strapi/types' {
       'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
       'api::page.page': ApiPagePage;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;
     }
   }
