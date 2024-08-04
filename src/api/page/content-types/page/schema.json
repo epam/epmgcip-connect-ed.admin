@@ -61,6 +61,7 @@
         "sections.testimonials",
         "sections.timeline",
         "sections.two-columns",
+        "sections.get-in-touch-form",
         "sections.accordion"
       ]
     }

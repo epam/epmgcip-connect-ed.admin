@@ -974,6 +974,22 @@ export interface SectionsHeroBanner extends Schema.Component {
   };
 }
 
+export interface SectionsGetInTouchForm extends Schema.Component {
+  collectionName: 'components_sections_get_in_touch_forms';
+  info: {
+    displayName: 'GetInTouchForm';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
 export interface SectionsEmailForm extends Schema.Component {
   collectionName: 'components_sections_email_forms';
   info: {
@@ -1122,6 +1138,20 @@ export interface MetaMetadata extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1159,6 +1189,7 @@ declare module '@strapi/types' {
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
       'sections.hero-banner': SectionsHeroBanner;
+      'sections.get-in-touch-form': SectionsGetInTouchForm;
       'sections.email-form': SectionsEmailForm;
       'sections.contact-banner': SectionsContactBanner;
       'sections.columns': SectionsColumns;

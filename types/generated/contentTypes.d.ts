@@ -1160,6 +1160,11 @@ export interface ApiFooterFooter extends Schema.SingleType {
           localized: true;
         };
       }>;
+    socialMedias: Attribute.Relation<
+      'api::footer.footer',
+      'oneToMany',
+      'api::social-media.social-media'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1387,7 +1392,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.testimonials',
         'sections.timeline',
         'sections.two-columns',
-        'sections.accordion'
+        'sections.accordion',
+        'sections.get-in-touch-form'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1408,6 +1414,46 @@ export interface ApiPagePage extends Schema.CollectionType {
       'api::page.page'
     >;
     locale: Attribute.String;
+  };
+}
+
+export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
+  collectionName: 'social_medias';
+  info: {
+    singularName: 'social-media';
+    pluralName: 'social-medias';
+    displayName: 'SocialMedia';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.String & Attribute.Required;
+    type: Attribute.String;
+    theme: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::social-media.social-media',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
   };
 }
 
@@ -1494,6 +1540,7 @@ declare module '@strapi/types' {
       'api::image.image': ApiImageImage;
       'api::link.link': ApiLinkLink;
       'api::page.page': ApiPagePage;
+      'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;
     }
   }
