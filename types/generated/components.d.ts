@@ -156,6 +156,31 @@ export interface SharedSeo extends Schema.Component {
   };
 }
 
+export interface SharedPersonellcard extends Schema.Component {
+  collectionName: 'components_shared_personellcards';
+  info: {
+    displayName: 'Personell\u0421ard';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    text: Attribute.String & Attribute.Required;
+    image: Attribute.Relation<
+      'shared.personellcard',
+      'oneToOne',
+      'api::image.image'
+    >;
+    theme: Attribute.Relation<
+      'shared.personellcard',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
 export interface SharedOverlayBlock extends Schema.Component {
   collectionName: 'components_shared_overlay_blocks';
   info: {
@@ -713,6 +738,20 @@ export interface SharedAccordionItem extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -855,6 +894,21 @@ export interface SectionsRichText extends Schema.Component {
   };
   attributes: {
     content: Attribute.RichText;
+  };
+}
+
+export interface SectionsPersonellCards extends Schema.Component {
+  collectionName: 'components_sections_personell_cards';
+  info: {
+    displayName: 'Personell\u0421ards';
+    description: '';
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.personellcard', true>;
   };
 }
 
@@ -1054,20 +1108,6 @@ export interface SectionsAccordion extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1077,6 +1117,7 @@ declare module '@strapi/types' {
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.tab-card-theme': SharedTabCardTheme;
       'shared.seo': SharedSeo;
+      'shared.personellcard': SharedPersonellcard;
       'shared.overlay-block': SharedOverlayBlock;
       'shared.noodles-card': SharedNoodlesCard;
       'shared.meta-social': SharedMetaSocial;
@@ -1091,6 +1132,7 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.accordion-item': SharedAccordionItem;
+      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1098,6 +1140,7 @@ declare module '@strapi/types' {
       'sections.testimonials': SectionsTestimonials;
       'sections.secondary-banner': SectionsSecondaryBanner;
       'sections.rich-text': SectionsRichText;
+      'sections.personell-cards': SectionsPersonellCards;
       'sections.overlay-block-test': SectionsOverlayBlockTest;
       'sections.info-cards-type-a': SectionsInfoCardsTypeA;
       'sections.image-banner': SectionsImageBanner;
@@ -1110,7 +1153,6 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
-      'meta.metadata': MetaMetadata;
     }
   }
 }
