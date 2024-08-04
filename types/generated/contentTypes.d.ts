@@ -931,6 +931,49 @@ export interface ApiArticleCategoryArticleCategory
   };
 }
 
+export interface ApiButtonButton extends Schema.CollectionType {
+  collectionName: 'buttons';
+  info: {
+    singularName: 'button';
+    pluralName: 'buttons';
+    displayName: 'Button';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    label: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 32;
+      }>;
+    type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
+    url: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    theme: Attribute.Relation<
+      'api::button.button',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::button.button',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::button.button',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1210,35 +1253,6 @@ export interface ApiHeaderHeader extends Schema.SingleType {
   };
 }
 
-export interface ApiIconIcon extends Schema.CollectionType {
-  collectionName: 'icons';
-  info: {
-    singularName: 'icon';
-    pluralName: 'icons';
-    displayName: 'Icon';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    text: Attribute.Text & Attribute.Required;
-    type: Attribute.String;
-    theme: Attribute.Relation<'api::icon.icon', 'oneToOne', 'api::theme.theme'>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::icon.icon', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
 export interface ApiImageImage extends Schema.CollectionType {
   collectionName: 'images';
   info: {
@@ -1269,6 +1283,30 @@ export interface ApiImageImage extends Schema.CollectionType {
       'oneToOne',
       'admin::user'
     > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiLinkLink extends Schema.CollectionType {
+  collectionName: 'links';
+  info: {
+    singularName: 'link';
+    pluralName: 'links';
+    displayName: 'Link';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String;
+    url: Attribute.String;
+    theme: Attribute.Relation<'api::link.link', 'oneToOne', 'api::theme.theme'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::link.link', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1324,7 +1362,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.testimonials',
         'sections.timeline',
         'sections.two-columns',
-        'sections.get-in-touch-form'
+        'sections.get-in-touch-form',
+        'sections.accordion'
       ]
     > &
       Attribute.SetPluginOptions<{
@@ -1461,13 +1500,14 @@ declare module '@strapi/types' {
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
+      'api::button.button': ApiButtonButton;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::column.column': ApiColumnColumn;
       'api::footer.footer': ApiFooterFooter;
       'api::header.header': ApiHeaderHeader;
-      'api::icon.icon': ApiIconIcon;
       'api::image.image': ApiImageImage;
+      'api::link.link': ApiLinkLink;
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;

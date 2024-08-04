@@ -23,6 +23,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
+    },
+    "socialMedias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_shared_accordion_items",
+  "info": {
+    "displayName": "AccordionItem",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "shortDescription": {
+      "type": "string",
+      "required": true
+    },
+    "longDescription": {
+      "type": "text"
+    },
+    "button": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button.button"
+    }
+  }
+}
