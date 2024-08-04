@@ -1386,7 +1386,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.chart',
         'sections.testimonials',
         'sections.timeline',
-        'sections.two-columns'
+        'sections.two-columns',
+        'sections.accordion'
       ]
     > &
       Attribute.SetPluginOptions<{
