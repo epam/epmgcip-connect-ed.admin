@@ -24,7 +24,7 @@
       "relation": "oneToOne",
       "target": "api::theme.theme"
     },
-    "social_medias": {
+    "socialMedias": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social-media.social-media"

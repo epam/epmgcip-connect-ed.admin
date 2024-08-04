@@ -178,7 +178,7 @@ export interface SharedPersonellcard extends Schema.Component {
       'oneToOne',
       'api::theme.theme'
     >;
-    social_medias: Attribute.Relation<
+    socialMedias: Attribute.Relation<
       'shared.personellcard',
       'oneToMany',
       'api::social-media.social-media'
