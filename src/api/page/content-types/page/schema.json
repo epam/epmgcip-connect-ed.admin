@@ -60,7 +60,8 @@
         "sections.chart",
         "sections.testimonials",
         "sections.timeline",
-        "sections.two-columns"
+        "sections.two-columns",
+        "sections.get-in-touch-form"
       ]
     }
   }
