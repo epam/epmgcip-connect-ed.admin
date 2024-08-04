@@ -59,7 +59,7 @@
     "socialMedias": {
       "type": "relation",
       "relation": "oneToMany",
-      "target": "api::icon.icon"
+      "target": "api::social-media.social-media"
     }
   }
 }
