@@ -1363,7 +1363,12 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.timeline',
         'sections.two-columns',
         'sections.get-in-touch-form',
-        'sections.accordion'
+        'sections.accordion',
+        'sections.contact-banner',
+        'sections.email-form',
+        'sections.overlay-block-test',
+        'sections.personell-cards',
+        'sections.top-stripe'
       ]
     > &
       Attribute.SetPluginOptions<{
