@@ -334,6 +334,7 @@ export interface SharedImage extends Schema.Component {
     isIcon: Attribute.Boolean;
     url: Attribute.String;
     newTab: Attribute.Boolean;
+    imagePosition: Attribute.Enumeration<['left', 'right']>;
   };
 }
 
@@ -399,6 +400,16 @@ export interface SharedImageCard extends Schema.Component {
     linkIcon: Attribute.Media<'images'>;
     linkTitle: Attribute.String;
     linkNewTab: Attribute.Boolean;
+    the: Attribute.Relation<
+      'shared.image-card',
+      'oneToOne',
+      'api::article.article'
+    >;
+    theme: Attribute.Relation<
+      'shared.image-card',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 
@@ -640,6 +651,7 @@ export interface SharedButton extends Schema.Component {
         'quinary'
       ]
     >;
+    theme: Attribute.Relation<'shared.button', 'oneToOne', 'api::theme.theme'>;
   };
 }
 
@@ -770,6 +782,11 @@ export interface SectionsWaveBanner extends Schema.Component {
     isTextBox: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.wave-banner',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 
@@ -804,6 +821,11 @@ export interface SectionsTopStripe extends Schema.Component {
   };
   attributes: {
     theme: Attribute.Component<'shared.color'>;
+    socialMedias: Attribute.Relation<
+      'sections.top-stripe',
+      'oneToMany',
+      'api::social-media.social-media'
+    >;
   };
 }
 
@@ -974,7 +996,7 @@ export interface SectionsGetInTouchForm extends Schema.Component {
   attributes: {
     title: Attribute.String;
     text: Attribute.Text;
-    url: Attribute.String;
+    formId: Attribute.String;
     showWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
@@ -997,6 +1019,7 @@ export interface SectionsContactBanner extends Schema.Component {
   collectionName: 'components_sections_contact_banners';
   info: {
     displayName: 'ContactBanner';
+    description: '';
   };
   attributes: {
     column: Attribute.Component<'shared.contact-column', true>;
@@ -1004,6 +1027,11 @@ export interface SectionsContactBanner extends Schema.Component {
       'sections.contact-banner',
       'oneToOne',
       'api::theme.theme'
+    >;
+    socialMedias: Attribute.Relation<
+      'sections.contact-banner',
+      'oneToMany',
+      'api::social-media.social-media'
     >;
   };
 }

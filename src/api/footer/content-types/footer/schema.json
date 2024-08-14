@@ -60,6 +60,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social-media.social-media"
+    },
+    "image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
     }
   }
 }

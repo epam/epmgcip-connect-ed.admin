@@ -1165,6 +1165,11 @@ export interface ApiFooterFooter extends Schema.SingleType {
       'oneToMany',
       'api::social-media.social-media'
     >;
+    image: Attribute.Relation<
+      'api::footer.footer',
+      'oneToOne',
+      'api::image.image'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
