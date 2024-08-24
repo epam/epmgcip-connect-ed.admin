@@ -10,6 +10,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.color"
+    },
+    "socialMedias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
     }
   }
 }
