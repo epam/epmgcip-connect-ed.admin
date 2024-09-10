@@ -400,11 +400,6 @@ export interface SharedImageCard extends Schema.Component {
     linkIcon: Attribute.Media<'images'>;
     linkTitle: Attribute.String;
     linkNewTab: Attribute.Boolean;
-    the: Attribute.Relation<
-      'shared.image-card',
-      'oneToOne',
-      'api::article.article'
-    >;
     theme: Attribute.Relation<
       'shared.image-card',
       'oneToOne',
@@ -755,6 +750,20 @@ export interface SharedAccordionItem extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -906,7 +915,7 @@ export interface SectionsRichText extends Schema.Component {
     description: '';
   };
   attributes: {
-    content: Attribute.RichText;
+    content: Attribute.Blocks;
   };
 }
 
@@ -1143,20 +1152,6 @@ export interface SectionsAccordion extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1181,6 +1176,7 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.accordion-item': SharedAccordionItem;
+      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1202,7 +1198,6 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
-      'meta.metadata': MetaMetadata;
     }
   }
 }

@@ -1403,6 +1403,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
     singularName: 'social-media';
     pluralName: 'social-medias';
     displayName: 'SocialMedia';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1412,13 +1413,8 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    text: Attribute.String & Attribute.Required;
-    type: Attribute.String;
-    theme: Attribute.Relation<
-      'api::social-media.social-media',
-      'oneToOne',
-      'api::theme.theme'
-    >;
+    url: Attribute.String & Attribute.Required;
+    iconType: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
