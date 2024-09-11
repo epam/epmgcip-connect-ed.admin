@@ -937,6 +937,7 @@ export interface ApiButtonButton extends Schema.CollectionType {
     singularName: 'button';
     pluralName: 'buttons';
     displayName: 'Button';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -951,11 +952,7 @@ export interface ApiButtonButton extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    theme: Attribute.Relation<
-      'api::button.button',
-      'oneToOne',
-      'api::theme.theme'
-    >;
+    theme: Attribute.Enumeration<['primary', 'secondary', 'tertiary']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
