@@ -4,7 +4,8 @@
   "info": {
     "singularName": "social-media",
     "pluralName": "social-medias",
-    "displayName": "SocialMedia"
+    "displayName": "SocialMedia",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -15,17 +16,12 @@
       "type": "string",
       "maxLength": 256
     },
-    "text": {
+    "url": {
       "type": "string",
       "required": true
     },
-    "type": {
+    "iconType": {
       "type": "string"
-    },
-    "theme": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::theme.theme"
     }
   }
 }

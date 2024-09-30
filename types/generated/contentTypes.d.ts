@@ -937,6 +937,7 @@ export interface ApiButtonButton extends Schema.CollectionType {
     singularName: 'button';
     pluralName: 'buttons';
     displayName: 'Button';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -951,11 +952,7 @@ export interface ApiButtonButton extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    theme: Attribute.Relation<
-      'api::button.button',
-      'oneToOne',
-      'api::theme.theme'
-    >;
+    theme: Attribute.Enumeration<['primary', 'secondary', 'tertiary']>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1403,6 +1400,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
     singularName: 'social-media';
     pluralName: 'social-medias';
     displayName: 'SocialMedia';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1412,13 +1410,8 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    text: Attribute.String & Attribute.Required;
-    type: Attribute.String;
-    theme: Attribute.Relation<
-      'api::social-media.social-media',
-      'oneToOne',
-      'api::theme.theme'
-    >;
+    url: Attribute.String & Attribute.Required;
+    iconType: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
