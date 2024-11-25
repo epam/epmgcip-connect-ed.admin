@@ -6,18 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
-    },
-    "block": {
+    "Block": {
       "type": "component",
       "repeatable": true,
       "component": "shared.grid-block"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

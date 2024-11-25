@@ -974,6 +974,72 @@ export interface ApiButtonButton extends Schema.CollectionType {
   };
 }
 
+export interface ApiButtonThemeButtonTheme extends Schema.CollectionType {
+  collectionName: 'button_themes';
+  info: {
+    singularName: 'button-theme';
+    pluralName: 'button-themes';
+    displayName: 'ButtonTheme';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BackgrondColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    OutlineColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    FontColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::button-theme.button-theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::button-theme.button-theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1096,6 +1162,7 @@ export interface ApiColumnColumn extends Schema.CollectionType {
     column: Attribute.DynamicZone<
       ['sections.chart', 'sections.rich-text', 'shared.image', 'shared.video']
     >;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1340,7 +1407,7 @@ export interface ApiPagePage extends Schema.CollectionType {
       'manyToOne',
       'api::category.category'
     >;
-    label: Attribute.String &
+    title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
@@ -1467,6 +1534,19 @@ export interface ApiThemeTheme extends Schema.CollectionType {
         'quinary'
       ]
     >;
+    outline: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1478,6 +1558,38 @@ export interface ApiThemeTheme extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::theme.theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTitleTitle extends Schema.CollectionType {
+  collectionName: 'titles';
+  info: {
+    singularName: 'title';
+    pluralName: 'titles';
+    displayName: 'Title';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    HeadingLevel: Attribute.Enumeration<['h1', 'h2', 'h3', 'h4', 'h5', 'h6']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::title.title',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::title.title',
       'oneToOne',
       'admin::user'
     > &
@@ -1506,6 +1618,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::button.button': ApiButtonButton;
+      'api::button-theme.button-theme': ApiButtonThemeButtonTheme;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::column.column': ApiColumnColumn;
@@ -1516,6 +1629,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;
+      'api::title.title': ApiTitleTitle;
     }
   }
 }

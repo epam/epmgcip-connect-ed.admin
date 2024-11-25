@@ -193,31 +193,16 @@ export interface SharedOverlayBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.Text;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Theme: Attribute.Relation<
+      'shared.overlay-block',
+      'oneToOne',
+      'api::theme.theme'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Title: Attribute.Relation<
+      'shared.overlay-block',
+      'oneToOne',
+      'api::title.title'
     >;
   };
 }
@@ -344,61 +329,15 @@ export interface SharedImageCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    cardHeading: Attribute.String;
-    cardDescription: Attribute.Text;
-    cardColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Label: Attribute.String;
+    URL: Attribute.String;
+    LinkTitle: Attribute.String;
+    Open: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Title: Attribute.Relation<
+      'shared.image-card',
+      'oneToOne',
+      'api::title.title'
     >;
-    cardBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkText: Attribute.String;
-    linkUrl: Attribute.String;
-    linkIcon: Attribute.Media<'images'>;
-    linkTitle: Attribute.String;
-    linkNewTab: Attribute.Boolean;
   };
 }
 
@@ -433,62 +372,16 @@ export interface SharedGridBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    description: Attribute.Text;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Label: Attribute.String;
+    URL: Attribute.String;
+    Open: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Image: Attribute.Media<'images'>;
+    Title: Attribute.Relation<
+      'shared.grid-block',
+      'oneToOne',
+      'api::title.title'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkText: Attribute.String;
-    linkUrl: Attribute.String;
-    linkIcon: Attribute.Media<'images'>;
-    linkTitle: Attribute.String;
-    linkNewTab: Attribute.Boolean;
-    image: Attribute.Media<'images'>;
   };
 }
 
@@ -607,38 +500,19 @@ export interface SharedButton extends Schema.Component {
     description: '';
   };
   attributes: {
-    label: Attribute.String &
+    Label: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 32;
       }>;
-    type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
-    url: Attribute.String &
+    Type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
+    URL: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    ButtonTheme: Attribute.Relation<
+      'shared.button',
+      'oneToOne',
+      'api::button-theme.button-theme'
     >;
   };
 }
@@ -935,9 +809,9 @@ export interface SectionsImageBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    card: Attribute.Component<'shared.image-card'>;
-    image: Attribute.Media<'images'>;
-    bgColor: Attribute.Enumeration<
+    Card: Attribute.Component<'shared.image-card'>;
+    Image: Attribute.Media<'images'>;
+    Background: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -959,9 +833,9 @@ export interface SectionsHeroBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    coverImage: Attribute.Media<'images'>;
-    cta: Attribute.Component<'shared.button'>;
-    overlayBlock: Attribute.Component<'shared.overlay-block'>;
+    Image: Attribute.Media<'images'>;
+    Cta: Attribute.Component<'shared.button'>;
+    OverlayBlock: Attribute.Component<'shared.overlay-block'>;
   };
 }
 
@@ -1087,9 +961,17 @@ export interface SectionsBlocksGrid extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    theme: Attribute.Component<'shared.color'>;
     block: Attribute.Component<'shared.grid-block', true>;
+    Title: Attribute.Relation<
+      'sections.blocks-grid',
+      'oneToOne',
+      'api::title.title'
+    >;
+    Theme: Attribute.Relation<
+      'sections.blocks-grid',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 

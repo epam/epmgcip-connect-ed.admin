@@ -19,6 +19,9 @@
         "shared.image",
         "shared.video"
       ]
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

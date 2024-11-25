@@ -11,7 +11,7 @@
       "repeatable": false,
       "component": "shared.image-card"
     },
-    "image": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -19,7 +19,7 @@
         "images"
       ]
     },
-    "bgColor": {
+    "Background": {
       "type": "enumeration",
       "enum": [
         "white",

@@ -31,7 +31,7 @@
       "target": "api::category.category",
       "inversedBy": "pages"
     },
-    "label": {
+    "title": {
       "pluginOptions": {
         "i18n": {
           "localized": true

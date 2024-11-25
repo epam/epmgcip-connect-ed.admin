@@ -8,11 +8,11 @@
   },
   "options": {},
   "attributes": {
-    "label": {
+    "Label": {
       "type": "string",
       "maxLength": 32
     },
-    "type": {
+    "Type": {
       "type": "enumeration",
       "enum": [
         "nav",
@@ -22,36 +22,15 @@
         "form"
       ]
     },
-    "url": {
+    "URL": {
       "type": "string",
       "maxLength": 256,
       "regex": "^(https?:\\/\\/)?"
     },
-    "color": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "bgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
+    "ButtonTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button-theme.button-theme"
     }
   }
 }

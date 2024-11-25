@@ -6,82 +6,23 @@
   },
   "options": {},
   "attributes": {
-    "cardHeading": {
+    "Label": {
       "type": "string"
     },
-    "cardDescription": {
-      "type": "text"
-    },
-    "cardColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "cardBgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkBgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkText": {
+    "URL": {
       "type": "string"
     },
-    "linkUrl": {
+    "LinkTitle": {
       "type": "string"
     },
-    "linkIcon": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
+    "Open": {
+      "type": "boolean",
+      "default": false
     },
-    "linkTitle": {
-      "type": "string"
-    },
-    "linkNewTab": {
-      "type": "boolean"
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

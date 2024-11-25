@@ -36,6 +36,22 @@
         "quaternary",
         "quinary"
       ]
+    },
+    "outline": {
+      "type": "enumeration",
+      "enum": [
+        "white",
+        "black",
+        "background",
+        "primary",
+        "secondary",
+        "tertiary",
+        "quaternary",
+        "quinary"
+      ]
+    },
+    "title": {
+      "type": "string"
     }
   }
 }
