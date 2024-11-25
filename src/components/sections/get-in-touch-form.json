@@ -12,9 +12,8 @@
     "text": {
       "type": "text"
     },
-    "url": {
+    "formId": {
       "type": "string",
-      "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",
       "unique": false
     },
     "showWave": {

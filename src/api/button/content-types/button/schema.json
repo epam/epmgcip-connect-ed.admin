@@ -4,7 +4,8 @@
   "info": {
     "singularName": "button",
     "pluralName": "buttons",
-    "displayName": "Button"
+    "displayName": "Button",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -31,9 +32,12 @@
       "maxLength": 256
     },
     "theme": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::theme.theme"
+      "type": "enumeration",
+      "enum": [
+        "primary",
+        "secondary",
+        "tertiary"
+      ]
     }
   }
 }

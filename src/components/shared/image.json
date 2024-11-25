@@ -30,6 +30,13 @@
     },
     "newTab": {
       "type": "boolean"
+    },
+    "imagePosition": {
+      "type": "enumeration",
+      "enum": [
+        "left",
+        "right"
+      ]
     }
   }
 }
