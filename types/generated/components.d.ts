@@ -344,61 +344,12 @@ export interface SharedImageCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    cardHeading: Attribute.String;
-    cardDescription: Attribute.Text;
-    cardColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    cardBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkText: Attribute.String;
-    linkUrl: Attribute.String;
-    linkIcon: Attribute.Media<'images'>;
-    linkTitle: Attribute.String;
-    linkNewTab: Attribute.Boolean;
+    Title: Attribute.String;
+    Text: Attribute.Text;
+    Label: Attribute.String;
+    URL: Attribute.String;
+    LinkTitle: Attribute.String;
+    Open: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -743,20 +694,6 @@ export interface SharedAccordionItem extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -950,8 +887,8 @@ export interface SectionsImageBanner extends Schema.Component {
   };
   attributes: {
     card: Attribute.Component<'shared.image-card'>;
-    image: Attribute.Media<'images'>;
-    bgColor: Attribute.Enumeration<
+    Image: Attribute.Media<'images'>;
+    Background: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -1129,6 +1066,20 @@ export interface SectionsAccordion extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1153,7 +1104,6 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.accordion-item': SharedAccordionItem;
-      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1175,6 +1125,7 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
+      'meta.metadata': MetaMetadata;
     }
   }
 }
