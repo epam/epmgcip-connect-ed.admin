@@ -6,82 +6,24 @@
   },
   "options": {},
   "attributes": {
-    "cardHeading": {
+    "Title": {
       "type": "string"
     },
-    "cardDescription": {
+    "Text": {
       "type": "text"
     },
-    "cardColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "cardBgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkBgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkText": {
+    "Label": {
       "type": "string"
     },
-    "linkUrl": {
+    "URL": {
       "type": "string"
     },
-    "linkIcon": {
-      "allowedTypes": [
-        "images"
-      ],
-      "type": "media",
-      "multiple": false
-    },
-    "linkTitle": {
+    "LinkTitle": {
       "type": "string"
     },
-    "linkNewTab": {
-      "type": "boolean"
+    "Open": {
+      "type": "boolean",
+      "default": false
     }
   }
 }
