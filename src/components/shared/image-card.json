@@ -7,7 +7,9 @@
   "options": {},
   "attributes": {
     "Title": {
-      "type": "string"
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     },
     "Text": {
       "type": "text"

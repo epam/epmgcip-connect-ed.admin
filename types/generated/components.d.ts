@@ -344,7 +344,11 @@ export interface SharedImageCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    Title: Attribute.String;
+    Title: Attribute.Relation<
+      'shared.image-card',
+      'oneToOne',
+      'api::title.title'
+    >;
     Text: Attribute.Text;
     Label: Attribute.String;
     URL: Attribute.String;
