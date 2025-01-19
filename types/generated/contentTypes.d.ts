@@ -1062,11 +1062,6 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    pages: Attribute.Relation<
-      'api::category.category',
-      'oneToMany',
-      'api::page.page'
-    >;
     label: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
@@ -1085,6 +1080,11 @@ export interface ApiCategoryCategory extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 32;
       }>;
+    pages: Attribute.Relation<
+      'api::category.category',
+      'oneToMany',
+      'api::page.page'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -1393,25 +1393,25 @@ export interface ApiPagePage extends Schema.CollectionType {
     };
   };
   attributes: {
-    slug: Attribute.String &
+    Slug: Attribute.String &
       Attribute.Unique &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    category: Attribute.Relation<
+    Category: Attribute.Relation<
       'api::page.page',
       'manyToOne',
       'api::category.category'
     >;
-    label: Attribute.String &
+    Title: Attribute.String &
       Attribute.SetPluginOptions<{
         i18n: {
           localized: true;
         };
       }>;
-    pageSections: Attribute.DynamicZone<
+    PageSections: Attribute.DynamicZone<
       [
         'sections.hero-banner',
         'sections.rich-text',

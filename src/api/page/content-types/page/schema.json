@@ -16,7 +16,7 @@
     }
   },
   "attributes": {
-    "slug": {
+    "Slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -25,13 +25,13 @@
       "type": "string",
       "unique": true
     },
-    "category": {
+    "Category": {
       "type": "relation",
       "relation": "manyToOne",
       "target": "api::category.category",
       "inversedBy": "pages"
     },
-    "label": {
+    "Title": {
       "pluginOptions": {
         "i18n": {
           "localized": true
@@ -39,7 +39,7 @@
       },
       "type": "string"
     },
-    "pageSections": {
+    "PageSections": {
       "pluginOptions": {
         "i18n": {
           "localized": true

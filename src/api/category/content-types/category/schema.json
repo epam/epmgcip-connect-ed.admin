@@ -24,12 +24,6 @@
       },
       "type": "string"
     },
-    "pages": {
-      "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::page.page",
-      "mappedBy": "category"
-    },
     "label": {
       "pluginOptions": {
         "i18n": {
@@ -47,6 +41,12 @@
       },
       "type": "string",
       "maxLength": 32
+    },
+    "pages": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::page.page",
+      "mappedBy": "Category"
     }
   }
 }
