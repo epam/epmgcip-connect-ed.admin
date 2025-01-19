@@ -974,6 +974,71 @@ export interface ApiButtonButton extends Schema.CollectionType {
   };
 }
 
+export interface ApiButtonThemeButtonTheme extends Schema.CollectionType {
+  collectionName: 'button_themes';
+  info: {
+    singularName: 'button-theme';
+    pluralName: 'button-themes';
+    displayName: 'ButtonTheme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    BackgrondColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    OutlineColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    FontColor: Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::button-theme.button-theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::button-theme.button-theme',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1537,6 +1602,7 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::button.button': ApiButtonButton;
+      'api::button-theme.button-theme': ApiButtonThemeButtonTheme;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::column.column': ApiColumnColumn;

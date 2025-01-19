@@ -193,31 +193,16 @@ export interface SharedOverlayBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    content: Attribute.Text;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Title: Attribute.Relation<
+      'shared.overlay-block',
+      'oneToOne',
+      'api::title.title'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Theme: Attribute.Relation<
+      'shared.overlay-block',
+      'oneToOne',
+      'api::theme.theme'
     >;
   };
 }
@@ -521,38 +506,19 @@ export interface SharedButton extends Schema.Component {
     description: '';
   };
   attributes: {
-    label: Attribute.String &
+    Label: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 32;
       }>;
-    type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
-    url: Attribute.String &
+    Type: Attribute.Enumeration<['nav', 'main', 'inverted', 'outline', 'form']>;
+    URL: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    ButtonTheme: Attribute.Relation<
+      'shared.button',
+      'oneToOne',
+      'api::button-theme.button-theme'
     >;
   };
 }
@@ -873,9 +839,9 @@ export interface SectionsHeroBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    coverImage: Attribute.Media<'images'>;
-    cta: Attribute.Component<'shared.button'>;
-    overlayBlock: Attribute.Component<'shared.overlay-block'>;
+    Image: Attribute.Media<'images'>;
+    Cta: Attribute.Component<'shared.button'>;
+    OverlayBlock: Attribute.Component<'shared.overlay-block'>;
   };
 }
 
