@@ -6,15 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "Title": {
       "type": "string"
     },
-    "theme": {
+    "Theme": {
       "type": "component",
       "repeatable": false,
       "component": "shared.color"
     },
-    "block": {
+    "Block": {
       "type": "component",
       "repeatable": true,
       "component": "shared.grid-block"

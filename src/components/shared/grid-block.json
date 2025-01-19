@@ -6,71 +6,20 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
-      "type": "string"
-    },
-    "description": {
+    "Text": {
       "type": "text"
     },
-    "color": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "bgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkBgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkText": {
+    "Label": {
       "type": "string"
     },
-    "linkUrl": {
+    "URL": {
       "type": "string"
     },
-    "linkIcon": {
+    "Open": {
+      "type": "boolean",
+      "default": false
+    },
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -78,19 +27,15 @@
         "images"
       ]
     },
-    "linkTitle": {
-      "type": "string"
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     },
-    "linkNewTab": {
-      "type": "boolean"
-    },
-    "image": {
-      "type": "media",
-      "multiple": false,
-      "required": false,
-      "allowedTypes": [
-        "images"
-      ]
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }
