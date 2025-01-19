@@ -974,72 +974,6 @@ export interface ApiButtonButton extends Schema.CollectionType {
   };
 }
 
-export interface ApiButtonThemeButtonTheme extends Schema.CollectionType {
-  collectionName: 'button_themes';
-  info: {
-    singularName: 'button-theme';
-    pluralName: 'button-themes';
-    displayName: 'ButtonTheme';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    backgroundColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    outlineColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    fontColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::button-theme.button-theme',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::button-theme.button-theme',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface ApiCategoryCategory extends Schema.CollectionType {
   collectionName: 'categories';
   info: {
@@ -1551,6 +1485,37 @@ export interface ApiThemeTheme extends Schema.CollectionType {
   };
 }
 
+export interface ApiTitleTitle extends Schema.CollectionType {
+  collectionName: 'titles';
+  info: {
+    singularName: 'title';
+    pluralName: 'titles';
+    displayName: 'Title';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Title: Attribute.String;
+    HeadingLevel: Attribute.Enumeration<['h1', 'h2', 'h3', 'h4', 'h5', 'h6']>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::title.title',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::title.title',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -1572,7 +1537,6 @@ declare module '@strapi/types' {
       'api::article.article': ApiArticleArticle;
       'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::button.button': ApiButtonButton;
-      'api::button-theme.button-theme': ApiButtonThemeButtonTheme;
       'api::category.category': ApiCategoryCategory;
       'api::color-scheme.color-scheme': ApiColorSchemeColorScheme;
       'api::column.column': ApiColumnColumn;
@@ -1583,6 +1547,7 @@ declare module '@strapi/types' {
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::theme.theme': ApiThemeTheme;
+      'api::title.title': ApiTitleTitle;
     }
   }
 }
