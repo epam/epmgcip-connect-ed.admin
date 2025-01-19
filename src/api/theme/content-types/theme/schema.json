@@ -4,7 +4,8 @@
   "info": {
     "singularName": "theme",
     "pluralName": "themes",
-    "displayName": "Theme"
+    "displayName": "Theme",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -36,6 +37,9 @@
         "quaternary",
         "quinary"
       ]
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

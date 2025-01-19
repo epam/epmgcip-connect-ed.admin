@@ -1503,6 +1503,7 @@ export interface ApiThemeTheme extends Schema.CollectionType {
     singularName: 'theme';
     pluralName: 'themes';
     displayName: 'Theme';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1532,6 +1533,7 @@ export interface ApiThemeTheme extends Schema.CollectionType {
         'quinary'
       ]
     >;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
