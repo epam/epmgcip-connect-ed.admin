@@ -4,7 +4,8 @@
   "info": {
     "singularName": "column",
     "pluralName": "columns",
-    "displayName": "Column"
+    "displayName": "Column",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -19,6 +20,9 @@
         "shared.image",
         "shared.video"
       ]
+    },
+    "title": {
+      "type": "string"
     }
   }
 }

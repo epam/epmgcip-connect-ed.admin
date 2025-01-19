@@ -1153,6 +1153,7 @@ export interface ApiColumnColumn extends Schema.CollectionType {
     singularName: 'column';
     pluralName: 'columns';
     displayName: 'Column';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1161,6 +1162,7 @@ export interface ApiColumnColumn extends Schema.CollectionType {
     column: Attribute.DynamicZone<
       ['sections.chart', 'sections.rich-text', 'shared.image', 'shared.video']
     >;
+    title: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
