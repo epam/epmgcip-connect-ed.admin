@@ -1,31 +1,33 @@
 {
   "collectionName": "components_sections_info_cards_type_as",
   "info": {
-    "displayName": "infoCardsTypeA",
+    "displayName": "InformationCards",
     "description": ""
   },
   "options": {},
   "attributes": {
-    "theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
-    },
-    "heading": {
-      "type": "string"
-    },
-    "description": {
-      "type": "text"
-    },
-    "cta": {
+    "Button": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
     },
-    "cards": {
+    "Card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.noodles-card"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Text": {
+      "type": "text"
     }
   }
 }

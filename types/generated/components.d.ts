@@ -214,44 +214,22 @@ export interface SharedNoodlesCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    description: Attribute.Text;
-    image: Attribute.Media<'images'>;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Image: Attribute.Media<'images'>;
+    Title: Attribute.Relation<
+      'shared.noodles-card',
+      'oneToOne',
+      'api::title.title'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Theme: Attribute.Relation<
+      'shared.noodles-card',
+      'oneToOne',
+      'api::theme.theme'
     >;
-    borderColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    CTA: Attribute.Relation<
+      'shared.noodles-card',
+      'oneToOne',
+      'api::button.button'
     >;
   };
 }
@@ -596,6 +574,20 @@ export interface SharedAccordionItem extends Schema.Component {
   };
 }
 
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
 export interface SectionsWaveBanner extends Schema.Component {
   collectionName: 'components_sections_wave_banners';
   info: {
@@ -769,15 +761,23 @@ export interface SectionsOverlayBlockTest extends Schema.Component {
 export interface SectionsInfoCardsTypeA extends Schema.Component {
   collectionName: 'components_sections_info_cards_type_as';
   info: {
-    displayName: 'infoCardsTypeA';
+    displayName: 'InformationCards';
     description: '';
   };
   attributes: {
-    theme: Attribute.Component<'shared.color'>;
-    heading: Attribute.String;
-    description: Attribute.Text;
-    cta: Attribute.Component<'shared.button'>;
-    cards: Attribute.Component<'shared.noodles-card', true>;
+    Button: Attribute.Component<'shared.button'>;
+    Card: Attribute.Component<'shared.noodles-card', true>;
+    Theme: Attribute.Relation<
+      'sections.info-cards-type-a',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    Title: Attribute.Relation<
+      'sections.info-cards-type-a',
+      'oneToOne',
+      'api::title.title'
+    >;
+    Text: Attribute.Text;
   };
 }
 
@@ -972,20 +972,6 @@ export interface SectionsAccordion extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1010,6 +996,7 @@ declare module '@strapi/types' {
       'shared.button': SharedButton;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.accordion-item': SharedAccordionItem;
+      'meta.metadata': MetaMetadata;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1031,7 +1018,6 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
-      'meta.metadata': MetaMetadata;
     }
   }
 }
