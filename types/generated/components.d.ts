@@ -388,62 +388,21 @@ export interface SharedGridBlock extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    description: Attribute.Text;
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Label: Attribute.String;
+    URL: Attribute.String;
+    Open: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Image: Attribute.Media<'images'>;
+    Title: Attribute.Relation<
+      'shared.grid-block',
+      'oneToOne',
+      'api::title.title'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Theme: Attribute.Relation<
+      'shared.grid-block',
+      'oneToOne',
+      'api::theme.theme'
     >;
-    linkColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkBgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    linkText: Attribute.String;
-    linkUrl: Attribute.String;
-    linkIcon: Attribute.Media<'images'>;
-    linkTitle: Attribute.String;
-    linkNewTab: Attribute.Boolean;
-    image: Attribute.Media<'images'>;
   };
 }
 
@@ -526,7 +485,7 @@ export interface SharedColor extends Schema.Component {
     description: '';
   };
   attributes: {
-    color: Attribute.Enumeration<
+    Color: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -538,7 +497,7 @@ export interface SharedColor extends Schema.Component {
         'quinary'
       ]
     >;
-    bgColor: Attribute.Enumeration<
+    BgColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -1042,9 +1001,9 @@ export interface SectionsBlocksGrid extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.String;
-    theme: Attribute.Component<'shared.color'>;
-    block: Attribute.Component<'shared.grid-block', true>;
+    Title: Attribute.String;
+    Theme: Attribute.Component<'shared.color'>;
+    Block: Attribute.Component<'shared.grid-block', true>;
   };
 }
 
