@@ -6,29 +6,29 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "Heading": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
-    },
-    "cta": {
+    "CTA": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
     },
-    "cards": {
+    "Card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.column-card"
     },
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

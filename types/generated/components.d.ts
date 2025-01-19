@@ -349,12 +349,8 @@ export interface SharedHeading extends Schema.Component {
     description: '';
   };
   attributes: {
-    text: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    position: Attribute.Enumeration<['left', 'center']>;
-    level: Attribute.Integer &
+    Alignment: Attribute.Enumeration<['left', 'center']>;
+    Level: Attribute.Integer &
       Attribute.SetMinMax<
         {
           min: 1;
@@ -363,6 +359,7 @@ export interface SharedHeading extends Schema.Component {
         number
       > &
       Attribute.DefaultTo<2>;
+    Title: Attribute.Relation<'shared.heading', 'oneToOne', 'api::title.title'>;
   };
 }
 
@@ -418,48 +415,24 @@ export interface SharedColumnCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    color: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-    article: Attribute.Relation<
+    LinkedPage: Attribute.Relation<
       'shared.column-card',
       'oneToOne',
       'api::article.article'
     >;
-    bgColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    LinkText: Attribute.String;
+    Title: Attribute.Relation<
+      'shared.column-card',
+      'oneToOne',
+      'api::title.title'
     >;
-    linkText: Attribute.String;
-    linkColor: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
+    Text: Attribute.Text;
+    Image: Attribute.Relation<
+      'shared.column-card',
+      'oneToOne',
+      'api::image.image'
     >;
+    URL: Attribute.String;
   };
 }
 
@@ -895,11 +868,15 @@ export interface SectionsColumns extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.Component<'shared.heading'>;
-    theme: Attribute.Component<'shared.color'>;
-    cta: Attribute.Component<'shared.button'>;
-    cards: Attribute.Component<'shared.column-card', true>;
-    showWave: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Heading: Attribute.Component<'shared.heading'>;
+    CTA: Attribute.Component<'shared.button'>;
+    Card: Attribute.Component<'shared.column-card', true>;
+    ShowWave: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Theme: Attribute.Relation<
+      'sections.columns',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 

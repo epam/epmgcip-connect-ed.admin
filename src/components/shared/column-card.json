@@ -6,52 +6,29 @@
   },
   "options": {},
   "attributes": {
-    "color": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "article": {
+    "LinkedPage": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::article.article"
     },
-    "bgColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
-    },
-    "linkText": {
+    "LinkText": {
       "type": "string"
     },
-    "linkColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Text": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
+    },
+    "URL": {
+      "type": "string"
     }
   }
 }
