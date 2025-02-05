@@ -6,24 +6,26 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "text": {
+    "Text": {
       "type": "text"
     },
-    "url": {
+    "URL": {
       "type": "string",
       "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",
       "unique": false
     },
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "formId": {
+    "FormId": {
       "type": "string"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

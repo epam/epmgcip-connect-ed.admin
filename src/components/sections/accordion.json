@@ -6,22 +6,22 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "expandLink": {
+    "ExpandLink": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::link.link"
     },
-    "collapseLink": {
+    "CollapseLink": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::link.link"
     },
-    "item": {
+    "Item": {
       "type": "component",
       "repeatable": true,
       "component": "shared.accordion-item"

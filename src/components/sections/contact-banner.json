@@ -1,16 +1,17 @@
 {
   "collectionName": "components_sections_contact_banners",
   "info": {
-    "displayName": "ContactBanner"
+    "displayName": "ContactBanner",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "column": {
+    "Column": {
       "type": "component",
       "repeatable": true,
       "component": "shared.contact-column"
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"

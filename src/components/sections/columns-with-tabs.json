@@ -25,6 +25,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.tab-card-theme"
+    },
+    "Tabs": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.tabs"
     }
   }
 }

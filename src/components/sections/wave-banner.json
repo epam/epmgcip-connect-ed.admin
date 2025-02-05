@@ -6,35 +6,35 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
       "maxLength": 256,
       "required": true
     },
-    "image": {
+    "Image": {
       "type": "component",
       "repeatable": false,
       "component": "shared.image"
     },
-    "isLargeImage": {
+    "IsLargeImage": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "title": {
+    "Title": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "text": {
+    "Text": {
       "type": "string"
     },
-    "cta": {
+    "CTA": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
     },
-    "backgroundColor": {
+    "BackgroundColor": {
       "type": "enumeration",
       "enum": [
         "primary",
@@ -44,7 +44,7 @@
       "default": "primary",
       "required": true
     },
-    "isTextBox": {
+    "IsTextBox": {
       "type": "boolean",
       "default": false,
       "required": true

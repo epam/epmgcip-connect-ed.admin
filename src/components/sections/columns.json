@@ -18,7 +18,8 @@
     },
     "ShowWave": {
       "type": "boolean",
-      "default": false
+      "default": false,
+      "required": true
     },
     "Theme": {
       "type": "relation",

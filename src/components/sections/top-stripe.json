@@ -6,15 +6,15 @@
   },
   "options": {},
   "attributes": {
-    "theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
-    },
-    "socialMedia": {
+    "SocialMedia": {
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::social-media.social-media"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

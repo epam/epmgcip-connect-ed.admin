@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "card": {
+    "Card": {
       "type": "component",
       "repeatable": false,
       "component": "shared.image-card"
@@ -19,7 +19,7 @@
         "images"
       ]
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"

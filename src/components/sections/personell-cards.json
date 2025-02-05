@@ -6,17 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "title": {
+    "Title": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "card": {
+    "Card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.personellcard"

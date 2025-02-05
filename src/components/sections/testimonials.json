@@ -6,24 +6,25 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "maxLength": 256
-    },
-    "card": {
+    "Card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.testimonials-card"
     },
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

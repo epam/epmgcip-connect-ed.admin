@@ -1,14 +1,15 @@
 {
   "collectionName": "components_sections_overlay_block_tests",
   "info": {
-    "displayName": "overlayBlockTest"
+    "displayName": "overlayBlockTest",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

@@ -6,23 +6,24 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "maxLength": 256
-    },
-    "text": {
+    "Text": {
       "type": "text",
       "required": true
     },
-    "image": {
+    "Image": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::image.image"
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

@@ -6,37 +6,37 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
       "unique": false,
       "maxLength": 256,
       "required": true
     },
-    "title": {
+    "Title": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "text": {
+    "Text": {
       "type": "text"
     },
-    "image": {
+    "Image": {
       "type": "component",
       "repeatable": false,
       "component": "shared.image",
       "required": true
     },
-    "cta1": {
+    "CTA1": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
     },
-    "cta2": {
+    "CTA2": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"

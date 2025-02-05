@@ -1,20 +1,23 @@
 {
   "collectionName": "components_sections_charts",
   "info": {
-    "displayName": "Chart"
+    "displayName": "Chart",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "outline": {
+    "Outline": {
       "type": "boolean",
       "default": false
     },
-    "url": {
+    "URL": {
       "type": "string",
       "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

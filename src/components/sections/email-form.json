@@ -1,19 +1,22 @@
 {
   "collectionName": "components_sections_email_forms",
   "info": {
-    "displayName": "emailForm"
+    "displayName": "emailForm",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string"
-    },
-    "text": {
+    "Text": {
       "type": "text"
     },
-    "url": {
+    "URL": {
       "type": "string",
       "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }
