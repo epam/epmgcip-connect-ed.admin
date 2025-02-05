@@ -4,7 +4,8 @@
   "info": {
     "singularName": "button",
     "pluralName": "buttons",
-    "displayName": "Button"
+    "displayName": "Button",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -30,10 +31,10 @@
       "regex": "^(https?:\\/\\/)?",
       "maxLength": 256
     },
-    "theme": {
+    "buttonTheme": {
       "type": "relation",
       "relation": "oneToOne",
-      "target": "api::theme.theme"
+      "target": "api::button-theme.button-theme"
     }
   }
 }

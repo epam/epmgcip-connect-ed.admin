@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "color": {
+    "Color": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -19,7 +19,7 @@
         "quinary"
       ]
     },
-    "bgColor": {
+    "BgColor": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -32,7 +32,7 @@
         "quinary"
       ]
     },
-    "linkColor": {
+    "LinkColor": {
       "type": "enumeration",
       "enum": [
         "white",

@@ -837,11 +837,6 @@ export interface ApiArticleArticle extends Schema.CollectionType {
           localized: true;
         };
       }>;
-    article_category: Attribute.Relation<
-      'api::article.article',
-      'manyToOne',
-      'api::article-category.article-category'
-    >;
     theme: Attribute.Relation<
       'api::article.article',
       'oneToOne',
@@ -871,78 +866,13 @@ export interface ApiArticleArticle extends Schema.CollectionType {
   };
 }
 
-export interface ApiArticleCategoryArticleCategory
-  extends Schema.CollectionType {
-  collectionName: 'article_categories';
-  info: {
-    singularName: 'article-category';
-    pluralName: 'article-categories';
-    displayName: 'article-category';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  pluginOptions: {
-    i18n: {
-      localized: true;
-    };
-  };
-  attributes: {
-    slug: Attribute.String &
-      Attribute.Required &
-      Attribute.Unique &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    label: Attribute.String &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    description: Attribute.Text &
-      Attribute.SetPluginOptions<{
-        i18n: {
-          localized: true;
-        };
-      }>;
-    articles: Attribute.Relation<
-      'api::article-category.article-category',
-      'oneToMany',
-      'api::article.article'
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::article-category.article-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::article-category.article-category',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    localizations: Attribute.Relation<
-      'api::article-category.article-category',
-      'oneToMany',
-      'api::article-category.article-category'
-    >;
-    locale: Attribute.String;
-  };
-}
-
 export interface ApiButtonButton extends Schema.CollectionType {
   collectionName: 'buttons';
   info: {
     singularName: 'button';
     pluralName: 'buttons';
     displayName: 'Button';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -957,10 +887,10 @@ export interface ApiButtonButton extends Schema.CollectionType {
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    theme: Attribute.Relation<
+    buttonTheme: Attribute.Relation<
       'api::button.button',
       'oneToOne',
-      'api::theme.theme'
+      'api::button-theme.button-theme'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1612,7 +1542,6 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::article.article': ApiArticleArticle;
-      'api::article-category.article-category': ApiArticleCategoryArticleCategory;
       'api::button.button': ApiButtonButton;
       'api::button-theme.button-theme': ApiButtonThemeButtonTheme;
       'api::category.category': ApiCategoryCategory;

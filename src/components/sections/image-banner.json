@@ -19,18 +19,10 @@
         "images"
       ]
     },
-    "Background": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary",
-        "quaternary",
-        "quinary"
-      ]
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

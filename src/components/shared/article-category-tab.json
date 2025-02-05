@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "color": {
+    "Color": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -19,7 +19,7 @@
         "quinary"
       ]
     },
-    "bgColor": {
+    "BgColor": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -32,7 +32,7 @@
         "quinary"
       ]
     },
-    "borderColor": {
+    "BorderColor": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -45,7 +45,7 @@
         "quinary"
       ]
     },
-    "activeColor": {
+    "ActiveColor": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -58,7 +58,7 @@
         "quinary"
       ]
     },
-    "activeBgColor": {
+    "ActiveBgColor": {
       "type": "enumeration",
       "enum": [
         "white",
@@ -71,7 +71,7 @@
         "quinary"
       ]
     },
-    "activeBorderColor": {
+    "ActiveBorderColor": {
       "type": "enumeration",
       "enum": [
         "white",

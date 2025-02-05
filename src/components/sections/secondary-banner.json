@@ -20,19 +20,6 @@
     "text": {
       "type": "text"
     },
-    "backgroundColor": {
-      "type": "enumeration",
-      "enum": [
-        "white",
-        "black",
-        "background",
-        "primary",
-        "secondary",
-        "tertiary"
-      ],
-      "required": true,
-      "default": "primary"
-    },
     "image": {
       "type": "component",
       "repeatable": false,
@@ -48,6 +35,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.button"
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

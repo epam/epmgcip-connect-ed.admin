@@ -16,11 +16,6 @@
       "repeatable": false,
       "component": "shared.button"
     },
-    "Card": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.column-card"
-    },
     "ShowWave": {
       "type": "boolean",
       "default": false
@@ -29,6 +24,11 @@
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
+    },
+    "Articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
     }
   }
 }

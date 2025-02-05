@@ -9,15 +9,15 @@
     "Title": {
       "type": "string"
     },
-    "Theme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.color"
-    },
     "Block": {
       "type": "component",
       "repeatable": true,
       "component": "shared.grid-block"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
     }
   }
 }

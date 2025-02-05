@@ -1,390 +1,5 @@
 import type { Schema, Attribute } from '@strapi/strapi';
 
-export interface SectionsWaveBanner extends Schema.Component {
-  collectionName: 'components_sections_wave_banners';
-  info: {
-    displayName: 'waveBanner';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    image: Attribute.Component<'shared.image'>;
-    isLargeImage: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    title: Attribute.Component<'shared.heading'>;
-    text: Attribute.String;
-    cta: Attribute.Component<'shared.button'>;
-    backgroundColor: Attribute.Enumeration<
-      ['primary', 'secondary', 'tertiary']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'primary'>;
-    isTextBox: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-  };
-}
-
-export interface SectionsTwoColumns extends Schema.Component {
-  collectionName: 'components_sections_two_columns';
-  info: {
-    displayName: 'TwoColumns';
-  };
-  attributes: {
-    bottomWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    ratio: Attribute.Enumeration<['one:one', 'two:one']>;
-    theme: Attribute.Relation<
-      'sections.two-columns',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-    column: Attribute.Relation<
-      'sections.two-columns',
-      'oneToOne',
-      'api::column.column'
-    >;
-  };
-}
-
-export interface SectionsTopStripe extends Schema.Component {
-  collectionName: 'components_sections_top_stripes';
-  info: {
-    displayName: 'stripe';
-    description: '';
-  };
-  attributes: {
-    theme: Attribute.Component<'shared.color'>;
-  };
-}
-
-export interface SectionsTimeline extends Schema.Component {
-  collectionName: 'components_sections_timelines';
-  info: {
-    displayName: 'Timeline';
-    description: '';
-  };
-  attributes: {
-    heading: Attribute.Component<'shared.heading'>;
-    card: Attribute.Component<'shared.timeline-card', true>;
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
-      'sections.timeline',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-  };
-}
-
-export interface SectionsTestimonials extends Schema.Component {
-  collectionName: 'components_sections_testimonials';
-  info: {
-    displayName: 'Testimonials';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    card: Attribute.Component<'shared.testimonials-card', true>;
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
-      'sections.testimonials',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-  };
-}
-
-export interface SectionsSecondaryBanner extends Schema.Component {
-  collectionName: 'components_sections_secondary_banners';
-  info: {
-    displayName: 'secondaryBanner';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    title: Attribute.Component<'shared.heading'>;
-    text: Attribute.Text;
-    backgroundColor: Attribute.Enumeration<
-      ['white', 'black', 'background', 'primary', 'secondary', 'tertiary']
-    > &
-      Attribute.Required &
-      Attribute.DefaultTo<'primary'>;
-    image: Attribute.Component<'shared.image'> & Attribute.Required;
-    cta1: Attribute.Component<'shared.button'>;
-    cta2: Attribute.Component<'shared.button'>;
-  };
-}
-
-export interface SectionsRichText extends Schema.Component {
-  collectionName: 'components_sections_rich_texts';
-  info: {
-    name: 'RichText';
-    displayName: 'richText';
-    icon: 'text-height';
-    description: '';
-  };
-  attributes: {
-    content: Attribute.RichText;
-  };
-}
-
-export interface SectionsPersonellCards extends Schema.Component {
-  collectionName: 'components_sections_personell_cards';
-  info: {
-    displayName: 'Personell\u0421ards';
-    description: '';
-  };
-  attributes: {
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    title: Attribute.Component<'shared.heading'>;
-    card: Attribute.Component<'shared.personellcard', true>;
-  };
-}
-
-export interface SectionsOverlayBlockTest extends Schema.Component {
-  collectionName: 'components_sections_overlay_block_tests';
-  info: {
-    displayName: 'overlayBlockTest';
-  };
-  attributes: {
-    theme: Attribute.Component<'shared.color'>;
-  };
-}
-
-export interface SectionsInfoCardsTypeA extends Schema.Component {
-  collectionName: 'components_sections_info_cards_type_as';
-  info: {
-    displayName: 'InformationCards';
-    description: '';
-  };
-  attributes: {
-    Button: Attribute.Component<'shared.button'>;
-    Card: Attribute.Component<'shared.noodles-card', true>;
-    Theme: Attribute.Relation<
-      'sections.info-cards-type-a',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-    Title: Attribute.Relation<
-      'sections.info-cards-type-a',
-      'oneToOne',
-      'api::title.title'
-    >;
-    Text: Attribute.Text;
-  };
-}
-
-export interface SectionsImageBanner extends Schema.Component {
-  collectionName: 'components_sections_image_banners';
-  info: {
-    displayName: 'imageBanner';
-    description: '';
-  };
-  attributes: {
-    card: Attribute.Component<'shared.image-card'>;
-    Image: Attribute.Media<'images'>;
-    Background: Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary'
-      ]
-    >;
-  };
-}
-
-export interface SectionsHeroBanner extends Schema.Component {
-  collectionName: 'components_sections_hero_banners';
-  info: {
-    displayName: 'heroBanner';
-    description: '';
-  };
-  attributes: {
-    Image: Attribute.Media<'images'>;
-    Cta: Attribute.Component<'shared.button'>;
-    OverlayBlock: Attribute.Component<'shared.overlay-block'>;
-  };
-}
-
-export interface SectionsGetInTouchForm extends Schema.Component {
-  collectionName: 'components_sections_get_in_touch_forms';
-  info: {
-    displayName: 'GetInTouchForm';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
-    showWave: Attribute.Boolean &
-      Attribute.Required &
-      Attribute.DefaultTo<false>;
-    formId: Attribute.String;
-  };
-}
-
-export interface SectionsEmailForm extends Schema.Component {
-  collectionName: 'components_sections_email_forms';
-  info: {
-    displayName: 'emailForm';
-  };
-  attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
-  };
-}
-
-export interface SectionsContactBanner extends Schema.Component {
-  collectionName: 'components_sections_contact_banners';
-  info: {
-    displayName: 'ContactBanner';
-  };
-  attributes: {
-    column: Attribute.Component<'shared.contact-column', true>;
-    theme: Attribute.Relation<
-      'sections.contact-banner',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-  };
-}
-
-export interface SectionsColumns extends Schema.Component {
-  collectionName: 'components_sections_columns';
-  info: {
-    displayName: 'columns';
-    description: '';
-  };
-  attributes: {
-    Heading: Attribute.Component<'shared.heading'>;
-    CTA: Attribute.Component<'shared.button'>;
-    Card: Attribute.Component<'shared.column-card', true>;
-    ShowWave: Attribute.Boolean & Attribute.DefaultTo<false>;
-    Theme: Attribute.Relation<
-      'sections.columns',
-      'oneToOne',
-      'api::theme.theme'
-    >;
-  };
-}
-
-export interface SectionsColumnsWithTabs extends Schema.Component {
-  collectionName: 'components_sections_columns_with_tabs';
-  info: {
-    displayName: 'columnsWithTabs';
-    description: '';
-  };
-  attributes: {
-    cta: Attribute.Component<'shared.button'>;
-    maxCardsToDisplay: Attribute.Integer & Attribute.DefaultTo<3>;
-    tabTheme: Attribute.Component<'shared.article-category-tab'>;
-    tabs: Attribute.Relation<
-      'sections.columns-with-tabs',
-      'oneToMany',
-      'api::article-category.article-category'
-    >;
-    tabCardTheme: Attribute.Component<'shared.tab-card-theme'>;
-  };
-}
-
-export interface SectionsChart extends Schema.Component {
-  collectionName: 'components_sections_charts';
-  info: {
-    displayName: 'Chart';
-  };
-  attributes: {
-    title: Attribute.String;
-    outline: Attribute.Boolean & Attribute.DefaultTo<false>;
-    url: Attribute.String;
-  };
-}
-
-export interface SectionsCarousel extends Schema.Component {
-  collectionName: 'components_sections_carousels';
-  info: {
-    displayName: 'carousel';
-    description: '';
-  };
-  attributes: {
-    name: Attribute.String &
-      Attribute.Required &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    title: Attribute.Component<'shared.heading'>;
-    elements: Attribute.Component<'shared.image', true> &
-      Attribute.Required &
-      Attribute.SetMinMax<
-        {
-          min: 1;
-          max: 50;
-        },
-        number
-      >;
-    cta: Attribute.Component<'shared.button'>;
-  };
-}
-
-export interface SectionsBlocksGrid extends Schema.Component {
-  collectionName: 'components_sections_blocks_grids';
-  info: {
-    displayName: 'blocksGrid';
-    description: '';
-  };
-  attributes: {
-    Title: Attribute.String;
-    Theme: Attribute.Component<'shared.color'>;
-    Block: Attribute.Component<'shared.grid-block', true>;
-  };
-}
-
-export interface SectionsAccordion extends Schema.Component {
-  collectionName: 'components_sections_accordions';
-  info: {
-    displayName: 'Accordion';
-    description: '';
-  };
-  attributes: {
-    title: Attribute.Component<'shared.heading'>;
-    expandLink: Attribute.Relation<
-      'sections.accordion',
-      'oneToOne',
-      'api::link.link'
-    >;
-    collapseLink: Attribute.Relation<
-      'sections.accordion',
-      'oneToOne',
-      'api::link.link'
-    >;
-    item: Attribute.Component<'shared.accordion-item', true>;
-  };
-}
-
 export interface SharedWave extends Schema.Component {
   collectionName: 'components_shared_waves';
   info: {
@@ -474,7 +89,7 @@ export interface SharedTabCardTheme extends Schema.Component {
     description: '';
   };
   attributes: {
-    color: Attribute.Enumeration<
+    Color: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -486,7 +101,7 @@ export interface SharedTabCardTheme extends Schema.Component {
         'quinary'
       ]
     >;
-    bgColor: Attribute.Enumeration<
+    BgColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -498,7 +113,7 @@ export interface SharedTabCardTheme extends Schema.Component {
         'quinary'
       ]
     >;
-    linkColor: Attribute.Enumeration<
+    LinkColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -859,6 +474,23 @@ export interface SharedButton extends Schema.Component {
   };
 }
 
+export interface SharedArticleCategory extends Schema.Component {
+  collectionName: 'components_shared_article_categories';
+  info: {
+    displayName: 'ArticleCategory';
+  };
+  attributes: {
+    slug: Attribute.String;
+    label: Attribute.String;
+    description: Attribute.Text;
+    articles: Attribute.Relation<
+      'shared.article-category',
+      'oneToMany',
+      'api::article.article'
+    >;
+  };
+}
+
 export interface SharedArticleCategoryTab extends Schema.Component {
   collectionName: 'components_shared_article_category_tabs';
   info: {
@@ -866,7 +498,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
     description: '';
   };
   attributes: {
-    color: Attribute.Enumeration<
+    Color: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -878,7 +510,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
         'quinary'
       ]
     >;
-    bgColor: Attribute.Enumeration<
+    BgColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -890,7 +522,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
         'quinary'
       ]
     >;
-    borderColor: Attribute.Enumeration<
+    BorderColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -902,7 +534,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
         'quinary'
       ]
     >;
-    activeColor: Attribute.Enumeration<
+    ActiveColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -914,7 +546,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
         'quinary'
       ]
     >;
-    activeBgColor: Attribute.Enumeration<
+    ActiveBgColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -926,7 +558,7 @@ export interface SharedArticleCategoryTab extends Schema.Component {
         'quinary'
       ]
     >;
-    activeBorderColor: Attribute.Enumeration<
+    ActiveBorderColor: Attribute.Enumeration<
       [
         'white',
         'black',
@@ -959,6 +591,392 @@ export interface SharedAccordionItem extends Schema.Component {
   };
 }
 
+export interface SectionsWaveBanner extends Schema.Component {
+  collectionName: 'components_sections_wave_banners';
+  info: {
+    displayName: 'waveBanner';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    image: Attribute.Component<'shared.image'>;
+    isLargeImage: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    text: Attribute.String;
+    cta: Attribute.Component<'shared.button'>;
+    backgroundColor: Attribute.Enumeration<
+      ['primary', 'secondary', 'tertiary']
+    > &
+      Attribute.Required &
+      Attribute.DefaultTo<'primary'>;
+    isTextBox: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+  };
+}
+
+export interface SectionsTwoColumns extends Schema.Component {
+  collectionName: 'components_sections_two_columns';
+  info: {
+    displayName: 'TwoColumns';
+  };
+  attributes: {
+    bottomWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    ratio: Attribute.Enumeration<['one:one', 'two:one']>;
+    theme: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    column: Attribute.Relation<
+      'sections.two-columns',
+      'oneToOne',
+      'api::column.column'
+    >;
+  };
+}
+
+export interface SectionsTopStripe extends Schema.Component {
+  collectionName: 'components_sections_top_stripes';
+  info: {
+    displayName: 'stripe';
+    description: '';
+  };
+  attributes: {
+    theme: Attribute.Component<'shared.color'>;
+    socialMedia: Attribute.Relation<
+      'sections.top-stripe',
+      'oneToMany',
+      'api::social-media.social-media'
+    >;
+  };
+}
+
+export interface SectionsTimeline extends Schema.Component {
+  collectionName: 'components_sections_timelines';
+  info: {
+    displayName: 'Timeline';
+    description: '';
+  };
+  attributes: {
+    heading: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.timeline-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.timeline',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsTestimonials extends Schema.Component {
+  collectionName: 'components_sections_testimonials';
+  info: {
+    displayName: 'Testimonials';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    card: Attribute.Component<'shared.testimonials-card', true>;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    theme: Attribute.Relation<
+      'sections.testimonials',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsSecondaryBanner extends Schema.Component {
+  collectionName: 'components_sections_secondary_banners';
+  info: {
+    displayName: 'secondaryBanner';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    title: Attribute.Component<'shared.heading'>;
+    text: Attribute.Text;
+    image: Attribute.Component<'shared.image'> & Attribute.Required;
+    cta1: Attribute.Component<'shared.button'>;
+    cta2: Attribute.Component<'shared.button'>;
+    theme: Attribute.Relation<
+      'sections.secondary-banner',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsRichText extends Schema.Component {
+  collectionName: 'components_sections_rich_texts';
+  info: {
+    name: 'RichText';
+    displayName: 'richText';
+    icon: 'text-height';
+    description: '';
+  };
+  attributes: {
+    content: Attribute.RichText;
+  };
+}
+
+export interface SectionsPersonellCards extends Schema.Component {
+  collectionName: 'components_sections_personell_cards';
+  info: {
+    displayName: 'Personell\u0421ards';
+    description: '';
+  };
+  attributes: {
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    title: Attribute.Component<'shared.heading'>;
+    card: Attribute.Component<'shared.personellcard', true>;
+  };
+}
+
+export interface SectionsOverlayBlockTest extends Schema.Component {
+  collectionName: 'components_sections_overlay_block_tests';
+  info: {
+    displayName: 'overlayBlockTest';
+  };
+  attributes: {
+    theme: Attribute.Component<'shared.color'>;
+  };
+}
+
+export interface SectionsInfoCardsTypeA extends Schema.Component {
+  collectionName: 'components_sections_info_cards_type_as';
+  info: {
+    displayName: 'InformationCards';
+    description: '';
+  };
+  attributes: {
+    Button: Attribute.Component<'shared.button'>;
+    Card: Attribute.Component<'shared.noodles-card', true>;
+    Theme: Attribute.Relation<
+      'sections.info-cards-type-a',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    Title: Attribute.Relation<
+      'sections.info-cards-type-a',
+      'oneToOne',
+      'api::title.title'
+    >;
+    Text: Attribute.Text;
+  };
+}
+
+export interface SectionsImageBanner extends Schema.Component {
+  collectionName: 'components_sections_image_banners';
+  info: {
+    displayName: 'imageBanner';
+    description: '';
+  };
+  attributes: {
+    card: Attribute.Component<'shared.image-card'>;
+    Image: Attribute.Media<'images'>;
+    theme: Attribute.Relation<
+      'sections.image-banner',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsHeroBanner extends Schema.Component {
+  collectionName: 'components_sections_hero_banners';
+  info: {
+    displayName: 'heroBanner';
+    description: '';
+  };
+  attributes: {
+    Image: Attribute.Media<'images'>;
+    Cta: Attribute.Component<'shared.button'>;
+    OverlayBlock: Attribute.Component<'shared.overlay-block'>;
+  };
+}
+
+export interface SectionsGetInTouchForm extends Schema.Component {
+  collectionName: 'components_sections_get_in_touch_forms';
+  info: {
+    displayName: 'GetInTouchForm';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
+    showWave: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    formId: Attribute.String;
+  };
+}
+
+export interface SectionsEmailForm extends Schema.Component {
+  collectionName: 'components_sections_email_forms';
+  info: {
+    displayName: 'emailForm';
+  };
+  attributes: {
+    title: Attribute.String;
+    text: Attribute.Text;
+    url: Attribute.String;
+  };
+}
+
+export interface SectionsContactBanner extends Schema.Component {
+  collectionName: 'components_sections_contact_banners';
+  info: {
+    displayName: 'ContactBanner';
+  };
+  attributes: {
+    column: Attribute.Component<'shared.contact-column', true>;
+    theme: Attribute.Relation<
+      'sections.contact-banner',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsColumns extends Schema.Component {
+  collectionName: 'components_sections_columns';
+  info: {
+    displayName: 'columns';
+    description: '';
+  };
+  attributes: {
+    Heading: Attribute.Component<'shared.heading'>;
+    CTA: Attribute.Component<'shared.button'>;
+    ShowWave: Attribute.Boolean & Attribute.DefaultTo<false>;
+    Theme: Attribute.Relation<
+      'sections.columns',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    Articles: Attribute.Relation<
+      'sections.columns',
+      'oneToMany',
+      'api::article.article'
+    >;
+  };
+}
+
+export interface SectionsColumnsWithTabs extends Schema.Component {
+  collectionName: 'components_sections_columns_with_tabs';
+  info: {
+    displayName: 'columnsWithTabs';
+    description: '';
+  };
+  attributes: {
+    CTA: Attribute.Component<'shared.button'>;
+    MaxCardsToDisplay: Attribute.Integer & Attribute.DefaultTo<3>;
+    TabTheme: Attribute.Component<'shared.article-category-tab'>;
+    TabCardTheme: Attribute.Component<'shared.tab-card-theme'>;
+  };
+}
+
+export interface SectionsChart extends Schema.Component {
+  collectionName: 'components_sections_charts';
+  info: {
+    displayName: 'Chart';
+  };
+  attributes: {
+    title: Attribute.String;
+    outline: Attribute.Boolean & Attribute.DefaultTo<false>;
+    url: Attribute.String;
+  };
+}
+
+export interface SectionsCarousel extends Schema.Component {
+  collectionName: 'components_sections_carousels';
+  info: {
+    displayName: 'carousel';
+    description: '';
+  };
+  attributes: {
+    name: Attribute.String &
+      Attribute.Required &
+      Attribute.SetMinMaxLength<{
+        maxLength: 256;
+      }>;
+    title: Attribute.Component<'shared.heading'>;
+    elements: Attribute.Component<'shared.image', true> &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 1;
+          max: 50;
+        },
+        number
+      >;
+    cta: Attribute.Component<'shared.button'>;
+  };
+}
+
+export interface SectionsBlocksGrid extends Schema.Component {
+  collectionName: 'components_sections_blocks_grids';
+  info: {
+    displayName: 'blocksGrid';
+    description: '';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Block: Attribute.Component<'shared.grid-block', true>;
+    Theme: Attribute.Relation<
+      'sections.blocks-grid',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+  };
+}
+
+export interface SectionsAccordion extends Schema.Component {
+  collectionName: 'components_sections_accordions';
+  info: {
+    displayName: 'Accordion';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.Component<'shared.heading'>;
+    expandLink: Attribute.Relation<
+      'sections.accordion',
+      'oneToOne',
+      'api::link.link'
+    >;
+    collapseLink: Attribute.Relation<
+      'sections.accordion',
+      'oneToOne',
+      'api::link.link'
+    >;
+    item: Attribute.Component<'shared.accordion-item', true>;
+  };
+}
+
 export interface MetaMetadata extends Schema.Component {
   collectionName: 'components_meta_metadata';
   info: {
@@ -976,6 +994,28 @@ export interface MetaMetadata extends Schema.Component {
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
+      'shared.wave': SharedWave;
+      'shared.video': SharedVideo;
+      'shared.timeline-card': SharedTimelineCard;
+      'shared.testimonials-card': SharedTestimonialsCard;
+      'shared.tab-card-theme': SharedTabCardTheme;
+      'shared.seo': SharedSeo;
+      'shared.personellcard': SharedPersonellcard;
+      'shared.overlay-block': SharedOverlayBlock;
+      'shared.noodles-card': SharedNoodlesCard;
+      'shared.meta-social': SharedMetaSocial;
+      'shared.link': SharedLink;
+      'shared.image': SharedImage;
+      'shared.image-card': SharedImageCard;
+      'shared.heading': SharedHeading;
+      'shared.grid-block': SharedGridBlock;
+      'shared.contact-column': SharedContactColumn;
+      'shared.column-card': SharedColumnCard;
+      'shared.color': SharedColor;
+      'shared.button': SharedButton;
+      'shared.article-category': SharedArticleCategory;
+      'shared.article-category-tab': SharedArticleCategoryTab;
+      'shared.accordion-item': SharedAccordionItem;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -997,27 +1037,6 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
-      'shared.wave': SharedWave;
-      'shared.video': SharedVideo;
-      'shared.timeline-card': SharedTimelineCard;
-      'shared.testimonials-card': SharedTestimonialsCard;
-      'shared.tab-card-theme': SharedTabCardTheme;
-      'shared.seo': SharedSeo;
-      'shared.personellcard': SharedPersonellcard;
-      'shared.overlay-block': SharedOverlayBlock;
-      'shared.noodles-card': SharedNoodlesCard;
-      'shared.meta-social': SharedMetaSocial;
-      'shared.link': SharedLink;
-      'shared.image': SharedImage;
-      'shared.image-card': SharedImageCard;
-      'shared.heading': SharedHeading;
-      'shared.grid-block': SharedGridBlock;
-      'shared.contact-column': SharedContactColumn;
-      'shared.column-card': SharedColumnCard;
-      'shared.color': SharedColor;
-      'shared.button': SharedButton;
-      'shared.article-category-tab': SharedArticleCategoryTab;
-      'shared.accordion-item': SharedAccordionItem;
       'meta.metadata': MetaMetadata;
     }
   }
