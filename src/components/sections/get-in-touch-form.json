@@ -21,6 +21,9 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "formId": {
+      "type": "string"
     }
   }
 }

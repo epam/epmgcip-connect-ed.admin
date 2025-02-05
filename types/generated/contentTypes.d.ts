@@ -794,6 +794,7 @@ export interface ApiArticleArticle extends Schema.CollectionType {
     singularName: 'article';
     pluralName: 'articles';
     displayName: 'article';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -840,6 +841,11 @@ export interface ApiArticleArticle extends Schema.CollectionType {
       'api::article.article',
       'manyToOne',
       'api::article-category.article-category'
+    >;
+    theme: Attribute.Relation<
+      'api::article.article',
+      'oneToOne',
+      'api::theme.theme'
     >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
@@ -1465,6 +1471,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
     singularName: 'social-media';
     pluralName: 'social-medias';
     displayName: 'SocialMedia';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -1481,6 +1488,7 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
       'oneToOne',
       'api::theme.theme'
     >;
+    url: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
