@@ -6,22 +6,22 @@
   },
   "options": {},
   "attributes": {
-    "heading": {
+    "Heading": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "card": {
+    "Card": {
       "type": "component",
       "repeatable": true,
       "component": "shared.timeline-card"
     },
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"

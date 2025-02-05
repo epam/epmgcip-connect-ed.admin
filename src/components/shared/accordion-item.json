@@ -6,17 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "title": {
+    "Title": {
       "type": "string"
     },
-    "shortDescription": {
+    "ShortDescription": {
       "type": "string",
       "required": true
     },
-    "longDescription": {
+    "LongDescription": {
       "type": "text"
     },
-    "button": {
+    "Button": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::button.button"

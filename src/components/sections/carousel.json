@@ -6,17 +6,17 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
       "required": true,
       "maxLength": 256
     },
-    "title": {
+    "Title": {
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
     },
-    "elements": {
+    "Elements": {
       "type": "component",
       "repeatable": true,
       "component": "shared.image",
@@ -24,7 +24,7 @@
       "min": 1,
       "max": 50
     },
-    "cta": {
+    "CTA": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"

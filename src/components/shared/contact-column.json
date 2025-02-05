@@ -6,23 +6,24 @@
   },
   "options": {},
   "attributes": {
-    "title": {
-      "type": "string",
-      "required": true
-    },
-    "text": {
+    "Text": {
       "type": "string",
       "required": true,
       "maxLength": 42
     },
-    "label": {
+    "Label": {
       "type": "string",
       "required": true
     },
-    "showWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

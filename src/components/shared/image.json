@@ -6,11 +6,11 @@
   },
   "options": {},
   "attributes": {
-    "name": {
+    "Name": {
       "type": "string",
       "maxLength": 256
     },
-    "image": {
+    "Image": {
       "type": "media",
       "multiple": false,
       "required": false,
@@ -18,18 +18,19 @@
         "images"
       ]
     },
-    "altText": {
+    "AltText": {
       "type": "string"
     },
-    "isIcon": {
+    "IsIcon": {
       "type": "boolean"
     },
-    "url": {
+    "URL": {
       "type": "string",
       "regex": "^(https?:\\/\\/)?"
     },
-    "newTab": {
-      "type": "boolean"
+    "Open": {
+      "type": "boolean",
+      "default": false
     }
   }
 }

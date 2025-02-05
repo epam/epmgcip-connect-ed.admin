@@ -14,7 +14,7 @@
         "images"
       ]
     },
-    "Cta": {
+    "CTA": {
       "type": "component",
       "repeatable": false,
       "component": "shared.button"

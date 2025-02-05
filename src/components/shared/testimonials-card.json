@@ -6,7 +6,7 @@
   },
   "options": {},
   "attributes": {
-    "icon": {
+    "Icon": {
       "type": "media",
       "multiple": true,
       "required": false,
@@ -14,21 +14,22 @@
         "images"
       ]
     },
-    "title": {
-      "type": "string",
-      "maxLength": 256
-    },
-    "text": {
+    "Text": {
       "type": "text",
       "required": true
     },
-    "author": {
+    "Author": {
       "type": "text"
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }

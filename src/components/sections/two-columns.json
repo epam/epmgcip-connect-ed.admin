@@ -1,28 +1,29 @@
 {
   "collectionName": "components_sections_two_columns",
   "info": {
-    "displayName": "TwoColumns"
+    "displayName": "TwoColumns",
+    "description": ""
   },
   "options": {},
   "attributes": {
-    "bottomWave": {
+    "ShowWave": {
       "type": "boolean",
       "default": false,
       "required": true
     },
-    "ratio": {
+    "Ratio": {
       "type": "enumeration",
       "enum": [
         "one:one",
         "two:one"
       ]
     },
-    "theme": {
+    "Theme": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::theme.theme"
     },
-    "column": {
+    "Column": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::column.column"

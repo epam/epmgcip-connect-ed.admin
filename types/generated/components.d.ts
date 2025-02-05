@@ -42,20 +42,21 @@ export interface SharedTimelineCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    text: Attribute.Text & Attribute.Required;
-    image: Attribute.Relation<
+    Text: Attribute.Text & Attribute.Required;
+    Image: Attribute.Relation<
       'shared.timeline-card',
       'oneToOne',
       'api::image.image'
     >;
-    theme: Attribute.Relation<
+    Theme: Attribute.Relation<
       'shared.timeline-card',
       'oneToOne',
       'api::theme.theme'
+    >;
+    Title: Attribute.Relation<
+      'shared.timeline-card',
+      'oneToOne',
+      'api::title.title'
     >;
   };
 }
@@ -67,17 +68,18 @@ export interface SharedTestimonialsCard extends Schema.Component {
     description: '';
   };
   attributes: {
-    icon: Attribute.Media<'images', true>;
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    text: Attribute.Text & Attribute.Required;
-    author: Attribute.Text;
-    theme: Attribute.Relation<
+    Icon: Attribute.Media<'images', true>;
+    Text: Attribute.Text & Attribute.Required;
+    Author: Attribute.Text;
+    Theme: Attribute.Relation<
       'shared.testimonials-card',
       'oneToOne',
       'api::theme.theme'
+    >;
+    Title: Attribute.Relation<
+      'shared.testimonials-card',
+      'oneToOne',
+      'api::title.title'
     >;
   };
 }
@@ -163,22 +165,22 @@ export interface SharedPersonellcard extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String &
+    Title: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    text: Attribute.String & Attribute.Required;
-    image: Attribute.Relation<
+    Text: Attribute.String & Attribute.Required;
+    Image: Attribute.Relation<
       'shared.personellcard',
       'oneToOne',
       'api::image.image'
     >;
-    theme: Attribute.Relation<
+    Theme: Attribute.Relation<
       'shared.personellcard',
       'oneToOne',
       'api::theme.theme'
     >;
-    socialMedias: Attribute.Relation<
+    SocialMedias: Attribute.Relation<
       'shared.personellcard',
       'oneToMany',
       'api::social-media.social-media'
@@ -288,15 +290,15 @@ export interface SharedImage extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String &
+    Name: Attribute.String &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    image: Attribute.Media<'images'>;
-    altText: Attribute.String;
-    isIcon: Attribute.Boolean;
-    url: Attribute.String;
-    newTab: Attribute.Boolean;
+    Image: Attribute.Media<'images'>;
+    AltText: Attribute.String;
+    IsIcon: Attribute.Boolean;
+    URL: Attribute.String;
+    Open: Attribute.Boolean & Attribute.DefaultTo<false>;
   };
 }
 
@@ -373,16 +375,20 @@ export interface SharedContactColumn extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String & Attribute.Required;
-    text: Attribute.String &
+    Text: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 42;
       }>;
-    label: Attribute.String & Attribute.Required;
-    showWave: Attribute.Boolean &
+    Label: Attribute.String & Attribute.Required;
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
+    Title: Attribute.Relation<
+      'shared.contact-column',
+      'oneToOne',
+      'api::title.title'
+    >;
   };
 }
 
@@ -580,10 +586,10 @@ export interface SharedAccordionItem extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    shortDescription: Attribute.String & Attribute.Required;
-    longDescription: Attribute.Text;
-    button: Attribute.Relation<
+    Title: Attribute.String;
+    ShortDescription: Attribute.String & Attribute.Required;
+    LongDescription: Attribute.Text;
+    Button: Attribute.Relation<
       'shared.accordion-item',
       'oneToOne',
       'api::button.button'
@@ -598,24 +604,24 @@ export interface SectionsWaveBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String &
+    Name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    image: Attribute.Component<'shared.image'>;
-    isLargeImage: Attribute.Boolean &
+    Image: Attribute.Component<'shared.image'>;
+    IsLargeImage: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    title: Attribute.Component<'shared.heading'>;
-    text: Attribute.String;
-    cta: Attribute.Component<'shared.button'>;
-    backgroundColor: Attribute.Enumeration<
+    Title: Attribute.Component<'shared.heading'>;
+    Text: Attribute.String;
+    CTA: Attribute.Component<'shared.button'>;
+    BackgroundColor: Attribute.Enumeration<
       ['primary', 'secondary', 'tertiary']
     > &
       Attribute.Required &
       Attribute.DefaultTo<'primary'>;
-    isTextBox: Attribute.Boolean &
+    IsTextBox: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
   };
@@ -625,18 +631,19 @@ export interface SectionsTwoColumns extends Schema.Component {
   collectionName: 'components_sections_two_columns';
   info: {
     displayName: 'TwoColumns';
+    description: '';
   };
   attributes: {
-    bottomWave: Attribute.Boolean &
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    ratio: Attribute.Enumeration<['one:one', 'two:one']>;
-    theme: Attribute.Relation<
+    Ratio: Attribute.Enumeration<['one:one', 'two:one']>;
+    Theme: Attribute.Relation<
       'sections.two-columns',
       'oneToOne',
       'api::theme.theme'
     >;
-    column: Attribute.Relation<
+    Column: Attribute.Relation<
       'sections.two-columns',
       'oneToOne',
       'api::column.column'
@@ -651,11 +658,15 @@ export interface SectionsTopStripe extends Schema.Component {
     description: '';
   };
   attributes: {
-    theme: Attribute.Component<'shared.color'>;
-    socialMedia: Attribute.Relation<
+    SocialMedia: Attribute.Relation<
       'sections.top-stripe',
       'oneToMany',
       'api::social-media.social-media'
+    >;
+    Theme: Attribute.Relation<
+      'sections.top-stripe',
+      'oneToOne',
+      'api::theme.theme'
     >;
   };
 }
@@ -667,12 +678,12 @@ export interface SectionsTimeline extends Schema.Component {
     description: '';
   };
   attributes: {
-    heading: Attribute.Component<'shared.heading'>;
-    card: Attribute.Component<'shared.timeline-card', true>;
-    showWave: Attribute.Boolean &
+    Heading: Attribute.Component<'shared.heading'>;
+    Card: Attribute.Component<'shared.timeline-card', true>;
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
+    Theme: Attribute.Relation<
       'sections.timeline',
       'oneToOne',
       'api::theme.theme'
@@ -687,18 +698,19 @@ export interface SectionsTestimonials extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String &
-      Attribute.SetMinMaxLength<{
-        maxLength: 256;
-      }>;
-    card: Attribute.Component<'shared.testimonials-card', true>;
-    showWave: Attribute.Boolean &
+    Card: Attribute.Component<'shared.testimonials-card', true>;
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    theme: Attribute.Relation<
+    Theme: Attribute.Relation<
       'sections.testimonials',
       'oneToOne',
       'api::theme.theme'
+    >;
+    Title: Attribute.Relation<
+      'sections.testimonials',
+      'oneToOne',
+      'api::title.title'
     >;
   };
 }
@@ -710,17 +722,17 @@ export interface SectionsSecondaryBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String &
+    Name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    title: Attribute.Component<'shared.heading'>;
-    text: Attribute.Text;
-    image: Attribute.Component<'shared.image'> & Attribute.Required;
-    cta1: Attribute.Component<'shared.button'>;
-    cta2: Attribute.Component<'shared.button'>;
-    theme: Attribute.Relation<
+    Title: Attribute.Component<'shared.heading'>;
+    Text: Attribute.Text;
+    Image: Attribute.Component<'shared.image'> & Attribute.Required;
+    CTA1: Attribute.Component<'shared.button'>;
+    CTA2: Attribute.Component<'shared.button'>;
+    Theme: Attribute.Relation<
       'sections.secondary-banner',
       'oneToOne',
       'api::theme.theme'
@@ -737,7 +749,7 @@ export interface SectionsRichText extends Schema.Component {
     description: '';
   };
   attributes: {
-    content: Attribute.RichText;
+    Content: Attribute.RichText;
   };
 }
 
@@ -748,11 +760,11 @@ export interface SectionsPersonellCards extends Schema.Component {
     description: '';
   };
   attributes: {
-    showWave: Attribute.Boolean &
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    title: Attribute.Component<'shared.heading'>;
-    card: Attribute.Component<'shared.personellcard', true>;
+    Title: Attribute.Component<'shared.heading'>;
+    Card: Attribute.Component<'shared.personellcard', true>;
   };
 }
 
@@ -760,9 +772,14 @@ export interface SectionsOverlayBlockTest extends Schema.Component {
   collectionName: 'components_sections_overlay_block_tests';
   info: {
     displayName: 'overlayBlockTest';
+    description: '';
   };
   attributes: {
-    theme: Attribute.Component<'shared.color'>;
+    Theme: Attribute.Relation<
+      'sections.overlay-block-test',
+      'oneToOne',
+      'api::theme.theme'
+    >;
   };
 }
 
@@ -796,9 +813,9 @@ export interface SectionsImageBanner extends Schema.Component {
     description: '';
   };
   attributes: {
-    card: Attribute.Component<'shared.image-card'>;
+    Card: Attribute.Component<'shared.image-card'>;
     Image: Attribute.Media<'images'>;
-    theme: Attribute.Relation<
+    Theme: Attribute.Relation<
       'sections.image-banner',
       'oneToOne',
       'api::theme.theme'
@@ -814,7 +831,7 @@ export interface SectionsHeroBanner extends Schema.Component {
   };
   attributes: {
     Image: Attribute.Media<'images'>;
-    Cta: Attribute.Component<'shared.button'>;
+    CTA: Attribute.Component<'shared.button'>;
     OverlayBlock: Attribute.Component<'shared.overlay-block'>;
   };
 }
@@ -826,13 +843,17 @@ export interface SectionsGetInTouchForm extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
-    showWave: Attribute.Boolean &
+    Text: Attribute.Text;
+    URL: Attribute.String;
+    ShowWave: Attribute.Boolean &
       Attribute.Required &
       Attribute.DefaultTo<false>;
-    formId: Attribute.String;
+    FormId: Attribute.String;
+    Title: Attribute.Relation<
+      'sections.get-in-touch-form',
+      'oneToOne',
+      'api::title.title'
+    >;
   };
 }
 
@@ -840,11 +861,16 @@ export interface SectionsEmailForm extends Schema.Component {
   collectionName: 'components_sections_email_forms';
   info: {
     displayName: 'emailForm';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    text: Attribute.Text;
-    url: Attribute.String;
+    Text: Attribute.Text;
+    URL: Attribute.String;
+    Title: Attribute.Relation<
+      'sections.email-form',
+      'oneToOne',
+      'api::title.title'
+    >;
   };
 }
 
@@ -852,10 +878,11 @@ export interface SectionsContactBanner extends Schema.Component {
   collectionName: 'components_sections_contact_banners';
   info: {
     displayName: 'ContactBanner';
+    description: '';
   };
   attributes: {
-    column: Attribute.Component<'shared.contact-column', true>;
-    theme: Attribute.Relation<
+    Column: Attribute.Component<'shared.contact-column', true>;
+    Theme: Attribute.Relation<
       'sections.contact-banner',
       'oneToOne',
       'api::theme.theme'
@@ -904,11 +931,12 @@ export interface SectionsChart extends Schema.Component {
   collectionName: 'components_sections_charts';
   info: {
     displayName: 'Chart';
+    description: '';
   };
   attributes: {
-    title: Attribute.String;
-    outline: Attribute.Boolean & Attribute.DefaultTo<false>;
-    url: Attribute.String;
+    Outline: Attribute.Boolean & Attribute.DefaultTo<false>;
+    URL: Attribute.String;
+    Title: Attribute.Relation<'sections.chart', 'oneToOne', 'api::title.title'>;
   };
 }
 
@@ -919,13 +947,13 @@ export interface SectionsCarousel extends Schema.Component {
     description: '';
   };
   attributes: {
-    name: Attribute.String &
+    Name: Attribute.String &
       Attribute.Required &
       Attribute.SetMinMaxLength<{
         maxLength: 256;
       }>;
-    title: Attribute.Component<'shared.heading'>;
-    elements: Attribute.Component<'shared.image', true> &
+    Title: Attribute.Component<'shared.heading'>;
+    Elements: Attribute.Component<'shared.image', true> &
       Attribute.Required &
       Attribute.SetMinMax<
         {
@@ -934,7 +962,7 @@ export interface SectionsCarousel extends Schema.Component {
         },
         number
       >;
-    cta: Attribute.Component<'shared.button'>;
+    CTA: Attribute.Component<'shared.button'>;
   };
 }
 
@@ -962,18 +990,18 @@ export interface SectionsAccordion extends Schema.Component {
     description: '';
   };
   attributes: {
-    title: Attribute.Component<'shared.heading'>;
-    expandLink: Attribute.Relation<
+    Title: Attribute.Component<'shared.heading'>;
+    ExpandLink: Attribute.Relation<
       'sections.accordion',
       'oneToOne',
       'api::link.link'
     >;
-    collapseLink: Attribute.Relation<
+    CollapseLink: Attribute.Relation<
       'sections.accordion',
       'oneToOne',
       'api::link.link'
     >;
-    item: Attribute.Component<'shared.accordion-item', true>;
+    Item: Attribute.Component<'shared.accordion-item', true>;
   };
 }
 
