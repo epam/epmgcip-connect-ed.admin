@@ -6,30 +6,14 @@
   },
   "options": {},
   "attributes": {
-    "CTA": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.button"
-    },
     "MaxCardsToDisplay": {
       "type": "integer",
       "default": 3
     },
-    "TabTheme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.article-category-tab"
-    },
-    "TabCardTheme": {
-      "displayName": "tabCardTheme",
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.tab-card-theme"
-    },
     "Tabs": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.tabs"
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tab-container.tab-container"
     }
   }
 }

@@ -1437,6 +1437,44 @@ export interface ApiSocialMediaSocialMedia extends Schema.CollectionType {
   };
 }
 
+export interface ApiTabContainerTabContainer extends Schema.CollectionType {
+  collectionName: 'tab_containers';
+  info: {
+    singularName: 'tab-container';
+    pluralName: 'tab-containers';
+    displayName: 'TabContainer';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    Tabs: Attribute.Component<'shared.tabs', true>;
+    TabTheme: Attribute.Component<'shared.tab-card-theme', true>;
+    CTA: Attribute.Relation<
+      'api::tab-container.tab-container',
+      'oneToOne',
+      'api::button.button'
+    >;
+    TabCardTheme: Attribute.Component<'shared.tab-card-theme', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::tab-container.tab-container',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::tab-container.tab-container',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiThemeTheme extends Schema.CollectionType {
   collectionName: 'themes';
   info: {
@@ -1553,6 +1591,7 @@ declare module '@strapi/types' {
       'api::link.link': ApiLinkLink;
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::tab-container.tab-container': ApiTabContainerTabContainer;
       'api::theme.theme': ApiThemeTheme;
       'api::title.title': ApiTitleTitle;
     }

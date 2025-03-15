@@ -940,11 +940,12 @@ export interface SectionsColumnsWithTabs extends Schema.Component {
     description: '';
   };
   attributes: {
-    CTA: Attribute.Component<'shared.button'>;
     MaxCardsToDisplay: Attribute.Integer & Attribute.DefaultTo<3>;
-    TabTheme: Attribute.Component<'shared.article-category-tab'>;
-    TabCardTheme: Attribute.Component<'shared.tab-card-theme'>;
-    Tabs: Attribute.Component<'shared.tabs'>;
+    Tabs: Attribute.Relation<
+      'sections.columns-with-tabs',
+      'oneToMany',
+      'api::tab-container.tab-container'
+    >;
   };
 }
 

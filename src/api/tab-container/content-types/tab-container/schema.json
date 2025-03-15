@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tab_containers",
+  "info": {
+    "singularName": "tab-container",
+    "pluralName": "tab-containers",
+    "displayName": "TabContainer",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Tabs": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tabs"
+    },
+    "TabTheme": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tab-card-theme"
+    },
+    "CTA": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button.button"
+    },
+    "TabCardTheme": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tab-card-theme"
+    }
+  }
+}
