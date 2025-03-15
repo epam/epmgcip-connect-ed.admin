@@ -1371,7 +1371,8 @@ export interface ApiPagePage extends Schema.CollectionType {
         'sections.email-form',
         'sections.overlay-block-test',
         'sections.personell-cards',
-        'sections.top-stripe'
+        'sections.top-stripe',
+        'sections.ways-to-donate'
       ]
     > &
       Attribute.SetPluginOptions<{

@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_sections_ways_to_donates",
+  "info": {
+    "displayName": "WaysToDonate"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Tabs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tab-container.tab-container"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Card": {
+      "displayName": "Card",
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.card"
+    }
+  }
+}

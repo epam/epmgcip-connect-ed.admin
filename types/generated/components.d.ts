@@ -470,6 +470,19 @@ export interface SharedColor extends Schema.Component {
   };
 }
 
+export interface SharedCard extends Schema.Component {
+  collectionName: 'components_shared_cards';
+  info: {
+    displayName: 'Card';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Text: Attribute.String;
+    Link: Attribute.Relation<'shared.card', 'oneToOne', 'api::button.button'>;
+    qrCodeLink: Attribute.String;
+  };
+}
+
 export interface SharedButton extends Schema.Component {
   collectionName: 'components_links_simple_buttons';
   info: {
@@ -612,6 +625,41 @@ export interface SharedAccordionItem extends Schema.Component {
       'oneToOne',
       'api::button.button'
     >;
+  };
+}
+
+export interface MetaMetadata extends Schema.Component {
+  collectionName: 'components_meta_metadata';
+  info: {
+    name: 'Metadata';
+    displayName: 'Metadata';
+    icon: 'robot';
+    description: '';
+  };
+  attributes: {
+    metaTitle: Attribute.String & Attribute.Required;
+    metaDescription: Attribute.Text & Attribute.Required;
+  };
+}
+
+export interface SectionsWaysToDonate extends Schema.Component {
+  collectionName: 'components_sections_ways_to_donates';
+  info: {
+    displayName: 'WaysToDonate';
+  };
+  attributes: {
+    Title: Attribute.String;
+    Tabs: Attribute.Relation<
+      'sections.ways-to-donate',
+      'oneToMany',
+      'api::tab-container.tab-container'
+    >;
+    Theme: Attribute.Relation<
+      'sections.ways-to-donate',
+      'oneToOne',
+      'api::theme.theme'
+    >;
+    Card: Attribute.Component<'shared.card'>;
   };
 }
 
@@ -1027,20 +1075,6 @@ export interface SectionsAccordion extends Schema.Component {
   };
 }
 
-export interface MetaMetadata extends Schema.Component {
-  collectionName: 'components_meta_metadata';
-  info: {
-    name: 'Metadata';
-    displayName: 'Metadata';
-    icon: 'robot';
-    description: '';
-  };
-  attributes: {
-    metaTitle: Attribute.String & Attribute.Required;
-    metaDescription: Attribute.Text & Attribute.Required;
-  };
-}
-
 declare module '@strapi/types' {
   export module Shared {
     export interface Components {
@@ -1063,10 +1097,13 @@ declare module '@strapi/types' {
       'shared.contact-column': SharedContactColumn;
       'shared.column-card': SharedColumnCard;
       'shared.color': SharedColor;
+      'shared.card': SharedCard;
       'shared.button': SharedButton;
       'shared.article-category': SharedArticleCategory;
       'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.accordion-item': SharedAccordionItem;
+      'meta.metadata': MetaMetadata;
+      'sections.ways-to-donate': SectionsWaysToDonate;
       'sections.wave-banner': SectionsWaveBanner;
       'sections.two-columns': SectionsTwoColumns;
       'sections.top-stripe': SectionsTopStripe;
@@ -1088,7 +1125,6 @@ declare module '@strapi/types' {
       'sections.carousel': SectionsCarousel;
       'sections.blocks-grid': SectionsBlocksGrid;
       'sections.accordion': SectionsAccordion;
-      'meta.metadata': MetaMetadata;
     }
   }
 }
