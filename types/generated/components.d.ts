@@ -500,6 +500,7 @@ export interface SharedArticleCategory extends Schema.Component {
   collectionName: 'components_shared_article_categories';
   info: {
     displayName: 'ArticleCategory';
+    description: '';
   };
   attributes: {
     slug: Attribute.String;
@@ -510,6 +511,7 @@ export interface SharedArticleCategory extends Schema.Component {
       'oneToMany',
       'api::article.article'
     >;
+    theme: Attribute.Component<'shared.article-category-tab', true>;
   };
 }
 

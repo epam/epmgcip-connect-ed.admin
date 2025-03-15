@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_article_categories",
   "info": {
-    "displayName": "ArticleCategory"
+    "displayName": "ArticleCategory",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -18,6 +19,11 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
+    },
+    "theme": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.article-category-tab"
     }
   }
 }
