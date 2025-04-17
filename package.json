@@ -12,18 +12,17 @@
     "strapi": "strapi"
   },
   "dependencies": {
-    "@strapi-community/strapi-provider-upload-google-cloud-storage": "^4.10.5",
-    "@strapi/plugin-graphql": "^4.25.5",
-    "@strapi/plugin-i18n": "4.25.5",
-    "@strapi/plugin-seo": "^1.9.9",
-    "@strapi/plugin-users-permissions": "4.25.5",
-    "@strapi/strapi": "4.25.5",
-    "better-sqlite3": "11.1.2",
-    "pg": "^8.12.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^5.3.4",
-    "styled-components": "^5.3.11"
+    "@3akram/strapi-provider-upload-google-cloud-storage": "^1.2.0",
+    "@strapi/plugin-graphql": "^5.12.3",
+    "@strapi/plugin-seo": "^2.0.8",
+    "@strapi/plugin-users-permissions": "5.12.3",
+    "@strapi/strapi": "5.12.3",
+    "better-sqlite3": "11.9.1",
+    "pg": "^8.14.1",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.30.0",
+    "styled-components": "^6.1.17"
   },
   "author": {
     "name": "A Strapi developer"
@@ -32,7 +31,7 @@
     "uuid": "42b937aa-0f16-4a30-bb55-95f60ec03b48"
   },
   "engines": {
-    "node": ">=14.19.1 <=18.x.x",
+    "node": ">=18.20.2 <=20.x.x",
     "npm": ">=6.0.0"
   },
   "license": "MIT"
