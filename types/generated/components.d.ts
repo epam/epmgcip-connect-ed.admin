@@ -356,7 +356,6 @@ export interface SectionsWaysToDonate extends Struct.ComponentSchema {
     displayName: 'WaysToDonate';
   };
   attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     Card: Schema.Attribute.Component<'shared.card', false>;
     Tabs: Schema.Attribute.Relation<
       'oneToMany',

@@ -965,8 +965,8 @@ export interface ApiTabContainerTabContainer
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Tab: Schema.Attribute.Component<'shared.tabs', true>;
-    TabCardTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
     TabTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
+    Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -985,6 +985,7 @@ export interface ApiTabContentTabContent extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
