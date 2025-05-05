@@ -11,10 +11,12 @@
     "draftAndPublish": true
   },
   "attributes": {
-    "waysToDonate": {
-      "type": "component",
-      "repeatable": true,
-      "component": "sections.ways-to-donate"
+    "TabSection": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.ways-to-donate",
+        "shared.article-category"
+      ]
     }
   }
 }
