@@ -48,6 +48,14 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "default": "ltr"
     }
   }
 }

@@ -332,6 +332,8 @@ export interface SectionsWaveBanner extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'primary'>;
     CTA: Schema.Attribute.Component<'shared.button', false>;
+    direction: Schema.Attribute.Enumeration<['ltr', 'rtl']> &
+      Schema.Attribute.DefaultTo<'ltr'>;
     Image: Schema.Attribute.Component<'shared.image', false>;
     IsLargeImage: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
@@ -356,7 +358,6 @@ export interface SectionsWaysToDonate extends Struct.ComponentSchema {
     displayName: 'WaysToDonate';
   };
   attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     Card: Schema.Attribute.Component<'shared.card', false>;
     Tabs: Schema.Attribute.Relation<
       'oneToMany',
@@ -840,7 +841,7 @@ export interface SharedTabs extends Struct.ComponentSchema {
   attributes: {
     Description: Schema.Attribute.Text;
     Label: Schema.Attribute.String;
-    TabContent: Schema.Attribute.Relation<
+    tabContent: Schema.Attribute.Relation<
       'oneToOne',
       'api::tab-content.tab-content'
     >;

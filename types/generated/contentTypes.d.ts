@@ -965,8 +965,8 @@ export interface ApiTabContainerTabContainer
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
     Tab: Schema.Attribute.Component<'shared.tabs', true>;
-    TabCardTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
     TabTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
+    Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -995,10 +995,12 @@ export interface ApiTabContentTabContent extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    TabSection: Schema.Attribute.DynamicZone<
+      ['sections.ways-to-donate', 'shared.article-category']
+    >;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    waysToDonate: Schema.Attribute.Component<'sections.ways-to-donate', true>;
   };
 }
 
