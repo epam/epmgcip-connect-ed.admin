@@ -332,6 +332,8 @@ export interface SectionsWaveBanner extends Struct.ComponentSchema {
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<'primary'>;
     CTA: Schema.Attribute.Component<'shared.button', false>;
+    Direction: Schema.Attribute.Enumeration<['ltr', 'rtl']> &
+      Schema.Attribute.DefaultTo<'ltr'>;
     Image: Schema.Attribute.Component<'shared.image', false>;
     IsLargeImage: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
