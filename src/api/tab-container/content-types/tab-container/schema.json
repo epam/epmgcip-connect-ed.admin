@@ -12,7 +12,7 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "Tabs": {
+    "Tab": {
       "type": "component",
       "repeatable": true,
       "component": "shared.tabs"
@@ -21,11 +21,6 @@
       "type": "component",
       "repeatable": true,
       "component": "shared.tab-card-theme"
-    },
-    "CTA": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::button.button"
     },
     "TabCardTheme": {
       "type": "component",

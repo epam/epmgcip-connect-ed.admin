@@ -1,7 +1,8 @@
 {
   "collectionName": "components_shared_tabs",
   "info": {
-    "displayName": "Tabs"
+    "displayName": "Tabs",
+    "description": ""
   },
   "options": {},
   "attributes": {
@@ -11,10 +12,10 @@
     "Description": {
       "type": "text"
     },
-    "Articles": {
+    "TabContent": {
       "type": "relation",
-      "relation": "oneToMany",
-      "target": "api::article.article"
+      "relation": "oneToOne",
+      "target": "api::tab-content.tab-content"
     }
   }
 }

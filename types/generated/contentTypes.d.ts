@@ -919,6 +919,7 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+    image: Schema.Attribute.Relation<'oneToOne', 'api::image.image'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -956,7 +957,6 @@ export interface ApiTabContainerTabContainer
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    CTA: Schema.Attribute.Relation<'oneToOne', 'api::button.button'>;
     locale: Schema.Attribute.String & Schema.Attribute.Private;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
@@ -964,12 +964,41 @@ export interface ApiTabContainerTabContainer
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    Tab: Schema.Attribute.Component<'shared.tabs', true>;
     TabCardTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
-    Tabs: Schema.Attribute.Component<'shared.tabs', true>;
     TabTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTabContentTabContent extends Struct.CollectionTypeSchema {
+  collectionName: 'tab_contents';
+  info: {
+    description: '';
+    displayName: 'TabContent';
+    pluralName: 'tab-contents';
+    singularName: 'tab-content';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tab-content.tab-content'
+    > &
+      Schema.Attribute.Private;
+    publishedAt: Schema.Attribute.DateTime;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    waysToDonate: Schema.Attribute.Component<'sections.ways-to-donate', true>;
   };
 }
 
@@ -1573,6 +1602,7 @@ declare module '@strapi/strapi' {
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::tab-container.tab-container': ApiTabContainerTabContainer;
+      'api::tab-content.tab-content': ApiTabContentTabContent;
       'api::theme.theme': ApiThemeTheme;
       'api::title.title': ApiTitleTitle;
       'plugin::content-releases.release': PluginContentReleasesRelease;

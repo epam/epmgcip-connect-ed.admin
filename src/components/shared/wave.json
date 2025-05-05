@@ -22,6 +22,14 @@
     "isVisible": {
       "type": "boolean",
       "default": true
+    },
+    "direction": {
+      "type": "enumeration",
+      "enum": [
+        "ltr",
+        "rtl"
+      ],
+      "default": "ltr"
     }
   }
 }

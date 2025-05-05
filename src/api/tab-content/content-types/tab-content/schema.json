@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "tab_contents",
+  "info": {
+    "singularName": "tab-content",
+    "pluralName": "tab-contents",
+    "displayName": "TabContent",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "attributes": {
+    "waysToDonate": {
+      "type": "component",
+      "repeatable": true,
+      "component": "sections.ways-to-donate"
+    }
+  }
+}

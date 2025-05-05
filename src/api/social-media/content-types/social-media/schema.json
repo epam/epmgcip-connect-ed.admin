@@ -30,6 +30,11 @@
     },
     "url": {
       "type": "string"
+    },
+    "image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
     }
   }
 }

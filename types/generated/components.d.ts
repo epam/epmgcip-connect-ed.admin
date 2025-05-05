@@ -352,9 +352,11 @@ export interface SectionsWaveBanner extends Struct.ComponentSchema {
 export interface SectionsWaysToDonate extends Struct.ComponentSchema {
   collectionName: 'components_sections_ways_to_donates';
   info: {
+    description: '';
     displayName: 'WaysToDonate';
   };
   attributes: {
+    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
     Card: Schema.Attribute.Component<'shared.card', false>;
     Tabs: Schema.Attribute.Relation<
       'oneToMany',
@@ -832,12 +834,16 @@ export interface SharedTabCardTheme extends Struct.ComponentSchema {
 export interface SharedTabs extends Struct.ComponentSchema {
   collectionName: 'components_shared_tabs';
   info: {
+    description: '';
     displayName: 'Tabs';
   };
   attributes: {
-    Articles: Schema.Attribute.Relation<'oneToMany', 'api::article.article'>;
     Description: Schema.Attribute.Text;
     Label: Schema.Attribute.String;
+    TabContent: Schema.Attribute.Relation<
+      'oneToOne',
+      'api::tab-content.tab-content'
+    >;
   };
 }
 
@@ -901,6 +907,8 @@ export interface SharedWave extends Struct.ComponentSchema {
         'quinary',
       ]
     >;
+    direction: Schema.Attribute.Enumeration<['ltr', 'rtl']> &
+      Schema.Attribute.DefaultTo<'ltr'>;
     isVisible: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<true>;
   };
 }
