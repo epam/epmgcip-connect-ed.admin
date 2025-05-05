@@ -24,6 +24,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.card"
+    },
+    "article": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
     }
   }
 }

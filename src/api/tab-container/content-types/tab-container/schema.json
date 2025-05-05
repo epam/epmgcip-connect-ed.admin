@@ -22,10 +22,10 @@
       "repeatable": true,
       "component": "shared.tab-card-theme"
     },
-    "Title": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::title.title"
+    "TabCardTheme": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.tab-card-theme"
     }
   }
 }

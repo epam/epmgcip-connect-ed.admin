@@ -12,7 +12,7 @@
     "Description": {
       "type": "text"
     },
-    "tabContent": {
+    "TabContent": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::tab-content.tab-content"
