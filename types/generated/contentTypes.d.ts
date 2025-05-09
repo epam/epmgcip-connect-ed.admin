@@ -34,6 +34,10 @@ export interface AdminApiToken extends Struct.CollectionTypeSchema {
         minLength: 1;
       }> &
       Schema.Attribute.DefaultTo<''>;
+    encryptedKey: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        minLength: 1;
+      }>;
     expiresAt: Schema.Attribute.DateTime;
     lastUsedAt: Schema.Attribute.DateTime;
     lifespan: Schema.Attribute.BigInteger;
@@ -953,53 +957,34 @@ export interface ApiTabContainerTabContainer
   options: {
     draftAndPublish: true;
   };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
   attributes: {
+    content: Schema.Attribute.DynamicZone<
+      ['shared.article-category', 'shared.card']
+    >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
+    Description: Schema.Attribute.Text &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 1024;
+      }>;
+    Label: Schema.Attribute.String;
+    locale: Schema.Attribute.String;
     localizations: Schema.Attribute.Relation<
       'oneToMany',
       'api::tab-container.tab-container'
-    > &
-      Schema.Attribute.Private;
+    >;
     publishedAt: Schema.Attribute.DateTime;
-    Tab: Schema.Attribute.Component<'shared.tabs', true>;
-    TabTheme: Schema.Attribute.Component<'shared.tab-card-theme', true>;
+    TabTheme: Schema.Attribute.Component<'shared.article-category-tab', false>;
     Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
-  };
-}
-
-export interface ApiTabContentTabContent extends Struct.CollectionTypeSchema {
-  collectionName: 'tab_contents';
-  info: {
-    description: '';
-    displayName: 'TabContent';
-    pluralName: 'tab-contents';
-    singularName: 'tab-content';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    article: Schema.Attribute.Relation<'oneToOne', 'api::article.article'>;
-    createdAt: Schema.Attribute.DateTime;
-    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    locale: Schema.Attribute.String & Schema.Attribute.Private;
-    localizations: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::tab-content.tab-content'
-    > &
-      Schema.Attribute.Private;
-    publishedAt: Schema.Attribute.DateTime;
-    updatedAt: Schema.Attribute.DateTime;
-    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
-      Schema.Attribute.Private;
-    waysToDonate: Schema.Attribute.Component<'sections.ways-to-donate', true>;
   };
 }
 
@@ -1603,7 +1588,6 @@ declare module '@strapi/strapi' {
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::tab-container.tab-container': ApiTabContainerTabContainer;
-      'api::tab-content.tab-content': ApiTabContentTabContent;
       'api::theme.theme': ApiThemeTheme;
       'api::title.title': ApiTitleTitle;
       'plugin::content-releases.release': PluginContentReleasesRelease;

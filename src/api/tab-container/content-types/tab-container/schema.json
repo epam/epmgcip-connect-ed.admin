@@ -10,22 +10,35 @@
   "options": {
     "draftAndPublish": true
   },
-  "pluginOptions": {},
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
   "attributes": {
-    "Tab": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.tabs"
-    },
-    "TabTheme": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.tab-card-theme"
-    },
     "Title": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::title.title"
+    },
+    "content": {
+      "type": "dynamiczone",
+      "components": [
+        "shared.article-category",
+        "shared.card"
+      ]
+    },
+    "Label": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text",
+      "maxLength": 1024
+    },
+    "TabTheme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.article-category-tab"
     }
   }
 }

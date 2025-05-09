@@ -19,11 +19,6 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::article.article"
-    },
-    "theme": {
-      "type": "component",
-      "repeatable": true,
-      "component": "shared.article-category-tab"
     }
   }
 }

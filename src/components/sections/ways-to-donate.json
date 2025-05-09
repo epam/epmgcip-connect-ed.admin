@@ -6,9 +6,6 @@
   },
   "options": {},
   "attributes": {
-    "Title": {
-      "type": "string"
-    },
     "Tabs": {
       "type": "relation",
       "relation": "oneToMany",
@@ -19,11 +16,10 @@
       "relation": "oneToOne",
       "target": "api::theme.theme"
     },
-    "Card": {
-      "displayName": "Card",
+    "Title": {
       "type": "component",
       "repeatable": false,
-      "component": "shared.card"
+      "component": "shared.heading"
     }
   }
 }

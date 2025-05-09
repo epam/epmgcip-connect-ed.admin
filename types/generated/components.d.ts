@@ -104,6 +104,8 @@ export interface SectionsColumnsWithTabs extends Struct.ComponentSchema {
     displayName: 'columnsWithTabs';
   };
   attributes: {
+    Description: Schema.Attribute.Text;
+    Label: Schema.Attribute.String;
     MaxCardsToDisplay: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
     Tabs: Schema.Attribute.Relation<
       'oneToMany',
@@ -358,13 +360,12 @@ export interface SectionsWaysToDonate extends Struct.ComponentSchema {
     displayName: 'WaysToDonate';
   };
   attributes: {
-    Card: Schema.Attribute.Component<'shared.card', false>;
     Tabs: Schema.Attribute.Relation<
       'oneToMany',
       'api::tab-container.tab-container'
     >;
     Theme: Schema.Attribute.Relation<'oneToOne', 'api::theme.theme'>;
-    Title: Schema.Attribute.String;
+    Title: Schema.Attribute.Component<'shared.heading', false>;
   };
 }
 
@@ -393,7 +394,6 @@ export interface SharedArticleCategory extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
     slug: Schema.Attribute.String;
-    theme: Schema.Attribute.Component<'shared.article-category-tab', true>;
   };
 }
 
@@ -401,7 +401,7 @@ export interface SharedArticleCategoryTab extends Struct.ComponentSchema {
   collectionName: 'components_shared_article_category_tabs';
   info: {
     description: '';
-    displayName: 'articleCategoryTabTheme';
+    displayName: 'TabContainerTheme';
   };
   attributes: {
     ActiveBgColor: Schema.Attribute.Enumeration<
@@ -509,7 +509,8 @@ export interface SharedButton extends Struct.ComponentSchema {
 export interface SharedCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_cards';
   info: {
-    displayName: 'Card';
+    description: '';
+    displayName: 'WaysToDonateCard';
   };
   attributes: {
     Link: Schema.Attribute.Relation<'oneToOne', 'api::button.button'>;
@@ -832,22 +833,6 @@ export interface SharedTabCardTheme extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedTabs extends Struct.ComponentSchema {
-  collectionName: 'components_shared_tabs';
-  info: {
-    description: '';
-    displayName: 'Tabs';
-  };
-  attributes: {
-    Description: Schema.Attribute.Text;
-    Label: Schema.Attribute.String;
-    TabContent: Schema.Attribute.Relation<
-      'oneToOne',
-      'api::tab-content.tab-content'
-    >;
-  };
-}
-
 export interface SharedTestimonialsCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_testimonials_cards';
   info: {
@@ -959,7 +944,6 @@ declare module '@strapi/strapi' {
       'shared.personellcard': SharedPersonellcard;
       'shared.seo': SharedSeo;
       'shared.tab-card-theme': SharedTabCardTheme;
-      'shared.tabs': SharedTabs;
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;
