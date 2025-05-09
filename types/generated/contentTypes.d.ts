@@ -965,7 +965,20 @@ export interface ApiTabContainerTabContainer
   attributes: {
     content: Schema.Attribute.DynamicZone<
       ['shared.article-category', 'shared.card']
-    >;
+    > &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 1;
+          min: 1;
+        },
+        number
+      >;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

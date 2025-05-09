@@ -104,6 +104,7 @@ export interface SectionsColumnsWithTabs extends Struct.ComponentSchema {
     displayName: 'columnsWithTabs';
   };
   attributes: {
+    CTA: Schema.Attribute.Component<'shared.button', false>;
     Description: Schema.Attribute.Text;
     Label: Schema.Attribute.String;
     MaxCardsToDisplay: Schema.Attribute.Integer & Schema.Attribute.DefaultTo<3>;
@@ -112,6 +113,7 @@ export interface SectionsColumnsWithTabs extends Struct.ComponentSchema {
       'api::tab-container.tab-container'
     >;
     TabTheme: Schema.Attribute.Relation<'oneToOne', 'api::tab-theme.tab-theme'>;
+    Theme: Schema.Attribute.Component<'shared.color', false>;
   };
 }
 
