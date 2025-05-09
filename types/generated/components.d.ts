@@ -111,6 +111,7 @@ export interface SectionsColumnsWithTabs extends Struct.ComponentSchema {
       'oneToMany',
       'api::tab-container.tab-container'
     >;
+    TabTheme: Schema.Attribute.Relation<'oneToOne', 'api::tab-theme.tab-theme'>;
   };
 }
 
@@ -364,6 +365,7 @@ export interface SectionsWaysToDonate extends Struct.ComponentSchema {
       'oneToMany',
       'api::tab-container.tab-container'
     >;
+    TabTheme: Schema.Attribute.Relation<'oneToOne', 'api::tab-theme.tab-theme'>;
     Theme: Schema.Attribute.Relation<'oneToOne', 'api::theme.theme'>;
     Title: Schema.Attribute.Component<'shared.heading', false>;
   };
@@ -394,88 +396,6 @@ export interface SharedArticleCategory extends Struct.ComponentSchema {
     description: Schema.Attribute.Text;
     label: Schema.Attribute.String;
     slug: Schema.Attribute.String;
-  };
-}
-
-export interface SharedArticleCategoryTab extends Struct.ComponentSchema {
-  collectionName: 'components_shared_article_category_tabs';
-  info: {
-    description: '';
-    displayName: 'TabContainerTheme';
-  };
-  attributes: {
-    ActiveBgColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    ActiveBorderColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    ActiveColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    BgColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    BorderColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    Color: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
   };
 }
 
@@ -787,52 +707,6 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
-export interface SharedTabCardTheme extends Struct.ComponentSchema {
-  collectionName: 'components_shared_tab_card_themes';
-  info: {
-    description: '';
-    displayName: 'tabCardTheme';
-  };
-  attributes: {
-    BgColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    Color: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-    LinkColor: Schema.Attribute.Enumeration<
-      [
-        'white',
-        'black',
-        'background',
-        'primary',
-        'secondary',
-        'tertiary',
-        'quaternary',
-        'quinary',
-      ]
-    >;
-  };
-}
-
 export interface SharedTestimonialsCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_testimonials_cards';
   info: {
@@ -927,7 +801,6 @@ declare module '@strapi/strapi' {
       'sections.ways-to-donate': SectionsWaysToDonate;
       'shared.accordion-item': SharedAccordionItem;
       'shared.article-category': SharedArticleCategory;
-      'shared.article-category-tab': SharedArticleCategoryTab;
       'shared.button': SharedButton;
       'shared.card': SharedCard;
       'shared.color': SharedColor;
@@ -943,7 +816,6 @@ declare module '@strapi/strapi' {
       'shared.overlay-block': SharedOverlayBlock;
       'shared.personellcard': SharedPersonellcard;
       'shared.seo': SharedSeo;
-      'shared.tab-card-theme': SharedTabCardTheme;
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;

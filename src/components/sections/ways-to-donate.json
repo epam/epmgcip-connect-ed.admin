@@ -20,6 +20,11 @@
       "type": "component",
       "repeatable": false,
       "component": "shared.heading"
+    },
+    "TabTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tab-theme.tab-theme"
     }
   }
 }

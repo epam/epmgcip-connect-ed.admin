@@ -20,6 +20,11 @@
     },
     "Description": {
       "type": "text"
+    },
+    "TabTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tab-theme.tab-theme"
     }
   }
 }

@@ -34,11 +34,6 @@
     "Description": {
       "type": "text",
       "maxLength": 1024
-    },
-    "TabTheme": {
-      "type": "component",
-      "repeatable": false,
-      "component": "shared.article-category-tab"
     }
   }
 }

@@ -980,8 +980,147 @@ export interface ApiTabContainerTabContainer
       'api::tab-container.tab-container'
     >;
     publishedAt: Schema.Attribute.DateTime;
-    TabTheme: Schema.Attribute.Component<'shared.article-category-tab', false>;
     Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+  };
+}
+
+export interface ApiTabThemeTabTheme extends Struct.CollectionTypeSchema {
+  collectionName: 'tab_themes';
+  info: {
+    description: '';
+    displayName: 'TabTheme';
+    pluralName: 'tab-themes';
+    singularName: 'tab-theme';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    ActiveBgColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    ActiveBorderColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'white'>;
+    ActiveColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'white'>;
+    BgColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'white'>;
+    BorderColor: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    Color: Schema.Attribute.Enumeration<
+      [
+        'white',
+        'black',
+        'background',
+        'primary',
+        'secondary',
+        'tertiary',
+        'quaternary',
+        'quinary',
+      ]
+    > &
+      Schema.Attribute.SetPluginOptions<{
+        i18n: {
+          localized: true;
+        };
+      }> &
+      Schema.Attribute.DefaultTo<'primary'>;
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::tab-theme.tab-theme'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -1588,6 +1727,7 @@ declare module '@strapi/strapi' {
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
       'api::tab-container.tab-container': ApiTabContainerTabContainer;
+      'api::tab-theme.tab-theme': ApiTabThemeTabTheme;
       'api::theme.theme': ApiThemeTheme;
       'api::title.title': ApiTitleTitle;
       'plugin::content-releases.release': PluginContentReleasesRelease;
