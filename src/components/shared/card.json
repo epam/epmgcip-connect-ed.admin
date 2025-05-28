@@ -12,13 +12,13 @@
     "Text": {
       "type": "string"
     },
+    "qrCodeLink": {
+      "type": "string"
+    },
     "Link": {
       "type": "relation",
       "relation": "oneToOne",
       "target": "api::button.button"
-    },
-    "qrCodeLink": {
-      "type": "string"
     }
   }
 }

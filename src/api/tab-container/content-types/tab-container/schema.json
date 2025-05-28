@@ -16,11 +16,6 @@
     }
   },
   "attributes": {
-    "Title": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::title.title"
-    },
     "content": {
       "type": "dynamiczone",
       "components": [
@@ -42,6 +37,11 @@
     "Description": {
       "type": "text",
       "maxLength": 1024
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
     }
   }
 }
