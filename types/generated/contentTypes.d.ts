@@ -881,6 +881,7 @@ export interface ApiPagePage extends Struct.CollectionTypeSchema {
         'sections.personell-cards',
         'sections.top-stripe',
         'sections.ways-to-donate',
+        'sections.statistics',
       ]
     > &
       Schema.Attribute.SetPluginOptions<{
@@ -942,6 +943,52 @@ export interface ApiSocialMediaSocialMedia extends Struct.CollectionTypeSchema {
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
     url: Schema.Attribute.String;
+  };
+}
+
+export interface ApiStatisticsCardStatisticsCard
+  extends Struct.CollectionTypeSchema {
+  collectionName: 'statistics_cards';
+  info: {
+    description: '';
+    displayName: 'StatisticsCard';
+    pluralName: 'statistics-cards';
+    singularName: 'statistics-card';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  pluginOptions: {
+    i18n: {
+      localized: true;
+    };
+  };
+  attributes: {
+    createdAt: Schema.Attribute.DateTime;
+    createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    description: Schema.Attribute.String & Schema.Attribute.Required;
+    locale: Schema.Attribute.String;
+    localizations: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::statistics-card.statistics-card'
+    >;
+    publishedAt: Schema.Attribute.DateTime;
+    theme: Schema.Attribute.Relation<'oneToOne', 'api::theme.theme'>;
+    title: Schema.Attribute.String & Schema.Attribute.Required;
+    updatedAt: Schema.Attribute.DateTime;
+    updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
+      Schema.Attribute.Private;
+    value: Schema.Attribute.Integer &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMax<
+        {
+          max: 100;
+          min: 0;
+        },
+        number
+      > &
+      Schema.Attribute.DefaultTo<0>;
   };
 }
 
@@ -1739,6 +1786,7 @@ declare module '@strapi/strapi' {
       'api::link.link': ApiLinkLink;
       'api::page.page': ApiPagePage;
       'api::social-media.social-media': ApiSocialMediaSocialMedia;
+      'api::statistics-card.statistics-card': ApiStatisticsCardStatisticsCard;
       'api::tab-container.tab-container': ApiTabContainerTabContainer;
       'api::tab-theme.tab-theme': ApiTabThemeTabTheme;
       'api::theme.theme': ApiThemeTheme;

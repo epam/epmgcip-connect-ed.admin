@@ -1,0 +1,45 @@
+{
+  "collectionName": "components_sections_statistics",
+  "info": {
+    "displayName": "Statistics",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Summary": {
+      "type": "text",
+      "required": true,
+      "maxLength": 2000
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "StatisticsCards": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::statistics-card.statistics-card"
+    },
+    "InternalName": {
+      "type": "string",
+      "private": true,
+      "required": true
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "ShowWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    }
+  }
+}

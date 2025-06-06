@@ -261,6 +261,34 @@ export interface SectionsSecondaryBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsStatistics extends Struct.ComponentSchema {
+  collectionName: 'components_sections_statistics';
+  info: {
+    description: '';
+    displayName: 'Statistics';
+  };
+  attributes: {
+    CTA: Schema.Attribute.Component<'shared.button', false>;
+    InternalName: Schema.Attribute.String &
+      Schema.Attribute.Required &
+      Schema.Attribute.Private;
+    ShowWave: Schema.Attribute.Boolean &
+      Schema.Attribute.Required &
+      Schema.Attribute.DefaultTo<false>;
+    StatisticsCards: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::statistics-card.statistics-card'
+    >;
+    Summary: Schema.Attribute.Text &
+      Schema.Attribute.Required &
+      Schema.Attribute.SetMinMaxLength<{
+        maxLength: 2000;
+      }>;
+    Theme: Schema.Attribute.Relation<'oneToOne', 'api::theme.theme'>;
+    Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
+  };
+}
+
 export interface SectionsTestimonials extends Struct.ComponentSchema {
   collectionName: 'components_sections_testimonials';
   info: {
@@ -795,6 +823,7 @@ declare module '@strapi/strapi' {
       'sections.personell-cards': SectionsPersonellCards;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
+      'sections.statistics': SectionsStatistics;
       'sections.testimonials': SectionsTestimonials;
       'sections.timeline': SectionsTimeline;
       'sections.top-stripe': SectionsTopStripe;

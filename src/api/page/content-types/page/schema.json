@@ -68,7 +68,8 @@
         "sections.overlay-block-test",
         "sections.personell-cards",
         "sections.top-stripe",
-        "sections.ways-to-donate"
+        "sections.ways-to-donate",
+        "sections.statistics"
       ]
     }
   }
