@@ -8,8 +8,8 @@
   "attributes": {
     "Summary": {
       "type": "text",
-      "required": true,
-      "maxLength": 2000
+      "maxLength": 2000,
+      "required": true
     },
     "Theme": {
       "type": "relation",
@@ -23,7 +23,6 @@
     },
     "InternalName": {
       "type": "string",
-      "private": true,
       "required": true
     },
     "Title": {
@@ -33,13 +32,13 @@
     },
     "ShowWave": {
       "type": "boolean",
-      "default": false,
-      "required": true
+      "required": true,
+      "default": false
     },
     "CTA": {
       "type": "component",
-      "repeatable": false,
-      "component": "shared.button"
+      "component": "shared.button",
+      "repeatable": false
     }
   }
 }

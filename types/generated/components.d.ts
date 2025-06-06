@@ -269,9 +269,7 @@ export interface SectionsStatistics extends Struct.ComponentSchema {
   };
   attributes: {
     CTA: Schema.Attribute.Component<'shared.button', false>;
-    InternalName: Schema.Attribute.String &
-      Schema.Attribute.Required &
-      Schema.Attribute.Private;
+    InternalName: Schema.Attribute.String & Schema.Attribute.Required;
     ShowWave: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
