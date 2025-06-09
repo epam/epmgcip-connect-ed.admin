@@ -1,0 +1,23 @@
+{
+  "collectionName": "components_sections_blocks_grids",
+  "info": {
+    "displayName": "blocksGrid",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string"
+    },
+    "Block": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.grid-block"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    }
+  }
+}

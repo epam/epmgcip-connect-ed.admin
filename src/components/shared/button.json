@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_links_simple_buttons",
+  "info": {
+    "name": "Button",
+    "displayName": "button",
+    "icon": "fingerprint",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Label": {
+      "type": "string",
+      "maxLength": 32
+    },
+    "Type": {
+      "type": "enumeration",
+      "enum": [
+        "nav",
+        "main",
+        "inverted",
+        "outline",
+        "form"
+      ]
+    },
+    "URL": {
+      "type": "string",
+      "maxLength": 256,
+      "regex": "^(https?:\\/\\/)?"
+    },
+    "ButtonTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button-theme.button-theme"
+    }
+  }
+}

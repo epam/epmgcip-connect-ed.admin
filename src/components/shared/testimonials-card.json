@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_shared_testimonials_cards",
+  "info": {
+    "displayName": "TestimonialCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Icon": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Text": {
+      "type": "text",
+      "required": true
+    },
+    "Author": {
+      "type": "text"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    }
+  }
+}

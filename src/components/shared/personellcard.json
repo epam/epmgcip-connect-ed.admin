@@ -1,0 +1,33 @@
+{
+  "collectionName": "components_shared_personellcards",
+  "info": {
+    "displayName": "PersonellСard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "Text": {
+      "type": "string",
+      "required": true
+    },
+    "Image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "SocialMedias": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
+    }
+  }
+}

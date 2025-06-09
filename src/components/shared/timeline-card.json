@@ -1,0 +1,29 @@
+{
+  "collectionName": "components_shared_timeline_cards",
+  "info": {
+    "displayName": "TimelineCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "text",
+      "required": true
+    },
+    "Image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    }
+  }
+}

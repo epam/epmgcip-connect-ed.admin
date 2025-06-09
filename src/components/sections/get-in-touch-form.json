@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_sections_get_in_touch_forms",
+  "info": {
+    "displayName": "GetInTouchForm",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "text"
+    },
+    "URL": {
+      "type": "string",
+      "regex": "\\bhttps?:\\/\\/[-a-zA-Z0-9@:%._\\+~#=]{1,256}\\.[a-zA-Z0-9()]{1,6}\\b([-a-zA-Z0-9()@:%_\\+.~#?&//=]*)",
+      "unique": false
+    },
+    "ShowWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "FormId": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    }
+  }
+}

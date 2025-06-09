@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "statistics_cards",
+  "info": {
+    "singularName": "statistics-card",
+    "pluralName": "statistics-cards",
+    "displayName": "StatisticsCard",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string",
+      "required": true
+    },
+    "value": {
+      "type": "integer",
+      "required": true,
+      "max": 100,
+      "min": 0,
+      "default": 0
+    },
+    "theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    }
+  }
+}

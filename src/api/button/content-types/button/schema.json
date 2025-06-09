@@ -1,0 +1,40 @@
+{
+  "kind": "collectionType",
+  "collectionName": "buttons",
+  "info": {
+    "singularName": "button",
+    "pluralName": "buttons",
+    "displayName": "Button",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "label": {
+      "type": "string",
+      "maxLength": 32
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "nav",
+        "main",
+        "inverted",
+        "outline",
+        "form"
+      ]
+    },
+    "url": {
+      "type": "string",
+      "regex": "^(https?:\\/\\/)?",
+      "maxLength": 256
+    },
+    "buttonTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button-theme.button-theme"
+    }
+  }
+}

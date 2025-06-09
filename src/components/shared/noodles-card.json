@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_noodles_cards",
+  "info": {
+    "displayName": "infoCardTypeA",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "CTA": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::button.button"
+    }
+  }
+}

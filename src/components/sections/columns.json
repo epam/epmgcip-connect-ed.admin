@@ -1,0 +1,35 @@
+{
+  "collectionName": "components_sections_columns",
+  "info": {
+    "displayName": "columns",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Heading": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "ShowWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Articles": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::article.article"
+    }
+  }
+}

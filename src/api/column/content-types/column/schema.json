@@ -1,0 +1,28 @@
+{
+  "kind": "collectionType",
+  "collectionName": "columns",
+  "info": {
+    "singularName": "column",
+    "pluralName": "columns",
+    "displayName": "Column",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "column": {
+      "type": "dynamiczone",
+      "components": [
+        "sections.chart",
+        "sections.rich-text",
+        "shared.image",
+        "shared.video"
+      ]
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

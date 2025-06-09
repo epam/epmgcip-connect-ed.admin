@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_accordions",
+  "info": {
+    "displayName": "Accordion",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "ExpandLink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    },
+    "CollapseLink": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::link.link"
+    },
+    "Item": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.accordion-item"
+    }
+  }
+}

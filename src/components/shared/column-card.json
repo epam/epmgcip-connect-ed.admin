@@ -1,0 +1,34 @@
+{
+  "collectionName": "components_shared_column_cards",
+  "info": {
+    "displayName": "columnCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "LinkedPage": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::article.article"
+    },
+    "LinkText": {
+      "type": "string"
+    },
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Text": {
+      "type": "text"
+    },
+    "Image": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::image.image"
+    },
+    "URL": {
+      "type": "string"
+    }
+  }
+}

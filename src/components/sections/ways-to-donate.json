@@ -1,0 +1,30 @@
+{
+  "collectionName": "components_sections_ways_to_donates",
+  "info": {
+    "displayName": "WaysToDonate",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Tabs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tab-container.tab-container"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    },
+    "Title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "TabTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tab-theme.tab-theme"
+    }
+  }
+}

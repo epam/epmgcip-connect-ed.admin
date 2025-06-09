@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_sections_personell_cards",
+  "info": {
+    "displayName": "PersonellСards",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "ShowWave": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "Title": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.heading"
+    },
+    "Card": {
+      "type": "component",
+      "repeatable": true,
+      "component": "shared.personellcard"
+    }
+  }
+}

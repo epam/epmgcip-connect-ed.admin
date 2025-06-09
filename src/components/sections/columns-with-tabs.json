@@ -1,0 +1,40 @@
+{
+  "collectionName": "components_sections_columns_with_tabs",
+  "info": {
+    "displayName": "columnsWithTabs",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "MaxCardsToDisplay": {
+      "type": "integer",
+      "default": 3
+    },
+    "Tabs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::tab-container.tab-container"
+    },
+    "Label": {
+      "type": "string"
+    },
+    "Description": {
+      "type": "text"
+    },
+    "TabTheme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::tab-theme.tab-theme"
+    },
+    "CTA": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.button"
+    },
+    "Theme": {
+      "type": "component",
+      "repeatable": false,
+      "component": "shared.color"
+    }
+  }
+}

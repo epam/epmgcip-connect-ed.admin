@@ -4,8 +4,7 @@
   "info": {
     "singularName": "page",
     "pluralName": "pages",
-    "displayName": "Page",
-    "name": "page",
+    "displayName": "page",
     "description": ""
   },
   "options": {
@@ -17,69 +16,61 @@
     }
   },
   "attributes": {
-    "shortName": {
-      "type": "string",
+    "Slug": {
       "pluginOptions": {
         "i18n": {
           "localized": true
         }
-      }
+      },
+      "type": "string",
+      "unique": true
     },
-    "contentSections": {
+    "Category": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::category.category",
+      "inversedBy": "pages"
+    },
+    "Title": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "type": "string"
+    },
+    "PageSections": {
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
       "type": "dynamiczone",
       "components": [
-        "sections.hero",
-        "sections.bottom-actions",
-        "sections.feature-columns-group",
-        "sections.feature-rows-group",
-        "sections.testimonials-group",
-        "sections.large-video",
+        "sections.hero-banner",
         "sections.rich-text",
-        "sections.pricing",
-        "sections.lead-form",
-        "sections.features",
-        "sections.heading"
-      ],
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      }
-    },
-    "slug": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": false
-        }
-      },
-      "type": "string",
-      "regex": "^$|^[a-zA-Z/-]+$"
-    },
-    "heading": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "description": {
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "type": "string"
-    },
-    "seo": {
-      "type": "component",
-      "repeatable": false,
-      "pluginOptions": {
-        "i18n": {
-          "localized": true
-        }
-      },
-      "component": "shared.seo"
+        "sections.info-cards-type-a",
+        "sections.image-banner",
+        "sections.blocks-grid",
+        "sections.columns",
+        "sections.columns-with-tabs",
+        "sections.secondary-banner",
+        "sections.wave-banner",
+        "sections.carousel",
+        "sections.chart",
+        "sections.testimonials",
+        "sections.timeline",
+        "sections.two-columns",
+        "sections.get-in-touch-form",
+        "sections.accordion",
+        "sections.contact-banner",
+        "sections.email-form",
+        "sections.overlay-block-test",
+        "sections.personell-cards",
+        "sections.top-stripe",
+        "sections.ways-to-donate",
+        "sections.statistics"
+      ]
     }
   }
 }

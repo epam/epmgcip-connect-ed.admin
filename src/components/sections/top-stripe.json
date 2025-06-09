@@ -1,0 +1,20 @@
+{
+  "collectionName": "components_sections_top_stripes",
+  "info": {
+    "displayName": "stripe",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "SocialMedia": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::social-media.social-media"
+    },
+    "Theme": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::theme.theme"
+    }
+  }
+}

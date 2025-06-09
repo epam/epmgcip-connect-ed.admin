@@ -1,0 +1,36 @@
+{
+  "collectionName": "components_shared_images",
+  "info": {
+    "displayName": "image",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "maxLength": 256
+    },
+    "Image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "AltText": {
+      "type": "string"
+    },
+    "IsIcon": {
+      "type": "boolean"
+    },
+    "URL": {
+      "type": "string",
+      "regex": "^(https?:\\/\\/)?"
+    },
+    "Open": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}

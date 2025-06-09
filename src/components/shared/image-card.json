@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_shared_image_cards",
+  "info": {
+    "displayName": "imageCard",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Text": {
+      "type": "text"
+    },
+    "Label": {
+      "type": "string"
+    },
+    "URL": {
+      "type": "string"
+    },
+    "LinkTitle": {
+      "type": "string"
+    },
+    "Open": {
+      "type": "boolean",
+      "default": false
+    }
+  }
+}
