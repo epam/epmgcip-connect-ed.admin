@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_shared_sheet_numbers_viewer_items",
+  "info": {
+    "displayName": "SheetNumbersViewerItem"
+  },
+  "options": {},
+  "attributes": {
+    "Title": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::title.title"
+    },
+    "Text": {
+      "type": "string"
+    },
+    "Progress": {
+      "type": "string",
+      "regex": "/^\\d+$/"
+    }
+  },
+  "config": {}
+}

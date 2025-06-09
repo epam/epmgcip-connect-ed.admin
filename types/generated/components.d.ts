@@ -261,6 +261,21 @@ export interface SectionsSecondaryBanner extends Struct.ComponentSchema {
   };
 }
 
+export interface SectionsSheetNumbersViewer extends Struct.ComponentSchema {
+  collectionName: 'components_sections_sheet_numbers_viewers';
+  info: {
+    displayName: 'SheetNumbersViewer';
+  };
+  attributes: {
+    MetricCard: Schema.Attribute.Component<
+      'shared.sheet-numbers-viewer-item',
+      true
+    >;
+    Text: Schema.Attribute.Text;
+    Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
+  };
+}
+
 export interface SectionsStatistics extends Struct.ComponentSchema {
   collectionName: 'components_sections_statistics';
   info: {
@@ -735,6 +750,18 @@ export interface SharedSeo extends Struct.ComponentSchema {
   };
 }
 
+export interface SharedSheetNumbersViewerItem extends Struct.ComponentSchema {
+  collectionName: 'components_shared_sheet_numbers_viewer_items';
+  info: {
+    displayName: 'SheetNumbersViewerItem';
+  };
+  attributes: {
+    Progress: Schema.Attribute.String;
+    Text: Schema.Attribute.String;
+    Title: Schema.Attribute.Relation<'oneToOne', 'api::title.title'>;
+  };
+}
+
 export interface SharedTestimonialsCard extends Struct.ComponentSchema {
   collectionName: 'components_shared_testimonials_cards';
   info: {
@@ -821,6 +848,7 @@ declare module '@strapi/strapi' {
       'sections.personell-cards': SectionsPersonellCards;
       'sections.rich-text': SectionsRichText;
       'sections.secondary-banner': SectionsSecondaryBanner;
+      'sections.sheet-numbers-viewer': SectionsSheetNumbersViewer;
       'sections.statistics': SectionsStatistics;
       'sections.testimonials': SectionsTestimonials;
       'sections.timeline': SectionsTimeline;
@@ -845,6 +873,7 @@ declare module '@strapi/strapi' {
       'shared.overlay-block': SharedOverlayBlock;
       'shared.personellcard': SharedPersonellcard;
       'shared.seo': SharedSeo;
+      'shared.sheet-numbers-viewer-item': SharedSheetNumbersViewerItem;
       'shared.testimonials-card': SharedTestimonialsCard;
       'shared.timeline-card': SharedTimelineCard;
       'shared.video': SharedVideo;

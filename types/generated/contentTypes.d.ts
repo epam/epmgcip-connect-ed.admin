@@ -1258,6 +1258,7 @@ export interface ApiTitleTitle extends Struct.CollectionTypeSchema {
     localizations: Schema.Attribute.Relation<'oneToMany', 'api::title.title'> &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    ratio: Schema.Attribute.String;
     Title: Schema.Attribute.String;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
